@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-18",
+  "task": "0.7",
+  "generation_api_calls": 0,
+  "pytest_passed": 98,
+  "openai_provider_tests": 43,
+  "openspec_complete": 7,
+  "openspec_total": 55,
+  "sha256": {
+    "pyproject.toml": "05690d7a7f806cd03bbdf18be7fa6c5362da1b7a68eeb7a97e1d4479e952e95e",
+    "requirements.lock": "c9ca039b55b86128bc01be53b1a8505c8a8e522aec4ecb9cb663c4e65c12d437",
+    ".env.example": "96a60f19e844f655a86c912b1a5480b8df4f7ce8c8021053d40c006c0e8a6515",
+    ".gitignore": "fa79fbafc35568b1aefe3535219cb7f24acbdb9f9576754bc9389bed67bfc3c2",
+    "src/hr_rag/providers.py": "7bab57d513916e0815bb60f4a5f808875dd25650fb5e0501630d5f98fe2ed0d5",
+    "src/hr_rag/settings.py": "1e4362852e5d579524aaa876b651ecdc1fc789808e4b3077f875a3cb59288037",
+    "src/hr_rag/audit.py": "1f6ce0f0ea979f796a8d2df19232616aac1a8a8eb4f2d5777caaa7095de5bd21",
+    "tests/test_openai_provider.py": "d4056db2d8e6774d697aaeb90d0f726e8488c65140d59894a40f98c1a00fd0ab",
+    "README.md": "578158adc7bf7b426435a35bff8b4322ac4a41d11c5260b303338346f5500391",
+    "reports/stage-0.md": "86e28eda68c036cb672f91c072d17feee3fa705be8cb0bb2f0d9f147d7c374fd",
+    "reports/runtime.md": "7461f4f6264a2fc1b88497b9e8050ac1e9f3a560d6a57d6472f1848b5d31ca9c",
+    "reports/progress-stage-0-7.md": "c7c2f46b76962663ddc1293917d27ef7957a65563069c0452ea4721a62d290d9",
+    "reports/openai-tokenizer-smoke.json": "8138df7cf5cde7d500d9d4525abea97740ac4530ff1489231261cc5ce9cdb859",
+    "openspec/changes/build-hr-leave-rag-mvp/tasks.md": "ab05bb3e1d7ee3e872afc7f2bd1ec2a48258b2231373ba076c14bf88ac510615"
+  }
+}

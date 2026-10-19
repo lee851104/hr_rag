@@ -1,0 +1,701 @@
+<!doctype html><meta charset='utf-8'><title>階段2片段核對</title>
+<style>body{max-width:1000px;margin:32px auto;font:16px/1.6 system-ui}pre{white-space:pre-wrap;background:#f3f4f6;padding:16px}details{margin:20px 0;border:1px solid #ddd;padding:16px}</style>
+<h1>階段2片段核對（20項）</h1><p>2026-10-18 使用者確認 S01～S20 全部通過。每項核對子片段、完整父段、版本、權限與日期。</p>
+<details><summary>S01 — C01 / v2 / documentation</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2026-10-01&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-039402e5b8ee8c865e9cce5b92e135b6ad897cf4ebbba0736371bebeda76a7eb&quot;,
+  &quot;document_id&quot;: &quot;C01&quot;,
+  &quot;version_id&quot;: &quot;v2&quot;,
+  &quot;section_id&quot;: &quot;documentation&quot;,
+  &quot;parent_id&quot;: &quot;p-0e7424627500163fb2be7c6f98e6c2743b813b9bcb34672f8f86423e0499eb3d&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;employee&quot;,
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 112,
+  &quot;token_count&quot;: 114,
+  &quot;raw_path&quot;: &quot;data/raw/company/C01-v2.md&quot;
+}</pre>
+<h3>子片段</h3><pre>申請人填寫假別、起迄日期及必要說明；證明文件是否必要與可請求的範圍，須依適用法令判斷。窗口僅通知需釐清的項目，不要求與請假無關的資料。遇緊急情形先以可行方式通知，再處理後續紀錄；不得因內部表單尚未完成而直接否定法定請假權利。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>申請人填寫假別、起迄日期及必要說明；證明文件是否必要與可請求的範圍，須依適用法令判斷。窗口僅通知需釐清的項目，不要求與請假無關的資料。遇緊急情形先以可行方式通知，再處理後續紀錄；不得因內部表單尚未完成而直接否定法定請假權利。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S02 — C02 / v1 / supplement</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2026-01-01&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-05841aaf4639260613c5add9379e9eaa0922d36efb4dedc8bc24bab7f129b48a&quot;,
+  &quot;document_id&quot;: &quot;C02&quot;,
+  &quot;version_id&quot;: &quot;v1&quot;,
+  &quot;section_id&quot;: &quot;supplement&quot;,
+  &quot;parent_id&quot;: &quot;p-394d599801508d336ca745145e77700a1fe52987544d72c04f77e373d00b0903&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;employee&quot;,
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 110,
+  &quot;token_count&quot;: 110,
+  &quot;raw_path&quot;: &quot;data/raw/company/C02-v1.md&quot;
+}</pre>
+<h3>子片段</h3><pre>問：收到缺件通知後要重提一份請假申請嗎？答：保留原申請紀錄，先確認通知列出的必要項目，再依當時有效C01的補件方式併入原申請；窗口回覆收件狀態。遇無法提供或必要性有疑義的資料，請窗口交人資核對，不以缺件自動否定法定請假。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>問：收到缺件通知後要重提一份請假申請嗎？答：保留原申請紀錄，先確認通知列出的必要項目，再依當時有效C01的補件方式併入原申請；窗口回覆收件狀態。遇無法提供或必要性有疑義的資料，請窗口交人資核對，不以缺件自動否定法定請假。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S03 — C03 / v1 / review</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2026-01-01&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-685bb24c1e7b28bc065cc6bd19fa3fec300ee8356b39fa4b7ff53a066f46ca3f&quot;,
+  &quot;document_id&quot;: &quot;C03&quot;,
+  &quot;version_id&quot;: &quot;v1&quot;,
+  &quot;section_id&quot;: &quot;review&quot;,
+  &quot;parent_id&quot;: &quot;p-651fcaef07e653407d631360a2f93a71f74b9d3ec8780690c4ed37d9ff7edf86&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 101,
+  &quot;token_count&quot;: 101,
+  &quot;raw_path&quot;: &quot;data/raw/company/C03-v1.md&quot;
+}</pre>
+<h3>子片段</h3><pre>特殊內部覆核使用橙色覆核單M-17，記錄待確認事項、承辦角色與處理進度。橙色覆核單M-17只作內部追蹤，不是新增的法定請假要件；主管不能僅因未完成此單就否定法定請假。需要人資協助時，移交必要範圍的資訊。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>特殊內部覆核使用橙色覆核單M-17，記錄待確認事項、承辦角色與處理進度。橙色覆核單M-17只作內部追蹤，不是新增的法定請假要件；主管不能僅因未完成此單就否定法定請假。需要人資協助時，移交必要範圍的資訊。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S04 — C04 / v1 / exception</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2026-01-01&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-150810be1b76f78ac89cd5772f862ec1476acb7f75e937ed255a533375d79ce8&quot;,
+  &quot;document_id&quot;: &quot;C04&quot;,
+  &quot;version_id&quot;: &quot;v1&quot;,
+  &quot;section_id&quot;: &quot;exception&quot;,
+  &quot;parent_id&quot;: &quot;p-be6f07f79a6d47e70b6687e5b917b51d4fd4d7f7965ae676377f7ef758b9df4e&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 92,
+  &quot;token_count&quot;: 91,
+  &quot;raw_path&quot;: &quot;data/raw/company/C04-v1.md&quot;
+}</pre>
+<h3>子片段</h3><pre>例外案件使用紫杉異常簿H-42追蹤，登錄合成案件識別碼、異常類型、待核對項目與處理狀態。紫杉異常簿H-42僅供HR內部覆核，不對其他角色揭露其內容、標題或存在性，也不得以共用連結傳遞。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>例外案件使用紫杉異常簿H-42追蹤，登錄合成案件識別碼、異常類型、待核對項目與處理狀態。紫杉異常簿H-42僅供HR內部覆核，不對其他角色揭露其內容、標題或存在性，也不得以共用連結傳遞。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S05 — O01 / snapshot-2026-10-18 / 38</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2018-03-01&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-0178e79eef4d736dacc6cbef11875cd7aaed832dbba08798ec473cd3b4a7b3e5&quot;,
+  &quot;document_id&quot;: &quot;O01&quot;,
+  &quot;version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;section_id&quot;: &quot;38&quot;,
+  &quot;parent_id&quot;: &quot;p-5b41f85aa13034670be5a6d80a96496b94a2d4339acd086219019484477ea5c5&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;employee&quot;,
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 397,
+  &quot;end&quot;: 427,
+  &quot;token_count&quot;: 32,
+  &quot;raw_path&quot;: &quot;data/raw/official-2026-10-18/O01.html&quot;
+}</pre>
+<h3>子片段</h3><pre>勞工依本條主張權利時，雇主如認為其權利不存在，應負舉證責任。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>勞工在同一雇主或事業單位，繼續工作滿一定期間者，應依下列規定給予特別休假：
+一、六個月以上一年未滿者，三日。
+二、一年以上二年未滿者，七日。
+三、二年以上三年未滿者，十日。
+四、三年以上五年未滿者，每年十四日。
+五、五年以上十年未滿者，每年十五日。
+六、十年以上者，每一年加給一日，加至三十日為止。
+前項之特別休假期日，由勞工排定之。但雇主基於企業經營上之急迫需求或勞工因個人因素，得與他方協商調整。
+雇主應於勞工符合第一項所定之特別休假條件時，告知勞工依前二項規定排定特別休假。
+勞工之特別休假，因年度終結或契約終止而未休之日數，雇主應發給工資。但年度終結未休之日數，經勞雇雙方協商遞延至次一年度實施者，於次一年度終結或契約終止仍未休之日數，雇主應發給工資。
+雇主應將勞工每年特別休假之期日及未休之日數所發給之工資數額，記載於第二十三條所定之勞工工資清冊，並每年定期將其內容以書面通知勞工。
+勞工依本條主張權利時，雇主如認為其權利不存在，應負舉證責任。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S06 — O02 / snapshot-2026-10-18 / 24</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2017-06-18&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-0af8afb0db0bf2c05ad53947e22762f573caf791b96690b305444215806623be&quot;,
+  &quot;document_id&quot;: &quot;O02&quot;,
+  &quot;version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;section_id&quot;: &quot;24&quot;,
+  &quot;parent_id&quot;: &quot;p-b0311d4d39a79288181fe893dbf01b9dadec6b332da829836005c90ca4fcb538&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;employee&quot;,
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 265,
+  &quot;token_count&quot;: 262,
+  &quot;raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;
+}</pre>
+<h3>子片段</h3><pre>勞工於符合本法第三十八條第一項所定之特別休假條件時，取得特別休假之權利；其計算特別休假之工作年資，應依第五條之規定。
+依本法第三十八條第一項規定給予之特別休假日數，勞工得於勞雇雙方協商之下列期間內，行使特別休假權利：
+一、以勞工受僱當日起算，每一週年之期間。但其工作六個月以上一年未滿者，為取得特別休假權利後六個月之期間。
+二、每年一月一日至十二月三十一日之期間。
+三、教育單位之學年度、事業單位之會計年度或勞雇雙方約定年度之期間。
+雇主依本法第三十八條第三項規定告知勞工排定特別休假，應於勞工符合特別休假條件之日起三十日內為之。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>勞工於符合本法第三十八條第一項所定之特別休假條件時，取得特別休假之權利；其計算特別休假之工作年資，應依第五條之規定。
+依本法第三十八條第一項規定給予之特別休假日數，勞工得於勞雇雙方協商之下列期間內，行使特別休假權利：
+一、以勞工受僱當日起算，每一週年之期間。但其工作六個月以上一年未滿者，為取得特別休假權利後六個月之期間。
+二、每年一月一日至十二月三十一日之期間。
+三、教育單位之學年度、事業單位之會計年度或勞雇雙方約定年度之期間。
+雇主依本法第三十八條第三項規定告知勞工排定特別休假，應於勞工符合特別休假條件之日起三十日內為之。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O03&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;6&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-09f305565791b12230f951eff7bb4524cfdd038ca6a7bad5c1e81e477f50c006&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工因職業災害而致失能、傷害或疾病者，其治療、休養期間，給予公傷病假。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O03.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O03-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;5ecf516d71f15be05995892d8abfb985d1111f2cad21abf72fe9f8e78f7668c2&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S07 — O03 / snapshot-2026-10-18 / 7</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2026-01-01&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-074580980503d473c3597a347c96b0661639f3609e20e27578dbdf0a7f5d52b2&quot;,
+  &quot;document_id&quot;: &quot;O03&quot;,
+  &quot;version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;section_id&quot;: &quot;7&quot;,
+  &quot;parent_id&quot;: &quot;p-32e725ee7c924f5826b90fd1d31c60ca0b0019072eaa4b7452b8984a2260f23e&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;employee&quot;,
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 91,
+  &quot;token_count&quot;: 92,
+  &quot;raw_path&quot;: &quot;data/raw/official-2026-10-18/O03.html&quot;
+}</pre>
+<h3>子片段</h3><pre>勞工因有事故必須親自處理，得請事假，一年內合計不得超過十四日。事假期間不給工資。
+勞工為親自照顧家庭成員，除本法或其他法律另有規定者外，得依前項規定請事假，並得擇定以小時為請假單位。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>勞工因有事故必須親自處理，得請事假，一年內合計不得超過十四日。事假期間不給工資。
+勞工為親自照顧家庭成員，除本法或其他法律另有規定者外，得依前項規定請事假，並得擇定以小時為請假單位。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S08 — O04 / snapshot-2026-10-18 / 14</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2014-12-13&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-2eff3a503e0c9af540a6e70e6cec9d77267f9b50903a5a915e1a3aaaa09ff834&quot;,
+  &quot;document_id&quot;: &quot;O04&quot;,
+  &quot;version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;section_id&quot;: &quot;14&quot;,
+  &quot;parent_id&quot;: &quot;p-120786f784c94958facb07f92324f95a59c1128cc059715d4f8e2f0151953e3a&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;employee&quot;,
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 80,
+  &quot;token_count&quot;: 81,
+  &quot;raw_path&quot;: &quot;data/raw/official-2026-10-18/O04.html&quot;
+}</pre>
+<h3>子片段</h3><pre>女性受僱者因生理日致工作有困難者，每月得請生理假一日，全年請假日數未逾三日，不併入病假計算，其餘日數併入病假計算。
+前項併入及不併入病假之生理假薪資，減半發給。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>女性受僱者因生理日致工作有困難者，每月得請生理假一日，全年請假日數未逾三日，不併入病假計算，其餘日數併入病假計算。
+前項併入及不併入病假之生理假薪資，減半發給。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S09 — O05 / snapshot-2026-10-18 / qa</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2025-07-07&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-0c8c64a9ffb8dc3d11fa4ebaece6ed7f3e9fb5ee5d458962015703f09d63aa5c&quot;,
+  &quot;document_id&quot;: &quot;O05&quot;,
+  &quot;version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;section_id&quot;: &quot;qa&quot;,
+  &quot;parent_id&quot;: &quot;p-1043634ed458ab37644712fbef6bd23bb753c47aab1edb99deb8f164c7c2b413&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;employee&quot;,
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 317,
+  &quot;token_count&quot;: 317,
+  &quot;raw_path&quot;: &quot;data/raw/official-2026-10-18/O05.html&quot;
+}</pre>
+<h3>子片段</h3><pre>問：雇主是否可以規定特別休假要事先提出不能臨時請、要求預排全年特休，或未經同意將事（病）假改為特別休假？
+答：勞工應從事之工作、工作開始及終止之時間、請假等事項，應於勞動契約中約定，勞動基準法施行細則第7條定有明文。復依勞動基準法第38條第2項規定，特別休假期日，由勞工排定之；但雇主基於企業經營上之急迫需求或勞工因個人因素，得與他方協商調整。勞工請假，應依事業單位工作規則之規定或勞動契約之約定辦理相關請假手續。特別休假是為了提供勞工休憩之用，休假日期由勞工依照自己意願決定。雇主可提醒或促請勞工排定休假，但不可以限制勞工特別休假期日的排定，或規定僅得一次預先排定或在特定期日前休假，亦不得將勞工已請的事(病)假擅自更改為特別休假。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>問：雇主是否可以規定特別休假要事先提出不能臨時請、要求預排全年特休，或未經同意將事（病）假改為特別休假？
+答：勞工應從事之工作、工作開始及終止之時間、請假等事項，應於勞動契約中約定，勞動基準法施行細則第7條定有明文。復依勞動基準法第38條第2項規定，特別休假期日，由勞工排定之；但雇主基於企業經營上之急迫需求或勞工因個人因素，得與他方協商調整。勞工請假，應依事業單位工作規則之規定或勞動契約之約定辦理相關請假手續。特別休假是為了提供勞工休憩之用，休假日期由勞工依照自己意願決定。雇主可提醒或促請勞工排定休假，但不可以限制勞工特別休假期日的排定，或規定僅得一次預先排定或在特定期日前休假，亦不得將勞工已請的事(病)假擅自更改為特別休假。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S10 — O06 / snapshot-2026-10-18 / qa</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2025-07-07&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-919dab9f8f016ff7c4e741c156adada0d24dc826e4b7713577d20b778245249e&quot;,
+  &quot;document_id&quot;: &quot;O06&quot;,
+  &quot;version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;section_id&quot;: &quot;qa&quot;,
+  &quot;parent_id&quot;: &quot;p-c26f16db5d9afcd909376e2503481ed492c6dcbd93def3d6cc76a6ee20bb141f&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;employee&quot;,
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 390,
+  &quot;end&quot;: 570,
+  &quot;token_count&quot;: 164,
+  &quot;raw_path&quot;: &quot;data/raw/official-2026-10-18/O06.html&quot;
+}</pre>
+<h3>子片段</h3><pre>二、又依同法第38條第4項規定，勞工之特別休假，因年度終結而未休之日數，雇主應發給工資；但年度終結未休之日數，經「勞雇雙方協商」遞延至次1年度實施者，如果於次一年度終結或契約終止仍未休之日數，雇主應發給工資。本部另設有特別休假日數試算系統〈網址：https://calcr2.mol.gov.tw/RestDays〉，勞工可依不同「年度」需求計算特別休假日數。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>問：公司特別休假採曆年制(即每年1月1日至12月31日)，該如何計算給假的天數?勞工之特別休假於年度終結仍未休畢，是否可經勞雇雙方協商遞延至次一年度實施?勞工離職時要用週年制來計算剩餘天數嗎?
+答：一、勞動基準法第38條及同法施行細則第5條規定，勞工自受僱之日起於同一雇主或事業單位工作滿一定期間之翌日如仍在職，即取得請特別休假之權利。另實務上，勞雇雙方仍多有約定以曆年制、會計年度、學年度（學校）或自行約定之年度給假之模式，已為慣例且行之有年，勞動基準法施行細則第24條第2項亦有明定經勞雇雙方協商後，得以前開方式計算特別休假期間。如果事業單位為配合出勤管理，經勞雇雙方協商約定以曆年制為特別休假行使期間，在勞工法定享有特別休假日數不得減損前提下，按比例分段計給特別休假，尚無不可；但是勞動契約終止時，雇主應依勞工「到職日」(即週年制)計算給予勞工實際工作年資之特別休假日數。
+二、又依同法第38條第4項規定，勞工之特別休假，因年度終結而未休之日數，雇主應發給工資；但年度終結未休之日數，經「勞雇雙方協商」遞延至次1年度實施者，如果於次一年度終結或契約終止仍未休之日數，雇主應發給工資。本部另設有特別休假日數試算系統〈網址：https://calcr2.mol.gov.tw/RestDays〉，勞工可依不同「年度」需求計算特別休假日數。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S11 — O03 / snapshot-2026-10-18 / 2</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2026-10-01&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-08945d44f9bfdcf869cb50383cfde4a2330699ba6e648203ca5509040d3dbf87&quot;,
+  &quot;document_id&quot;: &quot;O03&quot;,
+  &quot;version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;section_id&quot;: &quot;2&quot;,
+  &quot;parent_id&quot;: &quot;p-3705ebf8847f22c96d0505df7ea47d19e9bf0c4233e67f42da37854a2c47c444&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;employee&quot;,
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 18,
+  &quot;token_count&quot;: 20,
+  &quot;raw_path&quot;: &quot;data/raw/official-2026-10-18/O03.html&quot;
+}</pre>
+<h3>子片段</h3><pre>勞工結婚者給予婚假十四日，工資照給。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>勞工結婚者給予婚假十四日，工資照給。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S12 — O01 / snapshot-2026-10-18 / 39</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2016-12-23&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-0f2fad27bd83f2f5ff6ab05dc400a54ebd8a32404061df672f0f141df1719f79&quot;,
+  &quot;document_id&quot;: &quot;O01&quot;,
+  &quot;version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;section_id&quot;: &quot;39&quot;,
+  &quot;parent_id&quot;: &quot;p-e105fbd6f6a4a55801d444df1daa3a980cdeac791524676ca7363a2de390a1c9&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;employee&quot;,
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 102,
+  &quot;token_count&quot;: 104,
+  &quot;raw_path&quot;: &quot;data/raw/official-2026-10-18/O01.html&quot;
+}</pre>
+<h3>子片段</h3><pre>第三十六條所定之例假、休息日、第三十七條所定之休假及第三十八條所定之特別休假，工資應由雇主照給。雇主經徵得勞工同意於休假日工作者，工資應加倍發給。因季節性關係有趕工必要，經勞工或工會同意照常工作者，亦同。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>第三十六條所定之例假、休息日、第三十七條所定之休假及第三十八條所定之特別休假，工資應由雇主照給。雇主經徵得勞工同意於休假日工作者，工資應加倍發給。因季節性關係有趕工必要，經勞工或工會同意照常工作者，亦同。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S13 — O03 / snapshot-2026-10-18 / 10</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;1985-03-22&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-1d8cc202e60f792e8982ef3907abcecdac2a24a81ddedbcb0de85301af64c590&quot;,
+  &quot;document_id&quot;: &quot;O03&quot;,
+  &quot;version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;section_id&quot;: &quot;10&quot;,
+  &quot;parent_id&quot;: &quot;p-83eae14fcce51fe0f8125da8c9aea48fe7fd15a1fd879f22234aec9c58c686c4&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;employee&quot;,
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 75,
+  &quot;token_count&quot;: 77,
+  &quot;raw_path&quot;: &quot;data/raw/official-2026-10-18/O03.html&quot;
+}</pre>
+<h3>子片段</h3><pre>勞工請假時，應於事前親自以口頭或書面敘明請假理由及日數。但遇有急病或緊急事故，得委託他人代辦請假手續。辦理請假手續時，雇主得要求勞工提出有關證明文件。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>勞工請假時，應於事前親自以口頭或書面敘明請假理由及日數。但遇有急病或緊急事故，得委託他人代辦請假手續。辦理請假手續時，雇主得要求勞工提出有關證明文件。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S14 — C01 / v2 / application</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2026-10-01&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-30447deb11660f61fc3029c938738876bb7e76a4b33eef4d6a0c2acc19671c9f&quot;,
+  &quot;document_id&quot;: &quot;C01&quot;,
+  &quot;version_id&quot;: &quot;v2&quot;,
+  &quot;section_id&quot;: &quot;application&quot;,
+  &quot;parent_id&quot;: &quot;p-58a945546c68e8a73dd109ee891418942fcd863f26db0ac68dd27d9c3f050b72&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;employee&quot;,
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 98,
+  &quot;token_count&quot;: 99,
+  &quot;raw_path&quot;: &quot;data/raw/company/C01-v2.md&quot;
+}</pre>
+<h3>子片段</h3><pre>請假申請由人資服務窗口受理。需要補件時，由受理人通知缺少的項目；申請人在請假系統原申請附補件單B-02及必要資料，由人資服務窗口確認併入原申請紀錄。此流程僅為內部收件與追蹤，不新增法定請假的限制。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>請假申請由人資服務窗口受理。需要補件時，由受理人通知缺少的項目；申請人在請假系統原申請附補件單B-02及必要資料，由人資服務窗口確認併入原申請紀錄。此流程僅為內部收件與追蹤，不新增法定請假的限制。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S15 — C04 / v1 / scope</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2026-01-01&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-30eb7a4bd14296fdb8b9a05e9f2b2a876ecc915dfb1d24c4eefb8fe64d873b48&quot;,
+  &quot;document_id&quot;: &quot;C04&quot;,
+  &quot;version_id&quot;: &quot;v1&quot;,
+  &quot;section_id&quot;: &quot;scope&quot;,
+  &quot;parent_id&quot;: &quot;p-9dca622879bb826ce3a8ab29ab96ebe087c237f94fe938e6b01e58d7825c8663&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 97,
+  &quot;token_count&quot;: 98,
+  &quot;raw_path&quot;: &quot;data/raw/company/C04-v1.md&quot;
+}</pre>
+<h3>子片段</h3><pre>虛構示範文件，非真實公司制度，不替代法定權益。本備忘錄僅供hr角色查閱，用於虛構假勤異常案例的內部核對。所有示範紀錄只用合成識別碼，不可記錄真實個資。本備忘錄不自行訂定或縮減法定請假及工資權益。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>虛構示範文件，非真實公司制度，不替代法定權益。本備忘錄僅供hr角色查閱，用於虛構假勤異常案例的內部核對。所有示範紀錄只用合成識別碼，不可記錄真實個資。本備忘錄不自行訂定或縮減法定請假及工資權益。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S16 — O03 / snapshot-2026-10-18 / 9-1</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2026-01-01&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-36521fb7150afa7e5923715f9110af4961db75d4b704c518d53f3186e62a53e0&quot;,
+  &quot;document_id&quot;: &quot;O03&quot;,
+  &quot;version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;section_id&quot;: &quot;9-1&quot;,
+  &quot;parent_id&quot;: &quot;p-0d4e47052e54bfd67aa06823722ff0c30634effb124a7a14965b53d9c05f5791&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;employee&quot;,
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 186,
+  &quot;token_count&quot;: 186,
+  &quot;raw_path&quot;: &quot;data/raw/official-2026-10-18/O03.html&quot;
+}</pre>
+<h3>子片段</h3><pre>勞工一年內請普通傷病假日數未超過十日者，除本規則或其他法律另有規定，從其規定者外，雇主不得因勞工請普通傷病假而為不利之處分。
+勞工因請普通傷病假而受有不利處分者，雇主對於該不利處分與其請普通傷病假行為無關之事實，負舉證責任。
+勞工請普通傷病假超過第一項規定日數者，雇主為相關人事考核時，仍應以其工作能力、工作態度及實際績效等綜合考量，不得僅以請普通傷病假日數作為考量因素。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>勞工一年內請普通傷病假日數未超過十日者，除本規則或其他法律另有規定，從其規定者外，雇主不得因勞工請普通傷病假而為不利之處分。
+勞工因請普通傷病假而受有不利處分者，雇主對於該不利處分與其請普通傷病假行為無關之事實，負舉證責任。
+勞工請普通傷病假超過第一項規定日數者，雇主為相關人事考核時，仍應以其工作能力、工作態度及實際績效等綜合考量，不得僅以請普通傷病假日數作為考量因素。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S17 — O03 / snapshot-2026-10-18 / 3</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2011-10-16&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-4d78af991fc8ce6929fe163edaabbd36c002d2ab14bdced3d64b33adb517f292&quot;,
+  &quot;document_id&quot;: &quot;O03&quot;,
+  &quot;version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;section_id&quot;: &quot;3&quot;,
+  &quot;parent_id&quot;: &quot;p-3b089ab829f935af84a0b5526cb666a5126c664836aadfb58056ee8aa0a97ea5&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;employee&quot;,
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 119,
+  &quot;token_count&quot;: 118,
+  &quot;raw_path&quot;: &quot;data/raw/official-2026-10-18/O03.html&quot;
+}</pre>
+<h3>子片段</h3><pre>勞工喪假依左列規定：
+一、父母、養父母、繼父母、配偶喪亡者，給予喪假八日，工資照給。
+二、祖父母、子女、配偶之父母、配偶之養父母或繼父母喪亡者，給予喪假六日，工資照給。
+三、曾祖父母、兄弟姊妹、配偶之祖父母喪亡者，給予喪假三日，工資照給。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>勞工喪假依左列規定：
+一、父母、養父母、繼父母、配偶喪亡者，給予喪假八日，工資照給。
+二、祖父母、子女、配偶之父母、配偶之養父母或繼父母喪亡者，給予喪假六日，工資照給。
+三、曾祖父母、兄弟姊妹、配偶之祖父母喪亡者，給予喪假三日，工資照給。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S18 — O03 / snapshot-2026-10-18 / 6</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2019-01-17&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-6b5eda2f134a0fa84a82f5736e6866e813f749c987d0629c400f8b08b5d4054d&quot;,
+  &quot;document_id&quot;: &quot;O03&quot;,
+  &quot;version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;section_id&quot;: &quot;6&quot;,
+  &quot;parent_id&quot;: &quot;p-09f305565791b12230f951eff7bb4524cfdd038ca6a7bad5c1e81e477f50c006&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;employee&quot;,
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 35,
+  &quot;token_count&quot;: 37,
+  &quot;raw_path&quot;: &quot;data/raw/official-2026-10-18/O03.html&quot;
+}</pre>
+<h3>子片段</h3><pre>勞工因職業災害而致失能、傷害或疾病者，其治療、休養期間，給予公傷病假。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>勞工因職業災害而致失能、傷害或疾病者，其治療、休養期間，給予公傷病假。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S19 — O04 / snapshot-2026-10-18 / 21</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2008-01-18&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-6d49a0a3c947ebdba40794065f873248f2ca9bf14c971df809ba2ad9cdf5eaec&quot;,
+  &quot;document_id&quot;: &quot;O04&quot;,
+  &quot;version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;section_id&quot;: &quot;21&quot;,
+  &quot;parent_id&quot;: &quot;p-c154c108b2ef096acd5c6b7f83effc82808714de42a6b30b4789629343738622&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;employee&quot;,
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 63,
+  &quot;token_count&quot;: 64,
+  &quot;raw_path&quot;: &quot;data/raw/official-2026-10-18/O04.html&quot;
+}</pre>
+<h3>子片段</h3><pre>受僱者依前七條之規定為請求時，雇主不得拒絕。
+受僱者為前項之請求時，雇主不得視為缺勤而影響其全勤獎金、考績或為其他不利之處分。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>受僱者依前七條之規定為請求時，雇主不得拒絕。
+受僱者為前項之請求時，雇主不得視為缺勤而影響其全勤獎金、考績或為其他不利之處分。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>
+<details><summary>S20 — O04 / snapshot-2026-10-18 / 20</summary>
+<h3>定位與權限</h3><pre>{
+  &quot;effective_from&quot;: &quot;2011-01-07&quot;,
+  &quot;effective_to&quot;: null,
+  &quot;id&quot;: &quot;c-6f586b4d6e1dfb1fb81540e0a0c7855cdc13c36a3110b7b47ea0c5e5f3bc6182&quot;,
+  &quot;document_id&quot;: &quot;O04&quot;,
+  &quot;version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;section_id&quot;: &quot;20&quot;,
+  &quot;parent_id&quot;: &quot;p-d4074f017369197da7a94ec2046afe40e4ff6aefa6727ad340da9eb4511dd45d&quot;,
+  &quot;allowed_roles&quot;: [
+    &quot;employee&quot;,
+    &quot;manager&quot;,
+    &quot;hr&quot;
+  ],
+  &quot;start&quot;: 0,
+  &quot;end&quot;: 85,
+  &quot;token_count&quot;: 86,
+  &quot;raw_path&quot;: &quot;data/raw/official-2026-10-18/O04.html&quot;
+}</pre>
+<h3>子片段</h3><pre>受僱者於其家庭成員預防接種、發生嚴重之疾病或其他重大事故須親自照顧時，得請家庭照顧假；其請假日數併入事假計算，全年以七日為限。
+家庭照顧假薪資之計算，依各該事假規定辦理。</pre>
+<h3>完整父段（含條件與例外）</h3><pre>受僱者於其家庭成員預防接種、發生嚴重之疾病或其他重大事故須親自照顧時，得請家庭照顧假；其請假日數併入事假計算，全年以七日為限。
+家庭照顧假薪資之計算，依各該事假規定辦理。</pre>
+<h3>錯配反例：下列其他來源不能作為此片段的引用</h3><pre>{
+  &quot;wrong_document_id&quot;: &quot;O02&quot;,
+  &quot;wrong_version_id&quot;: &quot;snapshot-2026-10-18&quot;,
+  &quot;wrong_section_id&quot;: &quot;5&quot;,
+  &quot;wrong_parent_id&quot;: &quot;p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1&quot;,
+  &quot;wrong_parent_text&quot;: &quot;勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。&quot;,
+  &quot;wrong_raw_path&quot;: &quot;data/raw/official-2026-10-18/O02.html&quot;,
+  &quot;wrong_normalized_path&quot;: &quot;data/normalized/O02-snapshot-2026-10-18.json&quot;,
+  &quot;wrong_raw_sha256&quot;: &quot;066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945&quot;,
+  &quot;expected&quot;: &quot;不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段&quot;
+}</pre>
+<p>核對狀態：已通過（2026-10-18，使用者於本對話確認；簽核保存在 stage-2-artifacts.json）。</p></details>

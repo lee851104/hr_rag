@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}登入｜請假特休問答{% endblock %}
+{% block plain %}
+<section class="card narrow">
+  <div class="brand dark"><span class="logo">假</span><span><b>請假特休問答</b><small>依角色權限・附原文引用</small></span></div>
+  <form method="post" action="/login" class="stack">
+    <label>帳號<input name="username" autocomplete="username" required></label>
+    <label>密碼<input name="password" type="password" autocomplete="current-password" required></label>
+    <input type="hidden" name="csrf" value="{{ csrf }}">
+    <button type="submit">登入</button>
+  </form>
+  <p class="muted small">本機示範帳號：employee／manager／hr（密碼以本機命令設定）。</p>
+</section>
+{% endblock %}

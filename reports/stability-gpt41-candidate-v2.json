@@ -1,0 +1,212 @@
+{
+  "kind": "stability",
+  "split": "development",
+  "human_review_status": "pending",
+  "generation_settings": {
+    "context_limit": 4096,
+    "evidence_budget": 2048,
+    "output_reserve": 512,
+    "safety_margin": 128,
+    "timeout_seconds": 60.0,
+    "p95_alert_seconds": 45.0,
+    "base_url": "https://api.openai.com/v1",
+    "threads": 2,
+    "provider": "openai",
+    "model": "gpt-4.1-2025-04-14",
+    "input_usd_per_million": "2.00",
+    "output_usd_per_million": "8.00",
+    "pricing_checked_on": "2026-10-19",
+    "encoder_strategy": "resident",
+    "max_retries": 2,
+    "supports_temperature": true,
+    "reasoning_effort": null
+  },
+  "cost_limit_usd": "1.00",
+  "cost_before": {
+    "settled_usd": "0.4767872",
+    "reserved_usd": "0"
+  },
+  "execution_fingerprint": "704b2558e591b0c5722a88e0731cf4d3bc6a711008fd3ae8d4e67a827d72869d",
+  "freeze_hashes": {
+    "eval/development.jsonl": "06b18e9c8023d515ddad485222fa0634e661c95b26fd9881f235738a07ad21a4",
+    "eval/labels.jsonl": "092e10881957c25bf1d80509cd742bac6bee5b15b26725c56c79e78084e13255",
+    "eval/labels.supplemental.jsonl": "ae774bd9e47529e514d16e11f7e771ce3c58a72bddc171a8aad4589db2586ec6",
+    "src/hr_rag/retrieval.py": "cce81bd01886d262486cb42cbaa2f1760285284854b2e9562d33855d0101630b",
+    "src/hr_rag/query.py": "0575a66765141a02894aa8b7dddc07cc4298ef1b75c7eb07af8b9b3ae0a60402",
+    "config/retrieval.selected.json": "2b85a8a95e96396d1ebc9b8dfdad47a7e2931487573711db404ceae1d0f01b62",
+    "src/hr_rag/answering.py": "d07ce534220a6c29fa426da4b930b19a1ed45361de0b733dafdf5098472c611d",
+    "config/models.lock.json": "77ab0f395e54a4c18c0786abcc5a052f16c91bf09232956b6a90e540577e58a8",
+    "eval/stability-cases.json": "3e6e1115bedf7ddc508a46664ba54ea8192b3cd509b07acf32792dcbf6f0d7e2"
+  },
+  "prompt_sha256": "da78cde5ec5f7cd672b6eb000201feb6e99e7cffe9380f13c69b62f703eae64c",
+  "summary": {
+    "planned_executions": 18,
+    "completed_executions": 18,
+    "complete": true,
+    "statuses": {
+      "answered": 12,
+      "insufficient": 6
+    },
+    "api_calls": 18,
+    "human_review_pending": true,
+    "accepted": false
+  },
+  "cost_after": {
+    "settled_usd": "0.5415252",
+    "reserved_usd": "0"
+  },
+  "candidate_sha256": "df313d82c644d8331b9b3e7c0984e8f3d386d681a94ff1ade3037dba2a555b62",
+  "candidate_not_selected": true,
+  "retrieval_recheck_sha256": "e9a1cf39692631cfc3ff54e4be4929728ef08058d14170f527253c03a675cbec",
+  "retrieval_recheck_path": ".runtime\\stage5-private\\retrieval-gpt41-candidate.full.json",
+  "retrieval_public_summary_path": "reports\\retrieval-stage5-gpt41-candidate.json",
+  "retrieval_public_summary_sha256": "662788ff3e51da3c400d76c862b88d1fe85622a875d34af8810e5f9ad0c65992",
+  "private_results_path": ".runtime\\stage5-private\\stability-gpt41-candidate-v2.json",
+  "private_results_sha256": "beb8e83149ea01e47d7db511ac919d0c04e50c8c3e0006ebea4ab0bfe5c1836d",
+  "rows": [
+    {
+      "question_id": "D01",
+      "role": "employee",
+      "repeat": 1,
+      "input_hash": "96f1e8f4c3925a563eb10effc8f01d3b3ba03d64db4f3e59f12d4d455aac64a8",
+      "duration_seconds": 37.608555,
+      "status": "answered"
+    },
+    {
+      "question_id": "D01",
+      "role": "employee",
+      "repeat": 2,
+      "input_hash": "96f1e8f4c3925a563eb10effc8f01d3b3ba03d64db4f3e59f12d4d455aac64a8",
+      "duration_seconds": 8.921948,
+      "status": "answered"
+    },
+    {
+      "question_id": "D01",
+      "role": "employee",
+      "repeat": 3,
+      "input_hash": "96f1e8f4c3925a563eb10effc8f01d3b3ba03d64db4f3e59f12d4d455aac64a8",
+      "duration_seconds": 8.787848,
+      "status": "answered"
+    },
+    {
+      "question_id": "D05",
+      "role": "employee",
+      "repeat": 1,
+      "input_hash": "348a0aa8b7fc3892ae39389f03e4f2438f62aa82cd5941d905e8000459727588",
+      "duration_seconds": 9.163967,
+      "status": "answered"
+    },
+    {
+      "question_id": "D05",
+      "role": "employee",
+      "repeat": 2,
+      "input_hash": "348a0aa8b7fc3892ae39389f03e4f2438f62aa82cd5941d905e8000459727588",
+      "duration_seconds": 8.979347,
+      "status": "answered"
+    },
+    {
+      "question_id": "D05",
+      "role": "employee",
+      "repeat": 3,
+      "input_hash": "348a0aa8b7fc3892ae39389f03e4f2438f62aa82cd5941d905e8000459727588",
+      "duration_seconds": 8.719463,
+      "status": "answered"
+    },
+    {
+      "question_id": "D09",
+      "role": "employee",
+      "repeat": 1,
+      "input_hash": "e18e62a769058b91030fc7c3384d82797e6455cd19f815a37d3e4ef814f6e7d0",
+      "duration_seconds": 15.919595,
+      "status": "answered"
+    },
+    {
+      "question_id": "D09",
+      "role": "employee",
+      "repeat": 2,
+      "input_hash": "e18e62a769058b91030fc7c3384d82797e6455cd19f815a37d3e4ef814f6e7d0",
+      "duration_seconds": 15.224217,
+      "status": "answered"
+    },
+    {
+      "question_id": "D09",
+      "role": "employee",
+      "repeat": 3,
+      "input_hash": "e18e62a769058b91030fc7c3384d82797e6455cd19f815a37d3e4ef814f6e7d0",
+      "duration_seconds": 18.46058,
+      "status": "answered"
+    },
+    {
+      "question_id": "D13",
+      "role": "employee",
+      "repeat": 1,
+      "input_hash": "d13c6b5872b96d6b8461c8e1026c1e698ba91add6d46a2273968eb5162501ef4",
+      "duration_seconds": 7.453416,
+      "status": "answered"
+    },
+    {
+      "question_id": "D13",
+      "role": "employee",
+      "repeat": 2,
+      "input_hash": "d13c6b5872b96d6b8461c8e1026c1e698ba91add6d46a2273968eb5162501ef4",
+      "duration_seconds": 8.828344,
+      "status": "answered"
+    },
+    {
+      "question_id": "D13",
+      "role": "employee",
+      "repeat": 3,
+      "input_hash": "d13c6b5872b96d6b8461c8e1026c1e698ba91add6d46a2273968eb5162501ef4",
+      "duration_seconds": 10.28389,
+      "status": "answered"
+    },
+    {
+      "question_id": "D16",
+      "role": "employee",
+      "repeat": 1,
+      "input_hash": "c468f35a7a23d394239a58a3269f37c6c00582051d8a19ecd4f2a3045d9c8dde",
+      "duration_seconds": 14.379292,
+      "status": "insufficient"
+    },
+    {
+      "question_id": "D16",
+      "role": "employee",
+      "repeat": 2,
+      "input_hash": "c468f35a7a23d394239a58a3269f37c6c00582051d8a19ecd4f2a3045d9c8dde",
+      "duration_seconds": 14.745899,
+      "status": "insufficient"
+    },
+    {
+      "question_id": "D16",
+      "role": "employee",
+      "repeat": 3,
+      "input_hash": "c468f35a7a23d394239a58a3269f37c6c00582051d8a19ecd4f2a3045d9c8dde",
+      "duration_seconds": 14.641565,
+      "status": "insufficient"
+    },
+    {
+      "question_id": "D18",
+      "role": "employee",
+      "repeat": 1,
+      "input_hash": "b7e703a45e028478fabdf0a9e12e4eac726720f63fc7df91fc4b13af6cf8efa4",
+      "duration_seconds": 9.34427,
+      "status": "insufficient"
+    },
+    {
+      "question_id": "D18",
+      "role": "employee",
+      "repeat": 2,
+      "input_hash": "b7e703a45e028478fabdf0a9e12e4eac726720f63fc7df91fc4b13af6cf8efa4",
+      "duration_seconds": 9.519037,
+      "status": "insufficient"
+    },
+    {
+      "question_id": "D18",
+      "role": "employee",
+      "repeat": 3,
+      "input_hash": "b7e703a45e028478fabdf0a9e12e4eac726720f63fc7df91fc4b13af6cf8efa4",
+      "duration_seconds": 8.952211,
+      "status": "insufficient"
+    }
+  ]
+}

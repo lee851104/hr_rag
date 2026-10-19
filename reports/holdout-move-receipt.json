@@ -1,0 +1,17 @@
+[
+  {
+    "file": "holdout.jsonl",
+    "sha256": "ed30ff0f75e95deb0e349ef90a3d063f9b3f3f8e6354c1eff76b6a5ec5981989",
+    "verified": true
+  },
+  {
+    "file": "holdout.jsonl.bak-20261018-before-merge",
+    "sha256": "7bcd70f492743957623fd3533ab0abc396968819ac23ae75b484d733264af737",
+    "verified": true
+  },
+  {
+    "file": "holdout.jsonl.bak-20261018-original",
+    "sha256": "4beaa9e03e2feca13a3ba02226fe703c64e08bd4c868da2fe8fc85b78fa4f8e1",
+    "verified": true
+  }
+]

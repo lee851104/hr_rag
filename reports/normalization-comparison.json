@@ -1,0 +1,304 @@
+{
+  "split": "development",
+  "same_inputs_verified": true,
+  "execution_fingerprint": "704b2558e591b0c5722a88e0731cf4d3bc6a711008fd3ae8d4e67a827d72869d",
+  "source_sha256": {
+    "retrieval-candidate.json": "e4eec51582d9bad2acbee7116e5bcca519431391487530f33c2484364ef384b3",
+    "retrieval-no-normalize.json": "3cd7af0b56d125677cc20a5783813d425eb1a20fec2ee331bd08ca64d73738fe"
+  },
+  "all_real_model_runs": true,
+  "runs": [
+    {
+      "mode": "dense",
+      "top5_on": 12,
+      "top5_off": 12,
+      "context_on": 12,
+      "context_off": 12,
+      "answerable_count": 14,
+      "differences": [
+        {
+          "question_id": "D03",
+          "role": "employee",
+          "top5_on": {
+            "covered": 1,
+            "total": 1,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "top5_off": {
+            "covered": 1,
+            "total": 1,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "context_on": {
+            "covered": 1,
+            "total": 1,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "context_off": {
+            "covered": 1,
+            "total": 1,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "ranking_changed": false
+        },
+        {
+          "question_id": "D07",
+          "role": "employee",
+          "top5_on": {
+            "covered": 2,
+            "total": 2,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "top5_off": {
+            "covered": 2,
+            "total": 2,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "context_on": {
+            "covered": 2,
+            "total": 2,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "context_off": {
+            "covered": 2,
+            "total": 2,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "ranking_changed": true
+        },
+        {
+          "question_id": "D08",
+          "role": "employee",
+          "top5_on": {
+            "covered": 2,
+            "total": 3,
+            "coverage": 0.6666666666666666,
+            "all_hit": false
+          },
+          "top5_off": {
+            "covered": 2,
+            "total": 3,
+            "coverage": 0.6666666666666666,
+            "all_hit": false
+          },
+          "context_on": {
+            "covered": 2,
+            "total": 3,
+            "coverage": 0.6666666666666666,
+            "all_hit": false
+          },
+          "context_off": {
+            "covered": 2,
+            "total": 3,
+            "coverage": 0.6666666666666666,
+            "all_hit": false
+          },
+          "ranking_changed": true
+        }
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "top5_on": 11,
+      "top5_off": 10,
+      "context_on": 11,
+      "context_off": 10,
+      "answerable_count": 14,
+      "differences": [
+        {
+          "question_id": "D03",
+          "role": "employee",
+          "top5_on": {
+            "covered": 1,
+            "total": 1,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "top5_off": {
+            "covered": 1,
+            "total": 1,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "context_on": {
+            "covered": 1,
+            "total": 1,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "context_off": {
+            "covered": 1,
+            "total": 1,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "ranking_changed": true
+        },
+        {
+          "question_id": "D07",
+          "role": "employee",
+          "top5_on": {
+            "covered": 2,
+            "total": 2,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "top5_off": {
+            "covered": 1,
+            "total": 2,
+            "coverage": 0.5,
+            "all_hit": false
+          },
+          "context_on": {
+            "covered": 2,
+            "total": 2,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "context_off": {
+            "covered": 1,
+            "total": 2,
+            "coverage": 0.5,
+            "all_hit": false
+          },
+          "ranking_changed": true
+        },
+        {
+          "question_id": "D08",
+          "role": "employee",
+          "top5_on": {
+            "covered": 2,
+            "total": 3,
+            "coverage": 0.6666666666666666,
+            "all_hit": false
+          },
+          "top5_off": {
+            "covered": 2,
+            "total": 3,
+            "coverage": 0.6666666666666666,
+            "all_hit": false
+          },
+          "context_on": {
+            "covered": 2,
+            "total": 3,
+            "coverage": 0.6666666666666666,
+            "all_hit": false
+          },
+          "context_off": {
+            "covered": 2,
+            "total": 3,
+            "coverage": 0.6666666666666666,
+            "all_hit": false
+          },
+          "ranking_changed": true
+        }
+      ]
+    },
+    {
+      "mode": "rerank",
+      "top5_on": 13,
+      "top5_off": 13,
+      "context_on": 13,
+      "context_off": 12,
+      "answerable_count": 14,
+      "differences": [
+        {
+          "question_id": "D03",
+          "role": "employee",
+          "top5_on": {
+            "covered": 1,
+            "total": 1,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "top5_off": {
+            "covered": 1,
+            "total": 1,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "context_on": {
+            "covered": 1,
+            "total": 1,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "context_off": {
+            "covered": 1,
+            "total": 1,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "ranking_changed": true
+        },
+        {
+          "question_id": "D07",
+          "role": "employee",
+          "top5_on": {
+            "covered": 2,
+            "total": 2,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "top5_off": {
+            "covered": 2,
+            "total": 2,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "context_on": {
+            "covered": 2,
+            "total": 2,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "context_off": {
+            "covered": 1,
+            "total": 2,
+            "coverage": 0.5,
+            "all_hit": false
+          },
+          "ranking_changed": true
+        },
+        {
+          "question_id": "D08",
+          "role": "employee",
+          "top5_on": {
+            "covered": 3,
+            "total": 3,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "top5_off": {
+            "covered": 3,
+            "total": 3,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "context_on": {
+            "covered": 3,
+            "total": 3,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "context_off": {
+            "covered": 3,
+            "total": 3,
+            "coverage": 1.0,
+            "all_hit": true
+          },
+          "ranking_changed": true
+        }
+      ]
+    }
+  ],
+  "api_calls": 0
+}

@@ -1,0 +1,423 @@
+{
+  "changeName": "build-hr-leave-rag-mvp",
+  "changeDir": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp",
+  "schemaName": "spec-driven",
+  "contextFiles": {
+    "proposal": [
+      "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\proposal.md"
+    ],
+    "specs": [
+      "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\specs\\access-control\\spec.md",
+      "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\specs\\evaluation-observability\\spec.md",
+      "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\specs\\evidence-retrieval\\spec.md",
+      "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\specs\\grounded-answering\\spec.md",
+      "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\specs\\knowledge-corpus\\spec.md"
+    ],
+    "design": [
+      "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\design.md"
+    ],
+    "tasks": [
+      "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md"
+    ]
+  },
+  "progress": {
+    "total": 55,
+    "complete": 39,
+    "remaining": 16
+  },
+  "tasks": [
+    {
+      "id": "1",
+      "description": "0.1 建立 Python 3.12 venv 與套件設定，鎖定依賴並驗證 `.venv/Scripts/python.exe -m pip check` 成功；README 記錄可重現安裝命令。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 65
+    },
+    {
+      "id": "2",
+      "description": "0.2 定義上述型別及設定驗證；先寫 tests/test_contracts.py，斷言未知角色、空問題、無效日期、反向有效區間均被拒絕，執行 `python -m pytest tests/test_contracts.py -q` 通過。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 66
+    },
+    {
+      "id": "3",
+      "description": "0.3 實作 providers 介面 `embed(texts: list[str]) -> ndarray`、`rerank(query: str, texts: list[str]) -> list[float]`、`generate(question: str, context: ContextBundle) -> Answer`；提供取得實際模型請求及原始輸出的稽核掛點。測試替身與故障注入驗證輸出長度、NaN、逾時及無效 JSON 被受控處理。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 67
+    },
+    {
+      "id": "4",
+      "description": "0.4 檢查可用硬體，選擇並鎖定實際 embedding／reranker／generator 與 revision，以 10 個無敏感資料樣本執行三種介面；reports/runtime.md 記錄模型、硬體、耗時及限制；不能以替身代替此項。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 68
+    },
+    {
+      "id": "5",
+      "description": "0.5 建立 `record_event(event: dict) -> str` 最小稽核介面，回傳 trace_id；測試金鑰與密碼欄位不被寫出；將本階段命令與結果寫入 reports/stage-0.md。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 69
+    },
+    {
+      "id": "6",
+      "description": "0.6 定義 ContextBundle、模型上下文上限、token計算法、evidence_budget、output_reserve、safety_margin；測試負值、無剩餘預算及輸入加輸出保留量超限的設定被拒絕。reports/runtime.md 記錄實測模型設定與本機P95告警門檻及理由，不把門檻當實測成績。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 70
+    },
+    {
+      "id": "7",
+      "description": "0.7 實作 OpenAI 生成 provider（離線部分不需金鑰）：補鎖官方 openai SDK 與 tiktoken，重新產生 requirements.lock 時保留 Torch 官方 Windows wheel 的單一 SHA256，在全新 venv 以 --require-hashes 安裝並 pip check。新增 OpenAI 生成類別，符合既有 `generate(question, context) -> Answer` 介面與稽核掛點；以 Structured Outputs 嚴格 JSON schema 取得 Answer，API 支援時不在 OpenAI 端保存回應。settings 新增生成 provider 設定，只允許 https://api.openai.com/v1，金鑰只讀 OPENAI_API_KEY（新增只含空白欄位的 .env.example），並支援 HR_RAG_COST_LIMIT_USD 累計成本上限；呼叫前以 tiktoken 檢查預算，呼叫後記錄 response id、實際模型 ID、usage（含推理 tokens）與成本估算；audit 錯誤碼新增 rate_limited、cost_limit、not_configured。先寫 tests/test_openai_provider.py（假 client、不連網）並觀察失敗，再實作到通過：缺金鑰受控錯誤且不發請求、非允許端點被拒、請求只含系統提示／問題／上下文且不含 user_id 與角色、金鑰不出現在例外與稽核、429／5xx 有限重試後受控失敗、逾時、無效 JSON 與不符 schema、達成本上限停止呼叫。真實 API 測試僅在 HR_RAG_LIVE_API=1 時執行。完整 pytest 與 ruff 通過；本機 LlamaGenerator 保留供 0.4 紀錄重現，不刪除。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 71
+    },
+    {
+      "id": "8",
+      "description": "0.8 真實長度可行性實測（OpenAI，須使用者已設定 OPENAI_API_KEY 與 HR_RAG_COST_LIMIT_USD）：沿用 scripts/feasibility_long_context.py 的20個證據單位、固定5段上下文與F1–F5（F2檢核已收緊），新增 `--provider openai --model <ID>` 執行，結果另存 reports/feasibility-long-context-openai.json，不覆寫第一次本機結果。從 OpenAI 當時官方模型清單選至少一個小型低價模型與一個較大的模型（皆支援 Structured Outputs），官方價格與查證日期寫入 reports/runtime.md。量測關鍵主張與引用正確性（自動檢核加人工判定）、繁體輸出、本機檢索與 API 往返耗時、本機 encoder 記憶體、每題 tokens 與成本。門檻：5題至少4題正確、全部繁體、單題總耗時皆低於單次逾時；在達標模型中選每題成本較低者。全部未達標時停止並請使用者決定。（2026-10-18 第一次實測用本機 Qwen2.5-1.5B：正確0/5、繁體未通過、耗時通過，見 reports/runtime.md；使用者因此改選 OpenAI。）",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 72
+    },
+    {
+      "id": "9",
+      "description": "0.9 依0.8結果凍結 OpenAI 模型快照 ID、context_limit、evidence_budget、output_reserve（含推理 tokens）、safety_margin、逾時與重試次數、HR_RAG_COST_LIMIT_USD 建議值、encoder 常駐策略，以及低於單次逾時的暫定P95告警門檻；更新 config/models.lock.json（含價格查證日期）、settings 預設值與 reports/runtime.md，重跑0.6預算測試與完整 pytest，並將證據補入 reports/stage-0.md。使用者確認選定模型與每題成本後，階段0才算通過。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 73
+    },
+    {
+      "id": "10",
+      "description": "1.1 依 design 的 O01–O06 下載並保存官方原始快照、網址與擷取時間；逐份核對條文範圍與日期證據，清單中官方數量斷言 `official_count == 6`。民國日期轉為西元並保存原始字串；納入索引的條文逐條依施行條款（如勞基法第86條）及沿革頁記錄施行日；O05、O06採問答發布日期為effective_from並註明非法規生效日，項目更新日期經人工比對才記為revised_at，不使用網站頁尾更新日。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 81
+    },
+    {
+      "id": "11",
+      "description": "1.2 自編 C01–C04，C01 含兩版且只改申請窗口／流程；逐份核對虛構標示、角色矩陣與法規衝突；斷言 `document_count == 10`、`version_count == 11`。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 82
+    },
+    {
+      "id": "12",
+      "description": "1.3 實作 `validate_manifest(path: Path) -> list[str]` 與民國日期轉換，先測重複 ID、缺來源、無權限、日期未知、版本重疊、hash 不符，以及「民國 113 年 07 月 31 日」→2024-07-31、「一百零六年一月一日」→2017-01-01、不合法民國日期進待核對；`python -m pytest tests/test_manifest.py -q` 全過，真實清單沒有未處理錯誤。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 83
+    },
+    {
+      "id": "13",
+      "description": "1.4 草擬並由人工核對20題開發題、逐角色預期（role_expectations）、必要證據組及答案，分配依 design 6. 節；權限題三角色預期齊全。10題保留題已於2026-10-18由不參與調參的Claude草擬、交使用者審核，存於HR_RAG_HOLDOUT_PATH指定的專案外位置；Codex不得草擬、修改或讀取。其中H07–H09依賴公司文件，C01–C04定稿後由使用者（可再請Claude協助，不得交給Codex）依原文補齊答案與證據定位，審核後才凍結hash。專案內只建立eval/holdout.manifest.json（題數、分配、SHA256、草擬者、審核者），內容由使用者提供。報告記錄各類題數、hash、撰寫者及核對者；不得宣稱尚未人工核對的題目已驗收。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 84
+    },
+    {
+      "id": "14",
+      "description": "1.5 新增評估格式檢核，斷言開發20題、各類加總與 question_id 不重複、role_expectations 欄位完整且權限題含三角色；保留題由使用者在專案外以同一檢核器驗證10題與分配，專案只記輸出摘要與hash；檢查專案目錄內沒有保留題正文。只以白名單匯入 data，不可匯入 eval；將來源清單與評估分割證據寫入 reports/stage-1.md。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 85
+    },
+    {
+      "id": "15",
+      "description": "1.6 為10主文件補 source_publisher、maintenance_owner、last_reviewed_at、next_review_due；測試缺負責角色及不合理核對日期被拒絕，到期清單正確指出文件與責任。從20題開發集固定選出官方、公司、跨文件、版本、權限、資料不足各一題作穩定性案例，記錄角色、日期、預期結果及hash；不新增主文件或獨立評估題。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 86
+    },
+    {
+      "id": "16",
+      "description": "2.1 先以條文、項款、完整問答和例外建立切片測試，再實作 chunk_document；斷言每個片段有原文定位、版本與 ACL，例外與所屬規則可一併回溯；以實際encoder tokenizer斷言全部子片段不超過400 tokens，超長條文依項款拆分且共用父片段，單句超限標記待人工處理而不截斷。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 96
+    },
+    {
+      "id": "17",
+      "description": "2.2 實作 SQLite 表、原文 hash 與向量快照；`test_ingest_twice_is_idempotent` 斷言重匯入前後 ID 集合與數量相同，`python -m pytest tests/test_ingestion.py -q` 通過。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 97
+    },
+    {
+      "id": "18",
+      "description": "2.3 實作 staging 驗證後原子發布；故意令 embedding 中途失敗，`test_failed_generation_preserves_active` 斷言 active generation 不變且無半成品可查。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 98
+    },
+    {
+      "id": "19",
+      "description": "2.4 實作撤回與版本區間檢查；tests/test_versions.py 涵蓋 2026-09-30/v1、2026-10-01/v2、未知日期隔離、分條施行與重疊拒絕；全部通過。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 99
+    },
+    {
+      "id": "20",
+      "description": "2.5 人工核對至少20片段、涵蓋全部10主文件，記錄正反例原文與定位；全數正確及前述自動測試通過才將 reports/stage-2.md 標為通過。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 100
+    },
+    {
+      "id": "21",
+      "description": "2.6 實作增量向量重用；以embedding呼叫紀錄驗證相同匯入0次、只修改C02時其餘9份ID與向量不變、只改ACL／日期0次、刪除片段從索引退出；模型或切片設定改變有全量重建原因。更新失敗仍保留舊generation，將呼叫數及hash證據補入reports/stage-2.md，所有本階段任務通過才放行。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 101
+    },
+    {
+      "id": "22",
+      "description": "3.1 先補鎖網頁執行依賴（uvicorn、python-multipart），重新產生 requirements.lock 時保留 Torch 官方 Windows wheel 的單一 SHA256，在全新 venv 以 --require-hashes 安裝並 pip check 通過；再建立三個伺服器示範帳號、密碼雜湊及伺服器 session；tests/test_auth.py 斷言未登入401、任意 role 欄位無法升權、登出後舊session失效。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 109
+    },
+    {
+      "id": "23",
+      "description": "3.2 實作 eligible_chunks；以獨立合成測試而非保留題驗證 C03/C04 三角色矩陣、缺 ACL 預設拒絕、條文有效區間；`python -m pytest tests/test_policy.py -q` 全過。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 110
+    },
+    {
+      "id": "24",
+      "description": "3.3 實作 read_citation 與 `GET /citations/{citation_id}`，tests/test_citation_access.py 斷言不存在與未授權均404且不帶標題，撤回後原引用也404；用測試替身建立 citation，不依賴尚未完成的生成。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 111
+    },
+    {
+      "id": "25",
+      "description": "3.4 測試 hr→employee、兩帳號並行與角色變更後重查：各請求 eligible IDs 只含自己的授權集合，不共享上下文；問題中明確的西元或民國日期（含只到年或年月）與查詢日期不同時回傳釐清訊息並顯示兩者，「今年」「明年」等相對說法不判為衝突。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 112
+    },
+    {
+      "id": "26",
+      "description": "3.5 執行 `python -m pytest tests/test_auth.py tests/test_policy.py tests/test_citation_access.py -q`，將角色矩陣、錯誤回應與全部結果寫入 reports/stage-3.md；任何洩漏都阻止下一階段。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 113
+    },
+    {
+      "id": "27",
+      "description": "3.6 接續2.6的metadata更新fixture，驗證發布後新ACL／日期立即作用於eligible IDs及原引用，舊session不能保留舊權限；將新增結果納入reports/stage-3.md。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 114
+    },
+    {
+      "id": "28",
+      "description": "4.1 先寫假向量可預期排名測試，再實作 dense；在評分前呼叫 eligible_chunks，tests/test_retrieval.py 斷言無權及過期高相似片段仍不會進候選。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 126
+    },
+    {
+      "id": "29",
+      "description": "4.2 加入保留條號的中文 BM25、RRF常數60與最多20候選規則；測試同分排序、空集合、候選不足及父片段展開後重新驗權。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 127
+    },
+    {
+      "id": "30",
+      "description": "4.3 加入 rerank，測試替身記錄輸入以斷言未授權文本從未送入重排器；撤回來源後 dense/BM25/rerank 均無殘留命中。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 128
+    },
+    {
+      "id": "31",
+      "description": "4.4 實作 evaluate 與 `python -m hr_rag.evaluation --split development --mode all --corpus full` CLI；人工小例測試證據組計分、零分母、錯誤不刪分母與候選/展開的計分差異。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 129
+    },
+    {
+      "id": "32",
+      "description": "4.5 實作版本化中文同義詞前處理；tests/test_query.py 驗證特休／特別休假配對命中相同必要證據組，補休不混同特休，否定、條號、日數與日期保留；處理後查詢表示超過96個encoder tokens回傳受控「問題過長」錯誤且不呼叫encoder。三模式使用共同查詢表示；用開發題記錄前處理開／關差異，凍結詞表hash。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 130
+    },
+    {
+      "id": "33",
+      "description": "4.6 實作assemble_context：同父段去重、跨來源合併限制、來源映射、穩定排序、重新驗權、相關度篩選（context_max_units與min_relevance，C用重排分數、A／B用相對第一名比例，至少保留第一名）及完整單位token預算；tests/test_context.py 涵蓋同父段多次命中、跨來源相同正文、官方／公司衝突、低於門檻的單位被篩掉並記原因、小預算排除完整條文、提示本身超限、已篩掉或移除的片段不在引用白名單。`python -m pytest tests/test_query.py tests/test_context.py -q` 全過。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 131
+    },
+    {
+      "id": "34",
+      "description": "4.7 擴充evaluate，分列Top-5（篩選前）與組裝後（篩選後）必要證據組覆蓋率／全組命中，及人工標註最終上下文精確度；有用性標註存於eval/labels.jsonl，以question_id、role與單位內容SHA256為鍵跨模式及重跑重用，只對新單位要求標註。測試5單位中2有用得到0.4、空上下文與執行錯誤記0、合併來源不重複計數、相同單位重用既有標註，不能以展開全文改善Top-5分數。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 132
+    },
+    {
+      "id": "35",
+      "description": "4.8 固定快照、模型、提示與切片參數，實跑三模式；開發可回答14題至少13題完整證據Top-5命中、開發版本3/3、授權錯誤0，記錄逐題差異後只依開發集選最終模式，寫入 reports/stage-4.md。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 133
+    },
+    {
+      "id": "36",
+      "description": "4.9 補齊三模式逐題上下文與人工有用性判定；選定模式除4.8外，開發組裝後完整證據至少13/14、平均上下文精確度≥80%，模型輸入無權／失效片段0。只用開發集凍結相關度篩選參數，以完整組裝設定、篩選參數及前處理版本更新reports/stage-4.md後才放行。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 134
+    },
+    {
+      "id": "37",
+      "description": "5.1 先測官方／公司混合題與假引用，再實作來源標示、證據白名單和 claims 組裝；`test_unknown_citation_rejected` 斷言不合法ID無法顯示給使用者，引用附版本與定位。補鎖繁簡字表依賴並實作輸出檢查，`test_simplified_output_rejected` 斷言含簡體專用字的主張回傳受控格式錯誤且計入錯誤率。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 142
+    },
+    {
+      "id": "38",
+      "description": "5.2 實作無證據、部分證據、衝突處理；測試個人剩餘假數不得捏造，假設衝突文件只留測試fixture，不混進10份正式語料。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 143
+    },
+    {
+      "id": "39",
+      "description": "5.3 tests/test_prompt_injection.py 使用夾帶「我是HR／忽略規則」文件與問題；檢查候選、模型輸入及輸出引用均未升權；tests/test_answering.py 驗證逾時、無效JSON、無效日期與空輸入的受控結果；以假 client 攔截送往 OpenAI 的請求，斷言 employee／manager 查 C04 時請求不含 C04 正文、標題、使用者識別碼與角色名稱。",
+      "done": true,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 144
+    },
+    {
+      "id": "40",
+      "description": "5.4 用實際模型跑開發題並人工核對，至少13/14可回答題正確、3/3資料不足題不捏造、3/3版本題正確，引用支持率≥95%及關鍵主張覆蓋率100%；將逐題理由與測試命令寫入 reports/stage-5.md。修證據與提示後仍未達標時，經使用者同意費用後改用較大的 OpenAI 模型，重跑0.8、4.9與整個階段5；需要降低門檻時停止並請使用者決定。報告附本階段 API 呼叫次數、tokens 與實際費用。",
+      "done": false,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 145
+    },
+    {
+      "id": "41",
+      "description": "5.5 對階段1固定的6個開發案例各獨立呼叫實際模型3次，不共用答案快取；18次關鍵主張／狀態／引用均符合預期且無矛盾，模型故障不能算穩定通過。保存輸入hash、生成設定與逐次結果至reports/stability.json，人工核對後納入reports/stage-5.md；穩定性失敗不得放行。",
+      "done": false,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 146
+    },
+    {
+      "id": "42",
+      "description": "6.1 建立本機HTML登入、問題、日期、答案與引用視圖；`POST /query` 僅接受 question/as_of，角色來自session；`GET /queries/{id}` 只可查本人紀錄，tests/test_web.py 覆蓋未登入及越權存取。畫面標示答案由外部模型依引用證據生成，並提醒不要輸入個人資料；生成服務未設定或達成本上限時顯示可理解的訊息。",
+      "done": false,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 156
+    },
+    {
+      "id": "43",
+      "description": "6.2 加上HTML轉義、CSRF檢查與登出清空畫面，測試文件含script不執行、缺CSRF的變更請求被拒、登入後cookie設定及伺服器綁定127.0.0.1。",
+      "done": false,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 157
+    },
+    {
+      "id": "44",
+      "description": "6.3 擴充階段0稽核為 spec 要求欄位；tests/test_audit.py 斷言模型／提示／快照hash、OpenAI response id、實際模型 ID、usage 與成本估算、階段耗時、錯誤原因可追蹤，密碼／金鑰／Authorization header／限閱正文不進一般日誌，未知成本為null。",
+      "done": false,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 158
+    },
+    {
+      "id": "45",
+      "description": "6.4 三角色各完成一次瀏覽器端提問與引用檢視、測試錯誤提示；執行 `python -m pytest tests/test_web.py tests/test_audit.py -q`，記錄畫面與P50/P95實測資料至 reports/stage-6.md，不捏造效能承諾。",
+      "done": false,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 159
+    },
+    {
+      "id": "46",
+      "description": "6.5 實作受限稽核保存與重播：原始／處理後問題、實際有序模型提示及證據、生成設定、原始輸出、最終答案與主張引用映射；來源更新後重播仍與當時輸入hash相同且不呼叫模型。測試憑證不保存、正文不進一般日誌、預設30天保存／清除、稽核寫入失敗不回傳無追溯的成功答案。",
+      "done": false,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 160
+    },
+    {
+      "id": "47",
+      "description": "6.6 擴充本人查詢與回饋存取測試：角色降權或來源撤回後原答案及引用不再揭露已禁內容；他人trace／feedback與全域重播不可讀，不能從回饋側路取得限閱內容。",
+      "done": false,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 161
+    },
+    {
+      "id": "48",
+      "description": "6.7 實作有用／無用回饋、原因分類與本機處置狀態；tests/test_feedback.py 驗證缺回歸證據不得標記已修正。用既有開發案例或隔離fixture展示一次回報→分析→修正→回歸通過，保留處理人及原因，不新增主文件、不修改保留題。",
+      "done": false,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 162
+    },
+    {
+      "id": "49",
+      "description": "6.8 實作本機告警：tests/test_monitoring.py 注入20次含2次錯誤、P95超門檻、連續3次模型失敗、非法證據被防線阻擋，以及恢復正常的資料；各自觸發／恢復紀錄正確。不足20次或缺指標標資料不足；正常401/404不當成洩漏，告警不含正文。延遲門檻依完整鏈路實測設定且低於單次請求逾時，於測試前凍結，與正式評估分開保存。",
+      "done": false,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 163
+    },
+    {
+      "id": "50",
+      "description": "6.9 執行 `python -m pytest tests/test_web.py tests/test_audit.py tests/test_feedback.py tests/test_monitoring.py -q`，以受限重播、回饋閉環、告警觸發／恢復及三角色介面證據更新reports/stage-6.md，所有本階段任務通過才放行。",
+      "done": false,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 164
+    },
+    {
+      "id": "51",
+      "description": "7.1 凍結最終設定、OpenAI 模型快照 ID、提示、語料、同義詞、上下文預算、告警門檻、成本上限與評估hash；執行 `python -m pytest -q` 並保存完整結果，確認所有安全及日期測試通過，固定6案例的18次穩定性執行對應最終設定且全過。",
+      "done": false,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 170
+    },
+    {
+      "id": "52",
+      "description": "7.2 由使用者設定 HR_RAG_HOLDOUT_PATH 後使用 `python -m hr_rag.evaluation --split holdout --mode selected --corpus full` 跑10題保留題並人工標註保留題上下文，先自行檢視逐題結果；檔案hash須與eval/holdout.manifest.json相符。再彙總固定設定下全30題；Top-5證據、組裝後證據與答案各≥20/22且保留各≥7/8，開發與保留上下文精確度各≥80%；版本4/4、不足4/4、權限12/12、引用門檻全過。分列必要證據組覆蓋率，失敗不刪題，依曝光規則處理。",
+      "done": false,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 171
+    },
+    {
+      "id": "53",
+      "description": "7.3 執行 `python -m hr_rag.evaluation --split development --mode all --corpus official`，與full比較共同官方題；公司流程題在official應資料不足，不能直接比較不同可回答分母。保存三模式與6/10文件比較。",
+      "done": false,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 172
+    },
+    {
+      "id": "54",
+      "description": "7.4 整理 README：問題、10份資料與維護者、角色矩陣、架構、日期規則、安裝／增量更新／重建／啟動／評估／受限重播／清除／回饋處理／告警檢查命令、OpenAI 金鑰與成本上限設定方式、送往 OpenAI 的資料範圍與 OpenAI API 資料政策連結（附查證日期）、全專案 API 呼叫次數與實際費用、模型硬體、真實量測、已知限制、公司文件／開發題／保留題各由誰撰寫，以及程式參考來源；從乾淨環境依README重做一次並記錄。",
+      "done": false,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 173
+    },
+    {
+      "id": "55",
+      "description": "7.5 完成 reports/acceptance.md，逐項對照五份spec全部Requirement與Scenario、各階段報告及三項能力演示；沒有任何未通過硬門檻才標記MVP完成，且規劃完成不得誤標為此項完成。",
+      "done": false,
+      "sourcePath": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\openspec\\changes\\build-hr-leave-rag-mvp\\tasks.md",
+      "line": 174
+    }
+  ],
+  "taskTrackingConfigured": true,
+  "state": "ready",
+  "instruction": "Read context files, work through pending tasks, mark complete as you go.\nPause if you hit blockers or need clarification.",
+  "context": "Language: zh-TW\nAll artifacts must be written in zh-TW.\nKeep OpenSpec structural headings and SHALL/MUST keywords in English.\n",
+  "root": {
+    "path": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag",
+    "source": "nearest"
+  }
+}

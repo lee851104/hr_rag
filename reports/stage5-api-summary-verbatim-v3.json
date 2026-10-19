@@ -1,0 +1,162 @@
+{
+  "previous_summary_path": "reports\\stage5-api-summary-verbatim.json",
+  "previous_summary_sha256": "ee22cda175586bfaed96394e4662c0ecfd25b40da8123b008e8cdd3677ac7287",
+  "runs": {
+    "verbatim-dependencies-pilot-v1": {
+      "api_exchanges": 8,
+      "estimated_usd": "0.022034",
+      "input_tokens": 9913,
+      "output_tokens": 276,
+      "models": [
+        "gpt-4.1-2025-04-14"
+      ],
+      "path": ".runtime\\stage5-private\\verbatim-dependencies-pilot-v1.json",
+      "sha256": "38bd6039b1fe77d853a5e6279e22937c1d10ffb7fe9c26ae8d18e0cd8a304241",
+      "accepted": false
+    },
+    "verbatim-identity-pilot-v1": {
+      "api_exchanges": 8,
+      "estimated_usd": "0.023686",
+      "input_tokens": 11067,
+      "output_tokens": 194,
+      "models": [
+        "gpt-4.1-2025-04-14"
+      ],
+      "path": ".runtime\\stage5-private\\verbatim-identity-pilot-v1.json",
+      "sha256": "221c139e0ca6be340eac10b5d79d2f38594486ba6ecd3be469853eb5a94e3c0d",
+      "accepted": false
+    },
+    "feasibility-verbatim-gpt41-v2": {
+      "api_exchanges": 5,
+      "estimated_usd": "0.027050",
+      "input_tokens": 12857,
+      "output_tokens": 167,
+      "models": [
+        "gpt-4.1-2025-04-14"
+      ],
+      "path": ".runtime\\stage5-private\\feasibility-verbatim-gpt41-v2.json",
+      "sha256": "6185d1d68c2ee477fb3a43b70230f2cadd5ffe16df61ea0fe2178f3eb085ccad",
+      "accepted": false,
+      "summary": {
+        "count": 5,
+        "auto_pass": 3,
+        "all_traditional": false,
+        "all_below_timeout": true,
+        "p50_total_seconds": 10.6496,
+        "p95_total_seconds": 16.0831,
+        "known_cost_usd": "0.027050",
+        "cost_usd": "0.027050",
+        "reserved_cost_usd": "0",
+        "accounted_cost_usd": "0.027050",
+        "cost_complete": true,
+        "mean_cost_usd": "0.005410",
+        "automatic_gate_pass": false,
+        "manual_review": "pending"
+      }
+    },
+    "feasibility-verbatim-gpt41-v3": {
+      "api_exchanges": 5,
+      "estimated_usd": "0.027220",
+      "input_tokens": 12982,
+      "output_tokens": 157,
+      "models": [
+        "gpt-4.1-2025-04-14"
+      ],
+      "path": ".runtime\\stage5-private\\feasibility-verbatim-gpt41-v3.json",
+      "sha256": "0e60aaa6f484ccbb7902f9f783098ad38de111c598657a4adf17d6b4f8e76b28",
+      "accepted": false,
+      "summary": {
+        "count": 5,
+        "auto_pass": 4,
+        "all_traditional": true,
+        "all_below_timeout": true,
+        "p50_total_seconds": 12.8731,
+        "p95_total_seconds": 13.4248,
+        "known_cost_usd": "0.027220",
+        "cost_usd": "0.027220",
+        "reserved_cost_usd": "0",
+        "accounted_cost_usd": "0.027220",
+        "cost_complete": true,
+        "mean_cost_usd": "0.005444",
+        "automatic_gate_pass": true,
+        "manual_review": "pending"
+      }
+    },
+    "development-verbatim-gpt41-v3": {
+      "api_exchanges": 26,
+      "estimated_usd": "0.065852",
+      "input_tokens": 29338,
+      "output_tokens": 897,
+      "models": [
+        "gpt-4.1-2025-04-14"
+      ],
+      "path": ".runtime\\stage5-private\\development-verbatim-gpt41-v3.json",
+      "sha256": "06b51dc6105ebb56369bec45f08754563a515ea228f9fa6c3835a07af49ae015",
+      "accepted": false,
+      "summary": {
+        "planned_executions": 26,
+        "completed_executions": 26,
+        "complete": true,
+        "statuses": {
+          "answered": 18,
+          "insufficient": 8
+        },
+        "api_calls": 26,
+        "human_review_pending": true,
+        "accepted": false
+      },
+      "status_matches": 26,
+      "missing_required_evidence": [
+        [
+          "D11",
+          "employee",
+          1
+        ]
+      ],
+      "forbidden_contexts": [],
+      "verbatim_claims": 36,
+      "total_claims": 36
+    },
+    "stability-verbatim-gpt41-v3": {
+      "api_exchanges": 18,
+      "estimated_usd": "0.041900",
+      "input_tokens": 18210,
+      "output_tokens": 685,
+      "models": [
+        "gpt-4.1-2025-04-14"
+      ],
+      "path": ".runtime\\stage5-private\\stability-verbatim-gpt41-v3.json",
+      "sha256": "35e559b1c4d6a80d8c543df29374235582008ead1c54fd5ea1ac20cd4e4ba69b",
+      "accepted": false,
+      "summary": {
+        "planned_executions": 18,
+        "completed_executions": 18,
+        "complete": true,
+        "statuses": {
+          "answered": 12,
+          "insufficient": 6
+        },
+        "api_calls": 18,
+        "human_review_pending": true,
+        "accepted": false
+      },
+      "status_matches": 18,
+      "missing_required_evidence": [],
+      "forbidden_contexts": [],
+      "verbatim_claims": 37,
+      "total_claims": 37
+    }
+  },
+  "added_usd": "0.207742",
+  "project_totals": {
+    "settled_usd": "0.8992952",
+    "reserved_usd": "0",
+    "attempts": 445
+  },
+  "ledger_reconciled": true,
+  "cost_cap_usd": "1",
+  "stage5_accepted": false,
+  "stage6_started": false,
+  "human_review_pending": true,
+  "candidate_sha256": "51b30d63c147bdee5211c2477d24218a8e1e62749f196e9b7ecc7ec09bd3e1ba"
+}

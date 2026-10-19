@@ -1,0 +1,618 @@
+{
+  "schema_version": 1,
+  "documents": [
+    {
+      "document_id": "O01",
+      "version_id": "snapshot-2026-10-18",
+      "title": "勞動基準法",
+      "source_type": "official",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0030001",
+      "is_synthetic": false,
+      "published_at": "1984-07-30",
+      "revised_at": "2024-07-31",
+      "effective_from": "1984-08-01",
+      "effective_to": null,
+      "allowed_roles": [
+        "employee",
+        "manager",
+        "hr"
+      ],
+      "content_sha256": "dddea6f9a05e0ab6381cd93df6b6370e5ab6f3d5b6590f62301b5052c79b99f0",
+      "raw_sha256": "717407baa379e6e917b10a48c14f66df4c5e797dfd19a263029ee991a17caa7b",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "raw_path": "data/raw/official-2026-10-18/O01.html",
+      "normalized_path": "data/normalized/O01-snapshot-2026-10-18.json",
+      "last_reviewed_at": "2026-10-18",
+      "next_review_due": "2026-11-17",
+      "fetched_at": "2026-10-18T03:46:42.987894+00:00",
+      "source_publisher": "全國法規資料庫（法務部）",
+      "maintenance_owner": "專案資料維護者",
+      "author": "官方原文；Codex擷取整理（待人工核對）",
+      "date_evidence": "制定／發布：中華民國七十三年七月三十日；最後修正日期：民國 113 年 07 月 31 日。全文 data/raw/official-2026-10-18/O01.html 第86條；沿革 data/raw/official-2026-10-18/O01-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030001；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。文件起日取索引條文最早起日，逐條日期才是有效性依據；不代表完整歷史版本庫。",
+      "indexed_sections": [
+        {
+          "section_id": "38",
+          "effective_from": "2018-03-01",
+          "effective_to": null,
+          "date_evidence": "沿革19：一百零七年一月三十一日；第86條明定一百零七年三月一日施行。全文 data/raw/official-2026-10-18/O01.html 第86條；沿革 data/raw/official-2026-10-18/O01-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030001；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "39",
+          "effective_from": "2016-12-23",
+          "effective_to": null,
+          "date_evidence": "沿革17：一百零五年十二月二十一日；自公布日施行，依中央法規標準法13加2日。全文 data/raw/official-2026-10-18/O01.html 第86條；沿革 data/raw/official-2026-10-18/O01-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030001；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "43",
+          "effective_from": "1984-08-01",
+          "effective_to": null,
+          "date_evidence": "沿革1：七十三年七月三十日制定，後續未改本條；第86條自公布日施行，加2日。全文 data/raw/official-2026-10-18/O01.html 第86條；沿革 data/raw/official-2026-10-18/O01-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030001；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        }
+      ]
+    },
+    {
+      "document_id": "O02",
+      "version_id": "snapshot-2026-10-18",
+      "title": "勞動基準法施行細則",
+      "source_type": "official",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0030002",
+      "is_synthetic": false,
+      "published_at": "1985-02-27",
+      "revised_at": "2024-03-27",
+      "effective_from": "1997-06-14",
+      "effective_to": null,
+      "allowed_roles": [
+        "employee",
+        "manager",
+        "hr"
+      ],
+      "content_sha256": "7bfa91d7a58d753a099cbbf71c0dbfd3f90a3260d2407dc1747815d78ec3c44b",
+      "raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "raw_path": "data/raw/official-2026-10-18/O02.html",
+      "normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+      "last_reviewed_at": "2026-10-18",
+      "next_review_due": "2026-11-17",
+      "fetched_at": "2026-10-18T03:46:43.640288+00:00",
+      "source_publisher": "全國法規資料庫（法務部）",
+      "maintenance_owner": "專案資料維護者",
+      "author": "官方原文；Codex擷取整理（待人工核對）",
+      "date_evidence": "制定／發布：中華民國七十四年二月二十七日；最後修正日期：民國 113 年 03 月 27 日。全文 data/raw/official-2026-10-18/O02.html 第51條；沿革 data/raw/official-2026-10-18/O02-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030002；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。文件起日取索引條文最早起日，逐條日期才是有效性依據；不代表完整歷史版本庫。",
+      "indexed_sections": [
+        {
+          "section_id": "5",
+          "effective_from": "1997-06-14",
+          "effective_to": null,
+          "date_evidence": "沿革2：八十六年六月十二日；第51條自發布日施行，加2日。全文 data/raw/official-2026-10-18/O02.html 第51條；沿革 data/raw/official-2026-10-18/O02-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030002；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "7",
+          "effective_from": "2017-06-18",
+          "effective_to": null,
+          "date_evidence": "沿革14：一百零六年六月十六日；第51條自發布日施行，加2日。全文 data/raw/official-2026-10-18/O02.html 第51條；沿革 data/raw/official-2026-10-18/O02-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030002；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "24",
+          "effective_from": "2017-06-18",
+          "effective_to": null,
+          "date_evidence": "沿革14：一百零六年六月十六日；第51條自發布日施行，加2日。全文 data/raw/official-2026-10-18/O02.html 第51條；沿革 data/raw/official-2026-10-18/O02-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030002；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "24-1",
+          "effective_from": "2018-03-01",
+          "effective_to": null,
+          "date_evidence": "沿革15：一百零七年二月二十七日；第51條自發布日施行，加2日。全文 data/raw/official-2026-10-18/O02.html 第51條；沿革 data/raw/official-2026-10-18/O02-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030002；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        }
+      ]
+    },
+    {
+      "document_id": "O03",
+      "version_id": "snapshot-2026-10-18",
+      "title": "勞工請假規則",
+      "source_type": "official",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0030006",
+      "is_synthetic": false,
+      "published_at": "1985-03-20",
+      "revised_at": "2026-09-30",
+      "effective_from": "1985-03-22",
+      "effective_to": null,
+      "allowed_roles": [
+        "employee",
+        "manager",
+        "hr"
+      ],
+      "content_sha256": "0adaf2637de90d3da363a7fbef0b3bbedb06e19969f4a8f4902d1eca089e4f1b",
+      "raw_sha256": "5ecf516d71f15be05995892d8abfb985d1111f2cad21abf72fe9f8e78f7668c2",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "raw_path": "data/raw/official-2026-10-18/O03.html",
+      "normalized_path": "data/normalized/O03-snapshot-2026-10-18.json",
+      "last_reviewed_at": "2026-10-18",
+      "next_review_due": "2026-11-17",
+      "fetched_at": "2026-10-18T03:46:43.807486+00:00",
+      "source_publisher": "全國法規資料庫（法務部）",
+      "maintenance_owner": "專案資料維護者",
+      "author": "官方原文；Codex擷取整理（待人工核對）",
+      "date_evidence": "制定／發布：中華民國七十四年三月二十日；最後修正日期：民國 115 年 09 月 30 日。全文 data/raw/official-2026-10-18/O03.html 第12條；沿革 data/raw/official-2026-10-18/O03-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030006；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。文件起日取索引條文最早起日，逐條日期才是有效性依據；不代表完整歷史版本庫。",
+      "indexed_sections": [
+        {
+          "section_id": "2",
+          "effective_from": "2026-10-01",
+          "effective_to": null,
+          "date_evidence": "沿革9：一百十五年九月三十日；第12條明定一百十五年十月一日施行。全文 data/raw/official-2026-10-18/O03.html 第12條；沿革 data/raw/official-2026-10-18/O03-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030006；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "3",
+          "effective_from": "2011-10-16",
+          "effective_to": null,
+          "date_evidence": "沿革5：一百年十月十四日；第12條自發布日施行，加2日。全文 data/raw/official-2026-10-18/O03.html 第12條；沿革 data/raw/official-2026-10-18/O03-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030006；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "4",
+          "effective_from": "2010-05-06",
+          "effective_to": null,
+          "date_evidence": "沿革4：九十九年五月四日；第12條自發布日施行，加2日。全文 data/raw/official-2026-10-18/O03.html 第12條；沿革 data/raw/official-2026-10-18/O03-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030006；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "5",
+          "effective_from": "1985-03-22",
+          "effective_to": null,
+          "date_evidence": "沿革1：七十四年三月二十日制定，後續未改本條；第12條自發布日施行，加2日。全文 data/raw/official-2026-10-18/O03.html 第12條；沿革 data/raw/official-2026-10-18/O03-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030006；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "6",
+          "effective_from": "2019-01-17",
+          "effective_to": null,
+          "date_evidence": "沿革6：一百零八年一月十五日；第12條自發布日施行，加2日。全文 data/raw/official-2026-10-18/O03.html 第12條；沿革 data/raw/official-2026-10-18/O03-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030006；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "7",
+          "effective_from": "2026-01-01",
+          "effective_to": null,
+          "date_evidence": "沿革8：一百十四年十二月九日；第12條明定一百十五年一月一日施行。全文 data/raw/official-2026-10-18/O03.html 第12條；沿革 data/raw/official-2026-10-18/O03-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030006；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "8",
+          "effective_from": "1985-03-22",
+          "effective_to": null,
+          "date_evidence": "沿革1：七十四年三月二十日制定，後續未改本條；第12條自發布日施行，加2日。全文 data/raw/official-2026-10-18/O03.html 第12條；沿革 data/raw/official-2026-10-18/O03-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030006；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "9",
+          "effective_from": "2026-01-01",
+          "effective_to": null,
+          "date_evidence": "沿革8：一百十四年十二月九日；第12條明定一百十五年一月一日施行。全文 data/raw/official-2026-10-18/O03.html 第12條；沿革 data/raw/official-2026-10-18/O03-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030006；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "9-1",
+          "effective_from": "2026-01-01",
+          "effective_to": null,
+          "date_evidence": "沿革8：一百十四年十二月九日增訂；第12條明定一百十五年一月一日施行。全文 data/raw/official-2026-10-18/O03.html 第12條；沿革 data/raw/official-2026-10-18/O03-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030006；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "10",
+          "effective_from": "1985-03-22",
+          "effective_to": null,
+          "date_evidence": "沿革1：七十四年三月二十日制定，後續未改本條；第12條自發布日施行，加2日。全文 data/raw/official-2026-10-18/O03.html 第12條；沿革 data/raw/official-2026-10-18/O03-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030006；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        }
+      ]
+    },
+    {
+      "document_id": "O04",
+      "version_id": "snapshot-2026-10-18",
+      "title": "性別平等工作法",
+      "source_type": "official",
+      "source_url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0030014",
+      "is_synthetic": false,
+      "published_at": "2002-01-16",
+      "revised_at": "2023-08-16",
+      "effective_from": "2008-01-18",
+      "effective_to": null,
+      "allowed_roles": [
+        "employee",
+        "manager",
+        "hr"
+      ],
+      "content_sha256": "10d35d16328bfabf9b765469c6fbdb53f1aa419d169f8913b940d1cdd4f1b74e",
+      "raw_sha256": "243dad298e558a2fd8f404bc2f8f1d6e6554fb77bb4af15b1c1505ece87983f1",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "raw_path": "data/raw/official-2026-10-18/O04.html",
+      "normalized_path": "data/normalized/O04-snapshot-2026-10-18.json",
+      "last_reviewed_at": "2026-10-18",
+      "next_review_due": "2026-11-17",
+      "fetched_at": "2026-10-18T03:46:44.993807+00:00",
+      "source_publisher": "全國法規資料庫（法務部）",
+      "maintenance_owner": "專案資料維護者",
+      "author": "官方原文；Codex擷取整理（待人工核對）",
+      "date_evidence": "制定／發布：中華民國九十一年一月十六日；最後修正日期：民國 112 年 08 月 16 日。全文 data/raw/official-2026-10-18/O04.html 第40條；沿革 data/raw/official-2026-10-18/O04-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030014；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。文件起日取索引條文最早起日，逐條日期才是有效性依據；不代表完整歷史版本庫。",
+      "indexed_sections": [
+        {
+          "section_id": "14",
+          "effective_from": "2014-12-13",
+          "effective_to": null,
+          "date_evidence": "沿革7：一百零三年十二月十一日；第40條本次修正自公布日施行，加2日。全文 data/raw/official-2026-10-18/O04.html 第40條；沿革 data/raw/official-2026-10-18/O04-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030014；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "15",
+          "effective_from": "2022-01-18",
+          "effective_to": null,
+          "date_evidence": "沿革9：一百十一年一月十二日；一百十一年一月十七日行政院院臺勞字第1110001084號令定一百十一年一月十八日施行。全文 data/raw/official-2026-10-18/O04.html 第40條；沿革 data/raw/official-2026-10-18/O04-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030014；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "16",
+          "effective_from": "2014-12-13",
+          "effective_to": null,
+          "date_evidence": "沿革7：一百零三年十二月十一日；第40條本次修正自公布日施行，加2日；非97年版第16條。全文 data/raw/official-2026-10-18/O04.html 第40條；沿革 data/raw/official-2026-10-18/O04-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030014；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "20",
+          "effective_from": "2011-01-07",
+          "effective_to": null,
+          "date_evidence": "沿革4：一百年一月五日；第40條本次修正自公布日施行，加2日。全文 data/raw/official-2026-10-18/O04.html 第40條；沿革 data/raw/official-2026-10-18/O04-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030014；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        },
+        {
+          "section_id": "21",
+          "effective_from": "2008-01-18",
+          "effective_to": null,
+          "date_evidence": "沿革2：九十七年一月十六日；第40條本次修正自公布日施行，加2日；另定施行日的第16條不在此列。全文 data/raw/official-2026-10-18/O04.html 第40條；沿革 data/raw/official-2026-10-18/O04-history.html；https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=N0030014；自公布／發布日施行之第三日規則 https://law.moj.gov.tw/LawClass/LawSingle.aspx?flno=13&pcode=A0030133。"
+        }
+      ]
+    },
+    {
+      "document_id": "O05",
+      "version_id": "snapshot-2026-10-18",
+      "title": "特休申請、預排與事病假轉換問答（單則問答）",
+      "source_type": "official",
+      "source_url": "https://www.mol.gov.tw/1607/28690/2282/2284/2292/81186/post",
+      "is_synthetic": false,
+      "published_at": "2025-07-07",
+      "revised_at": null,
+      "effective_from": "2025-07-07",
+      "effective_to": null,
+      "allowed_roles": [
+        "employee",
+        "manager",
+        "hr"
+      ],
+      "content_sha256": "7c7d385c4f88cfa97cf257d6410c9b95dbc5ca1127714268697cceb94260703d",
+      "raw_sha256": "ce7987cafe2b4472913da3c8b2956b5136bc822af303bf076c6acdcf99d39230",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "raw_path": "data/raw/official-2026-10-18/O05.html",
+      "normalized_path": "data/normalized/O05-snapshot-2026-10-18.json",
+      "last_reviewed_at": "2026-10-18",
+      "next_review_due": "2026-11-17",
+      "fetched_at": "2026-10-18T03:46:45.071085+00:00",
+      "source_publisher": "勞動部",
+      "maintenance_owner": "專案資料維護者",
+      "author": "官方原文；Codex擷取整理（待人工核對）",
+      "date_evidence": "依問答發布日期，非法規生效日：發布日期:2025-07-07；項目更新日期:2026-04-23，尚無內容變更比對證據，revised_at留空；不使用網站頁尾更新日。原文 data/raw/official-2026-10-18/O05.html；https://www.mol.gov.tw/1607/28690/2282/2284/2292/81186/post",
+      "indexed_sections": [
+        {
+          "section_id": "qa",
+          "effective_from": "2025-07-07",
+          "effective_to": null,
+          "date_evidence": "依問答發布日期，非法規生效日：發布日期:2025-07-07；項目更新日期:2026-04-23，尚無內容變更比對證據，revised_at留空；不使用網站頁尾更新日。原文 data/raw/official-2026-10-18/O05.html；https://www.mol.gov.tw/1607/28690/2282/2284/2292/81186/post"
+        }
+      ]
+    },
+    {
+      "document_id": "O06",
+      "version_id": "snapshot-2026-10-18",
+      "title": "曆年制、遞延與離職結算問答（單則問答）",
+      "source_type": "official",
+      "source_url": "https://www.mol.gov.tw/1607/28690/2282/2284/2292/81173/post",
+      "is_synthetic": false,
+      "published_at": "2025-07-07",
+      "revised_at": null,
+      "effective_from": "2025-07-07",
+      "effective_to": null,
+      "allowed_roles": [
+        "employee",
+        "manager",
+        "hr"
+      ],
+      "content_sha256": "d63d21088be095314e38b19a8f7f1bade6b1ac0b1e196ac35de82553bb2cf395",
+      "raw_sha256": "fa81deb635fa36747b3036682249a00f2a30c85f9bcbaa46b7a91ad34f827e2d",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "raw_path": "data/raw/official-2026-10-18/O06.html",
+      "normalized_path": "data/normalized/O06-snapshot-2026-10-18.json",
+      "last_reviewed_at": "2026-10-18",
+      "next_review_due": "2026-11-17",
+      "fetched_at": "2026-10-18T03:46:45.910950+00:00",
+      "source_publisher": "勞動部",
+      "maintenance_owner": "專案資料維護者",
+      "author": "官方原文；Codex擷取整理（待人工核對）",
+      "date_evidence": "依問答發布日期，非法規生效日：發布日期:2025-07-07；項目更新日期:2026-04-23，尚無內容變更比對證據，revised_at留空；不使用網站頁尾更新日。原文 data/raw/official-2026-10-18/O06.html；https://www.mol.gov.tw/1607/28690/2282/2284/2292/81173/post",
+      "indexed_sections": [
+        {
+          "section_id": "qa",
+          "effective_from": "2025-07-07",
+          "effective_to": null,
+          "date_evidence": "依問答發布日期，非法規生效日：發布日期:2025-07-07；項目更新日期:2026-04-23，尚無內容變更比對證據，revised_at留空；不使用網站頁尾更新日。原文 data/raw/official-2026-10-18/O06.html；https://www.mol.gov.tw/1607/28690/2282/2284/2292/81173/post"
+        }
+      ]
+    },
+    {
+      "document_id": "C01",
+      "version_id": "v1",
+      "title": "模擬公司請假與特休管理辦法",
+      "source_type": "company",
+      "source_url": null,
+      "is_synthetic": true,
+      "published_at": "2026-01-01",
+      "revised_at": null,
+      "effective_from": "2026-01-01",
+      "effective_to": "2026-10-01",
+      "allowed_roles": [
+        "employee",
+        "manager",
+        "hr"
+      ],
+      "content_sha256": "13c078dd4af9e36bbf32efaff36b43bd357580320d8612ef7ac5d0b9ea345ce9",
+      "raw_sha256": "a93f27f4476f6d150edd47da1d0cb7c59cf7b953d366c53ab1f2c1b9a6b70387",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "raw_path": "data/raw/company/C01-v1.md",
+      "normalized_path": "data/normalized/C01-v1.json",
+      "last_reviewed_at": "2026-10-18",
+      "next_review_due": "2026-11-17",
+      "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 2026-10-01)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。",
+      "fetched_at": "2026-10-18T03:53:44.823200+00:00",
+      "source_publisher": "專案自編（虛構示範）",
+      "maintenance_owner": "專案制度維護者",
+      "author": "Codex (LLM draft)",
+      "indexed_sections": [
+        {
+          "section_id": "scope",
+          "effective_from": "2026-01-01",
+          "effective_to": "2026-10-01",
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 2026-10-01)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        },
+        {
+          "section_id": "application",
+          "effective_from": "2026-01-01",
+          "effective_to": "2026-10-01",
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 2026-10-01)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        },
+        {
+          "section_id": "documentation",
+          "effective_from": "2026-01-01",
+          "effective_to": "2026-10-01",
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 2026-10-01)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        },
+        {
+          "section_id": "coordination",
+          "effective_from": "2026-01-01",
+          "effective_to": "2026-10-01",
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 2026-10-01)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        }
+      ]
+    },
+    {
+      "document_id": "C01",
+      "version_id": "v2",
+      "title": "模擬公司請假與特休管理辦法",
+      "source_type": "company",
+      "source_url": null,
+      "is_synthetic": true,
+      "published_at": "2026-10-01",
+      "revised_at": "2026-10-01",
+      "effective_from": "2026-10-01",
+      "effective_to": null,
+      "allowed_roles": [
+        "employee",
+        "manager",
+        "hr"
+      ],
+      "content_sha256": "8839c02ab9209fee01e4208ee5c95f4f055e5c766075b055ab1df9bbc88e7c23",
+      "raw_sha256": "9b2099cb29be73fbeae94978495d64b51697ed4ea1f757281d1d2241851313c4",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "raw_path": "data/raw/company/C01-v2.md",
+      "normalized_path": "data/normalized/C01-v2.json",
+      "last_reviewed_at": "2026-10-18",
+      "next_review_due": "2026-11-17",
+      "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-10-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。",
+      "fetched_at": "2026-10-18T03:53:44.825197+00:00",
+      "source_publisher": "專案自編（虛構示範）",
+      "maintenance_owner": "專案制度維護者",
+      "author": "Codex (LLM draft)",
+      "indexed_sections": [
+        {
+          "section_id": "scope",
+          "effective_from": "2026-10-01",
+          "effective_to": null,
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-10-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        },
+        {
+          "section_id": "application",
+          "effective_from": "2026-10-01",
+          "effective_to": null,
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-10-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        },
+        {
+          "section_id": "documentation",
+          "effective_from": "2026-10-01",
+          "effective_to": null,
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-10-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        },
+        {
+          "section_id": "coordination",
+          "effective_from": "2026-10-01",
+          "effective_to": null,
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-10-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        }
+      ]
+    },
+    {
+      "document_id": "C02",
+      "version_id": "v1",
+      "title": "模擬公司請假申請與補件流程FAQ",
+      "source_type": "company",
+      "source_url": null,
+      "is_synthetic": true,
+      "published_at": "2026-01-01",
+      "revised_at": null,
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "allowed_roles": [
+        "employee",
+        "manager",
+        "hr"
+      ],
+      "content_sha256": "6d1dd147072caca279a86cf17697b84989ab70fc7e85302cabc84beffe9907cd",
+      "raw_sha256": "34d5c7386fe8b797176806c50c573323708171735c3473501821e6fc93e7664e",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "raw_path": "data/raw/company/C02-v1.md",
+      "normalized_path": "data/normalized/C02-v1.json",
+      "last_reviewed_at": "2026-10-18",
+      "next_review_due": "2026-11-17",
+      "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。",
+      "fetched_at": "2026-10-18T03:53:44.826198+00:00",
+      "source_publisher": "專案自編（虛構示範）",
+      "maintenance_owner": "專案制度維護者",
+      "author": "Codex (LLM draft)",
+      "indexed_sections": [
+        {
+          "section_id": "scope",
+          "effective_from": "2026-01-01",
+          "effective_to": null,
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        },
+        {
+          "section_id": "application",
+          "effective_from": "2026-01-01",
+          "effective_to": null,
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        },
+        {
+          "section_id": "supplement",
+          "effective_from": "2026-01-01",
+          "effective_to": null,
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        },
+        {
+          "section_id": "tracking",
+          "effective_from": "2026-01-01",
+          "effective_to": null,
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        }
+      ]
+    },
+    {
+      "document_id": "C03",
+      "version_id": "v1",
+      "title": "模擬公司主管請假審核作業",
+      "source_type": "company",
+      "source_url": null,
+      "is_synthetic": true,
+      "published_at": "2026-01-01",
+      "revised_at": null,
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "allowed_roles": [
+        "manager",
+        "hr"
+      ],
+      "content_sha256": "334033ee3dab901fb576c7750f5fa88e11da941a7a99b942fb2e326f62fe58f5",
+      "raw_sha256": "fa89ebe8ce9520cc25382f065c0ae7241a14817c94b5325ef668c3bcd3737d60",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "raw_path": "data/raw/company/C03-v1.md",
+      "normalized_path": "data/normalized/C03-v1.json",
+      "last_reviewed_at": "2026-10-18",
+      "next_review_due": "2026-11-17",
+      "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。",
+      "fetched_at": "2026-10-18T03:53:44.828198+00:00",
+      "source_publisher": "專案自編（虛構示範）",
+      "maintenance_owner": "專案制度維護者",
+      "author": "Codex (LLM draft)",
+      "indexed_sections": [
+        {
+          "section_id": "scope",
+          "effective_from": "2026-01-01",
+          "effective_to": null,
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        },
+        {
+          "section_id": "review",
+          "effective_from": "2026-01-01",
+          "effective_to": null,
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        },
+        {
+          "section_id": "supplement",
+          "effective_from": "2026-01-01",
+          "effective_to": null,
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        },
+        {
+          "section_id": "delegation",
+          "effective_from": "2026-01-01",
+          "effective_to": null,
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        }
+      ]
+    },
+    {
+      "document_id": "C04",
+      "version_id": "v1",
+      "title": "模擬公司HR假勤異常處理作業",
+      "source_type": "company",
+      "source_url": null,
+      "is_synthetic": true,
+      "published_at": "2026-01-01",
+      "revised_at": null,
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "allowed_roles": [
+        "hr"
+      ],
+      "content_sha256": "07ab4c1cbe8a73daed6b6357b01609c972bffa73d66c265043f6fcdaab311473",
+      "raw_sha256": "339b634b36b24ff824eb48de7c699bcef8275d347886a58283e1e207a1e1087e",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "raw_path": "data/raw/company/C04-v1.md",
+      "normalized_path": "data/normalized/C04-v1.json",
+      "last_reviewed_at": "2026-10-18",
+      "next_review_due": "2026-11-17",
+      "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。",
+      "fetched_at": "2026-10-18T03:53:44.830200+00:00",
+      "source_publisher": "專案自編（虛構示範）",
+      "maintenance_owner": "專案制度維護者",
+      "author": "Codex (LLM draft)",
+      "indexed_sections": [
+        {
+          "section_id": "scope",
+          "effective_from": "2026-01-01",
+          "effective_to": null,
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        },
+        {
+          "section_id": "exception",
+          "effective_from": "2026-01-01",
+          "effective_to": null,
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        },
+        {
+          "section_id": "payroll",
+          "effective_from": "2026-01-01",
+          "effective_to": null,
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        },
+        {
+          "section_id": "confirmation",
+          "effective_from": "2026-01-01",
+          "effective_to": null,
+          "date_evidence": "虛構示範公司設定，非真實公布或法規日期；區間[2026-01-01, 無迄日)。Codex於2026-10-18草擬，待使用者核對；有效日起日僅為版本測試。"
+        }
+      ]
+    }
+  ]
+}

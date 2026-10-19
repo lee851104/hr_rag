@@ -1,0 +1,22 @@
+{
+  "split": "holdout",
+  "question_count": 10,
+  "category_counts": {
+    "direct": 4,
+    "paraphrase_cross": 3,
+    "version": 1,
+    "permission": 1,
+    "insufficient": 1
+  },
+  "independently_answerable_count": 8,
+  "role_execution_count": 12,
+  "reviewed_count": 10,
+  "authors": [
+    "Claude（不參與實作調參，2026-10-18 草擬）"
+  ],
+  "reviewers": [
+    "使用者",
+    "使用者（Codex 對話確認）"
+  ],
+  "sha256": "ed30ff0f75e95deb0e349ef90a3d063f9b3f3f8e6354c1eff76b6a5ec5981989"
+}

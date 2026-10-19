@@ -1,0 +1,169 @@
+{
+  "$defs": {
+    "Expectation": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_behavior": {
+          "enum": [
+            "answered",
+            "insufficient",
+            "clarify"
+          ],
+          "title": "Expected Behavior",
+          "type": "string"
+        },
+        "answer_key": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Answer Key",
+          "type": "array"
+        },
+        "required_evidence_groups": {
+          "items": {
+            "items": {
+              "$ref": "#/$defs/Reference"
+            },
+            "type": "array"
+          },
+          "title": "Required Evidence Groups",
+          "type": "array"
+        },
+        "forbidden_sources": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Forbidden Sources",
+          "type": "array"
+        }
+      },
+      "required": [
+        "expected_behavior",
+        "answer_key",
+        "required_evidence_groups",
+        "forbidden_sources"
+      ],
+      "title": "Expectation",
+      "type": "object"
+    },
+    "Reference": {
+      "additionalProperties": false,
+      "properties": {
+        "document_id": {
+          "minLength": 1,
+          "title": "Document Id",
+          "type": "string"
+        },
+        "version_id": {
+          "minLength": 1,
+          "title": "Version Id",
+          "type": "string"
+        },
+        "section_id": {
+          "minLength": 1,
+          "title": "Section Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "document_id",
+        "version_id",
+        "section_id"
+      ],
+      "title": "Reference",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "question_id": {
+      "minLength": 1,
+      "title": "Question Id",
+      "type": "string"
+    },
+    "category": {
+      "enum": [
+        "direct",
+        "paraphrase_cross",
+        "version",
+        "permission",
+        "insufficient"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "split": {
+      "enum": [
+        "development",
+        "holdout"
+      ],
+      "title": "Split",
+      "type": "string"
+    },
+    "question": {
+      "minLength": 1,
+      "title": "Question",
+      "type": "string"
+    },
+    "as_of": {
+      "title": "As Of",
+      "type": "string"
+    },
+    "role_expectations": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Expectation"
+      },
+      "title": "Role Expectations",
+      "type": "object"
+    },
+    "author": {
+      "minLength": 1,
+      "title": "Author",
+      "type": "string"
+    },
+    "reviewer": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Reviewer"
+    },
+    "reviewed_at": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Reviewed At"
+    },
+    "review_status": {
+      "enum": [
+        "pending",
+        "verified"
+      ],
+      "title": "Review Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "question_id",
+    "category",
+    "split",
+    "question",
+    "as_of",
+    "role_expectations",
+    "author",
+    "reviewer",
+    "reviewed_at",
+    "review_status"
+  ],
+  "title": "Question",
+  "type": "object"
+}

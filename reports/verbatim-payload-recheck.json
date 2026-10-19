@@ -1,0 +1,10 @@
+{
+  "checked_contexts": 78,
+  "contexts_identical_to_wire_run": 78,
+  "actual_prompt_sha256": "24c1037b6f64f787bc745dfb2817aa82826cddda83087c860c21f442e79eefa4",
+  "original_report_sha256": "ed61250542b575d266d7d87e968f5945805373e07bee8a6d2c7e99598f2e719b",
+  "recorded_prompt_hashes": [
+    "8588fc44662c21aa44e4affff1f4f3e49f2b053ef427bfdaaad8356051c034e2"
+  ],
+  "note": "Original evaluation metadata inherited summary-generator prompt hash. Actual context assembly used explicit Verbatim SYSTEM/schema; all stored input token counts rechecked against that exact payload. Original private report preserved."
+}

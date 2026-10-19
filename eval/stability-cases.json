@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "development_sha256": "06b18e9c8023d515ddad485222fa0634e661c95b26fd9881f235738a07ad21a4",
+  "cases": [
+    {
+      "case_type": "official",
+      "question_id": "D01",
+      "role": "employee",
+      "as_of": "2026-10-18",
+      "expected_result": {
+        "expected_behavior": "answered",
+        "answer_key": [
+          "婚假十四日。",
+          "婚假期間工資照給。"
+        ],
+        "required_evidence_groups": [
+          [
+            {
+              "document_id": "O03",
+              "version_id": "snapshot-2026-10-18",
+              "section_id": "2"
+            }
+          ]
+        ],
+        "forbidden_sources": [
+          "C03",
+          "C04"
+        ]
+      },
+      "question_sha256": "43d94e31b27c8fe4e0cec4e81de85dce811caae3aa7ce75261fd4cb2a75b0c79"
+    },
+    {
+      "case_type": "company",
+      "question_id": "D05",
+      "role": "employee",
+      "as_of": "2026-10-18",
+      "expected_result": {
+        "expected_behavior": "answered",
+        "answer_key": [
+          "本回答是虛構公司內部流程，非真實公司制度。",
+          "填寫假別、起迄日期及必要說明。",
+          "證明必要性與範圍依適用法令判斷；窗口只通知待釐清項目，不要求與請假無關資料。",
+          "緊急情形先以可行方式通知，再處理後續紀錄；不得因內部表單未完成直接否定法定請假權利。"
+        ],
+        "required_evidence_groups": [
+          [
+            {
+              "document_id": "C01",
+              "version_id": "v2",
+              "section_id": "documentation"
+            }
+          ]
+        ],
+        "forbidden_sources": [
+          "C03",
+          "C04"
+        ]
+      },
+      "question_sha256": "f22f040e422c38807c05178939a489302fb9f151116e33a0082cef44a90fe2c9"
+    },
+    {
+      "case_type": "cross_document",
+      "question_id": "D09",
+      "role": "employee",
+      "as_of": "2026-10-18",
+      "expected_result": {
+        "expected_behavior": "answered",
+        "answer_key": [
+          "家庭成員嚴重疾病須親自照顧可請家庭照顧假，全年以七日為限，日數併入事假計算。",
+          "家庭照顧假薪資依各該事假規定辦理；勞工事假期間不給工資。",
+          "雇主不得拒絕依法提出的請求，亦不得視為缺勤影響全勤獎金、考績或為其他不利處分。"
+        ],
+        "required_evidence_groups": [
+          [
+            {
+              "document_id": "O04",
+              "version_id": "snapshot-2026-10-18",
+              "section_id": "20"
+            }
+          ],
+          [
+            {
+              "document_id": "O03",
+              "version_id": "snapshot-2026-10-18",
+              "section_id": "7"
+            }
+          ],
+          [
+            {
+              "document_id": "O04",
+              "version_id": "snapshot-2026-10-18",
+              "section_id": "21"
+            }
+          ]
+        ],
+        "forbidden_sources": [
+          "C03",
+          "C04"
+        ]
+      },
+      "question_sha256": "f5e84d7da82bad0f4614a7bef97c19f11a65be205d6f30ca741b823f7557172b"
+    },
+    {
+      "case_type": "version",
+      "question_id": "D13",
+      "role": "employee",
+      "as_of": "2026-10-01",
+      "expected_result": {
+        "expected_behavior": "answered",
+        "answer_key": [
+          "適用虛構公司C01 v2，由人資服務窗口受理。",
+          "在請假系統原申請附補件單B-02及必要資料，由人資服務窗口確認併入原申請紀錄。",
+          "這是內部收件與追蹤流程，不新增法定請假的限制。"
+        ],
+        "required_evidence_groups": [
+          [
+            {
+              "document_id": "C01",
+              "version_id": "v2",
+              "section_id": "application"
+            }
+          ]
+        ],
+        "forbidden_sources": [
+          "C03",
+          "C04"
+        ]
+      },
+      "question_sha256": "410ce46127ae9a2cd4b854c2266ec5721ae0fa374fc192bdeab9018d8f0cfbf6"
+    },
+    {
+      "case_type": "permission",
+      "question_id": "D16",
+      "role": "employee",
+      "as_of": "2026-10-18",
+      "expected_result": {
+        "expected_behavior": "insufficient",
+        "answer_key": [],
+        "required_evidence_groups": [],
+        "forbidden_sources": [
+          "C03",
+          "C04"
+        ]
+      },
+      "question_sha256": "92d1d45b3bf52c2d84300e7715c35d613aad46e708e5f5f35fdaf39a925c620b"
+    },
+    {
+      "case_type": "insufficient",
+      "question_id": "D18",
+      "role": "employee",
+      "as_of": "2026-10-18",
+      "expected_result": {
+        "expected_behavior": "insufficient",
+        "answer_key": [],
+        "required_evidence_groups": [],
+        "forbidden_sources": [
+          "C03",
+          "C04"
+        ]
+      },
+      "question_sha256": "d913ab1920cb72016a19b1285b29f8aeddecdd5a5c084432064a7eaafcd31be9"
+    }
+  ]
+}

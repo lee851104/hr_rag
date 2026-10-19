@@ -1,0 +1,57 @@
+{
+  "stage": 3,
+  "status": "verified",
+  "verified_at": "2026-10-18",
+  "stage_2_human_review": "S01–S20 verified by user",
+  "tests": {
+    "stage_3": {
+      "passed": 49,
+      "duration_seconds": 23.54
+    },
+    "full": {
+      "passed": 281,
+      "skipped": 1,
+      "warnings": 1,
+      "duration_seconds": 140.69,
+      "skip_reason": "Windows symlink privilege unavailable"
+    },
+    "fresh_venv_policy": {
+      "passed": 33,
+      "duration_seconds": 0.55
+    }
+  },
+  "checks": {
+    "ruff": "passed",
+    "format": "37 files unchanged",
+    "openspec_strict": "passed",
+    "fresh_venv_hash_install": "64 packages installed",
+    "pip_check": "passed",
+    "actual_uvicorn_cli": "GET /login 200; owned process stopped"
+  },
+  "review": {
+    "critical": 0,
+    "important_found": 2,
+    "important_resolved": 2,
+    "regression_cases_added_after_review": 13
+  },
+  "code_sha256": {
+    "src/hr_rag/auth.py": "67c20b4b987ed04b61b33a7064b1ac9eef7d2ac26c9d0e9edc05902d2614b1d8",
+    "src/hr_rag/policy.py": "78908bf8c9dcdb8a63c0ecc788409fa4eb215454b34608660a48a8a0b5ff3cfb",
+    "src/hr_rag/citations.py": "09fb62c7976697ebc3c16d4e636a7117f7f86ee69ff3877c1f734c42b2571c90",
+    "src/hr_rag/web.py": "a9c99feda1aa2ed9a3a3bd44ab7ac470651beda45a544d846be90b351a077154",
+    "tests/test_auth.py": "4bd51789982a8eee8c54cbc485390b4a63a26ca48e2fbe9f34f1914c484ef0e3",
+    "tests/test_policy.py": "9d027c11213312e1bafd2d1ed6036b3dae18a252ac8ccd06d20047c3618fb6c8",
+    "tests/test_citation_access.py": "2ed8b64838a20f0135cb6981d6eb75d097e7c86b8e4f01340798de9daf6d3aca",
+    "tests/conftest.py": "d9b31a046c9a745c2e5ca36d7ce261045433acfe4832a4683a0327946f6d2ab6",
+    "pyproject.toml": "f68b7758a9190d59477821e0a6a5285a655f3929805e02eb82ee0ced59119b70",
+    "requirements.lock": "a996806af195323348e5d3f30d3df210d1d03eab87b5147463c5899d582d2e94"
+  },
+  "api_calls": 0,
+  "added_cost_usd": "0",
+  "demo_accounts_initially_enabled": false,
+  "stage_4_started": false,
+  "pending_gate": [
+    "1.4",
+    "1.5"
+  ]
+}

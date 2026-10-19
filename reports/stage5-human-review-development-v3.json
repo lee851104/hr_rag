@@ -1,0 +1,37 @@
+{
+  "kind": "development",
+  "reviewer": "使用者",
+  "reviewed_at": "2026-10-19T01:49:42.311Z",
+  "source_sha256": "06b51dc6105ebb56369bec45f08754563a515ea228f9fa6c3835a07af49ae015",
+  "citation_support": {
+    "supported": 36,
+    "total": 36,
+    "rate": 1.0
+  },
+  "unsupported_citations": [],
+  "key_claims_covered": {
+    "passed": 26,
+    "total": 26
+  },
+  "status_mismatches": [],
+  "marked_incorrect": [],
+  "reasons": [],
+  "answerable": {
+    "passed": 14,
+    "total": 14
+  },
+  "insufficient": {
+    "passed": 3,
+    "total": 3
+  },
+  "version": {
+    "passed": 3,
+    "total": 3
+  },
+  "permission": {
+    "passed": 9,
+    "total": 9
+  },
+  "passed": true,
+  "review_sha256": "04bd5b1f305fd5a7efd4e43d9bfe6ad305b48864ae171100b09f0a16114daac4"
+}

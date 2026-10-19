@@ -1,0 +1,25 @@
+{
+  "kind": "stability",
+  "reviewer": "使用者",
+  "reviewed_at": "2026-10-19T02:55:55.279Z",
+  "source_sha256": "35e559b1c4d6a80d8c543df29374235582008ead1c54fd5ea1ac20cd4e4ba69b",
+  "citation_support": {
+    "supported": 37,
+    "total": 37,
+    "rate": 1.0
+  },
+  "unsupported_citations": [],
+  "key_claims_covered": {
+    "passed": 18,
+    "total": 18
+  },
+  "status_mismatches": [],
+  "marked_incorrect": [],
+  "reasons": [],
+  "runs": {
+    "passed": 18,
+    "total": 18
+  },
+  "passed": true,
+  "review_sha256": "89cabc9be3f29590a501e962b6d62cb52e57efaf52296727f42899c40fef9acd"
+}

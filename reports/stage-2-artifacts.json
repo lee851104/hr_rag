@@ -1,0 +1,959 @@
+{
+  "generation_id": "dd483ec3be394e49b004ec58b87c292f",
+  "manifest_sha256": "fd19b3730eb61c23ab650fa5d9a86768c35e46913eaebf38ba7f5289c4f4b04d",
+  "document_count": 10,
+  "version_count": 11,
+  "parent_count": 44,
+  "child_count": 46,
+  "max_child_tokens": 388,
+  "max_embedding_tokens": 388,
+  "max_reranker_tokens": 311,
+  "vectors_shape": [
+    46,
+    512
+  ],
+  "vectors_finite": true,
+  "embedding_batches": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    3
+  ],
+  "embedding_texts": 43,
+  "repeat_embedding_calls": 0,
+  "repeat_generation_unchanged": true,
+  "duration_seconds": 77.976,
+  "children_by_document": {
+    "C01": 8,
+    "C02": 4,
+    "C03": 4,
+    "C04": 4,
+    "O01": 4,
+    "O02": 4,
+    "O03": 10,
+    "O04": 5,
+    "O05": 1,
+    "O06": 2
+  },
+  "config": {
+    "model": {
+      "repository": "BAAI/bge-small-zh-v1.5",
+      "revision": "7999e1d3359715c523056ef9478215996d62a620"
+    },
+    "chunking": {
+      "version": "paragraph-sentence-dual-tokenizer-v2",
+      "max_tokens": 400,
+      "tokenizer_sha256": "550e43118ce3b4f6d6b041c053f064e08a308848c6d98438ccbb7e33f3657873",
+      "reranker_tokenizer_sha256": "12f030725b1f15e95928dcbb36a11d87e9de975541704e9b9aef237bdb68f217"
+    }
+  },
+  "review_examples": [
+    {
+      "review_id": "S01",
+      "chunk": {
+        "effective_from": "2026-10-01",
+        "effective_to": null,
+        "id": "c-039402e5b8ee8c865e9cce5b92e135b6ad897cf4ebbba0736371bebeda76a7eb",
+        "document_id": "C01",
+        "version_id": "v2",
+        "section_id": "documentation",
+        "parent_id": "p-0e7424627500163fb2be7c6f98e6c2743b813b9bcb34672f8f86423e0499eb3d",
+        "text": "申請人填寫假別、起迄日期及必要說明；證明文件是否必要與可請求的範圍，須依適用法令判斷。窗口僅通知需釐清的項目，不要求與請假無關的資料。遇緊急情形先以可行方式通知，再處理後續紀錄；不得因內部表單尚未完成而直接否定法定請假權利。",
+        "allowed_roles": [
+          "employee",
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 112,
+        "token_count": 114
+      },
+      "parent_text": "申請人填寫假別、起迄日期及必要說明；證明文件是否必要與可請求的範圍，須依適用法令判斷。窗口僅通知需釐清的項目，不要求與請假無關的資料。遇緊急情形先以可行方式通知，再處理後續紀錄；不得因內部表單尚未完成而直接否定法定請假權利。",
+      "raw_path": "data/raw/company/C01-v2.md",
+      "normalized_path": "data/normalized/C01-v2.json",
+      "raw_sha256": "9b2099cb29be73fbeae94978495d64b51697ed4ea1f757281d1d2241851313c4",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S02",
+      "chunk": {
+        "effective_from": "2026-01-01",
+        "effective_to": null,
+        "id": "c-05841aaf4639260613c5add9379e9eaa0922d36efb4dedc8bc24bab7f129b48a",
+        "document_id": "C02",
+        "version_id": "v1",
+        "section_id": "supplement",
+        "parent_id": "p-394d599801508d336ca745145e77700a1fe52987544d72c04f77e373d00b0903",
+        "text": "問：收到缺件通知後要重提一份請假申請嗎？答：保留原申請紀錄，先確認通知列出的必要項目，再依當時有效C01的補件方式併入原申請；窗口回覆收件狀態。遇無法提供或必要性有疑義的資料，請窗口交人資核對，不以缺件自動否定法定請假。",
+        "allowed_roles": [
+          "employee",
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 110,
+        "token_count": 110
+      },
+      "parent_text": "問：收到缺件通知後要重提一份請假申請嗎？答：保留原申請紀錄，先確認通知列出的必要項目，再依當時有效C01的補件方式併入原申請；窗口回覆收件狀態。遇無法提供或必要性有疑義的資料，請窗口交人資核對，不以缺件自動否定法定請假。",
+      "raw_path": "data/raw/company/C02-v1.md",
+      "normalized_path": "data/normalized/C02-v1.json",
+      "raw_sha256": "34d5c7386fe8b797176806c50c573323708171735c3473501821e6fc93e7664e",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S03",
+      "chunk": {
+        "effective_from": "2026-01-01",
+        "effective_to": null,
+        "id": "c-685bb24c1e7b28bc065cc6bd19fa3fec300ee8356b39fa4b7ff53a066f46ca3f",
+        "document_id": "C03",
+        "version_id": "v1",
+        "section_id": "review",
+        "parent_id": "p-651fcaef07e653407d631360a2f93a71f74b9d3ec8780690c4ed37d9ff7edf86",
+        "text": "特殊內部覆核使用橙色覆核單M-17，記錄待確認事項、承辦角色與處理進度。橙色覆核單M-17只作內部追蹤，不是新增的法定請假要件；主管不能僅因未完成此單就否定法定請假。需要人資協助時，移交必要範圍的資訊。",
+        "allowed_roles": [
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 101,
+        "token_count": 101
+      },
+      "parent_text": "特殊內部覆核使用橙色覆核單M-17，記錄待確認事項、承辦角色與處理進度。橙色覆核單M-17只作內部追蹤，不是新增的法定請假要件；主管不能僅因未完成此單就否定法定請假。需要人資協助時，移交必要範圍的資訊。",
+      "raw_path": "data/raw/company/C03-v1.md",
+      "normalized_path": "data/normalized/C03-v1.json",
+      "raw_sha256": "fa89ebe8ce9520cc25382f065c0ae7241a14817c94b5325ef668c3bcd3737d60",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S04",
+      "chunk": {
+        "effective_from": "2026-01-01",
+        "effective_to": null,
+        "id": "c-150810be1b76f78ac89cd5772f862ec1476acb7f75e937ed255a533375d79ce8",
+        "document_id": "C04",
+        "version_id": "v1",
+        "section_id": "exception",
+        "parent_id": "p-be6f07f79a6d47e70b6687e5b917b51d4fd4d7f7965ae676377f7ef758b9df4e",
+        "text": "例外案件使用紫杉異常簿H-42追蹤，登錄合成案件識別碼、異常類型、待核對項目與處理狀態。紫杉異常簿H-42僅供HR內部覆核，不對其他角色揭露其內容、標題或存在性，也不得以共用連結傳遞。",
+        "allowed_roles": [
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 92,
+        "token_count": 91
+      },
+      "parent_text": "例外案件使用紫杉異常簿H-42追蹤，登錄合成案件識別碼、異常類型、待核對項目與處理狀態。紫杉異常簿H-42僅供HR內部覆核，不對其他角色揭露其內容、標題或存在性，也不得以共用連結傳遞。",
+      "raw_path": "data/raw/company/C04-v1.md",
+      "normalized_path": "data/normalized/C04-v1.json",
+      "raw_sha256": "339b634b36b24ff824eb48de7c699bcef8275d347886a58283e1e207a1e1087e",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S05",
+      "chunk": {
+        "effective_from": "2018-03-01",
+        "effective_to": null,
+        "id": "c-0178e79eef4d736dacc6cbef11875cd7aaed832dbba08798ec473cd3b4a7b3e5",
+        "document_id": "O01",
+        "version_id": "snapshot-2026-10-18",
+        "section_id": "38",
+        "parent_id": "p-5b41f85aa13034670be5a6d80a96496b94a2d4339acd086219019484477ea5c5",
+        "text": "勞工依本條主張權利時，雇主如認為其權利不存在，應負舉證責任。",
+        "allowed_roles": [
+          "employee",
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 397,
+        "end": 427,
+        "token_count": 32
+      },
+      "parent_text": "勞工在同一雇主或事業單位，繼續工作滿一定期間者，應依下列規定給予特別休假：\n一、六個月以上一年未滿者，三日。\n二、一年以上二年未滿者，七日。\n三、二年以上三年未滿者，十日。\n四、三年以上五年未滿者，每年十四日。\n五、五年以上十年未滿者，每年十五日。\n六、十年以上者，每一年加給一日，加至三十日為止。\n前項之特別休假期日，由勞工排定之。但雇主基於企業經營上之急迫需求或勞工因個人因素，得與他方協商調整。\n雇主應於勞工符合第一項所定之特別休假條件時，告知勞工依前二項規定排定特別休假。\n勞工之特別休假，因年度終結或契約終止而未休之日數，雇主應發給工資。但年度終結未休之日數，經勞雇雙方協商遞延至次一年度實施者，於次一年度終結或契約終止仍未休之日數，雇主應發給工資。\n雇主應將勞工每年特別休假之期日及未休之日數所發給之工資數額，記載於第二十三條所定之勞工工資清冊，並每年定期將其內容以書面通知勞工。\n勞工依本條主張權利時，雇主如認為其權利不存在，應負舉證責任。",
+      "raw_path": "data/raw/official-2026-10-18/O01.html",
+      "normalized_path": "data/normalized/O01-snapshot-2026-10-18.json",
+      "raw_sha256": "717407baa379e6e917b10a48c14f66df4c5e797dfd19a263029ee991a17caa7b",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S06",
+      "chunk": {
+        "effective_from": "2017-06-18",
+        "effective_to": null,
+        "id": "c-0af8afb0db0bf2c05ad53947e22762f573caf791b96690b305444215806623be",
+        "document_id": "O02",
+        "version_id": "snapshot-2026-10-18",
+        "section_id": "24",
+        "parent_id": "p-b0311d4d39a79288181fe893dbf01b9dadec6b332da829836005c90ca4fcb538",
+        "text": "勞工於符合本法第三十八條第一項所定之特別休假條件時，取得特別休假之權利；其計算特別休假之工作年資，應依第五條之規定。\n依本法第三十八條第一項規定給予之特別休假日數，勞工得於勞雇雙方協商之下列期間內，行使特別休假權利：\n一、以勞工受僱當日起算，每一週年之期間。但其工作六個月以上一年未滿者，為取得特別休假權利後六個月之期間。\n二、每年一月一日至十二月三十一日之期間。\n三、教育單位之學年度、事業單位之會計年度或勞雇雙方約定年度之期間。\n雇主依本法第三十八條第三項規定告知勞工排定特別休假，應於勞工符合特別休假條件之日起三十日內為之。",
+        "allowed_roles": [
+          "employee",
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 265,
+        "token_count": 262
+      },
+      "parent_text": "勞工於符合本法第三十八條第一項所定之特別休假條件時，取得特別休假之權利；其計算特別休假之工作年資，應依第五條之規定。\n依本法第三十八條第一項規定給予之特別休假日數，勞工得於勞雇雙方協商之下列期間內，行使特別休假權利：\n一、以勞工受僱當日起算，每一週年之期間。但其工作六個月以上一年未滿者，為取得特別休假權利後六個月之期間。\n二、每年一月一日至十二月三十一日之期間。\n三、教育單位之學年度、事業單位之會計年度或勞雇雙方約定年度之期間。\n雇主依本法第三十八條第三項規定告知勞工排定特別休假，應於勞工符合特別休假條件之日起三十日內為之。",
+      "raw_path": "data/raw/official-2026-10-18/O02.html",
+      "normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+      "raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O03",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "6",
+        "wrong_parent_id": "p-09f305565791b12230f951eff7bb4524cfdd038ca6a7bad5c1e81e477f50c006",
+        "wrong_parent_text": "勞工因職業災害而致失能、傷害或疾病者，其治療、休養期間，給予公傷病假。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O03.html",
+        "wrong_normalized_path": "data/normalized/O03-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "5ecf516d71f15be05995892d8abfb985d1111f2cad21abf72fe9f8e78f7668c2",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S07",
+      "chunk": {
+        "effective_from": "2026-01-01",
+        "effective_to": null,
+        "id": "c-074580980503d473c3597a347c96b0661639f3609e20e27578dbdf0a7f5d52b2",
+        "document_id": "O03",
+        "version_id": "snapshot-2026-10-18",
+        "section_id": "7",
+        "parent_id": "p-32e725ee7c924f5826b90fd1d31c60ca0b0019072eaa4b7452b8984a2260f23e",
+        "text": "勞工因有事故必須親自處理，得請事假，一年內合計不得超過十四日。事假期間不給工資。\n勞工為親自照顧家庭成員，除本法或其他法律另有規定者外，得依前項規定請事假，並得擇定以小時為請假單位。",
+        "allowed_roles": [
+          "employee",
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 91,
+        "token_count": 92
+      },
+      "parent_text": "勞工因有事故必須親自處理，得請事假，一年內合計不得超過十四日。事假期間不給工資。\n勞工為親自照顧家庭成員，除本法或其他法律另有規定者外，得依前項規定請事假，並得擇定以小時為請假單位。",
+      "raw_path": "data/raw/official-2026-10-18/O03.html",
+      "normalized_path": "data/normalized/O03-snapshot-2026-10-18.json",
+      "raw_sha256": "5ecf516d71f15be05995892d8abfb985d1111f2cad21abf72fe9f8e78f7668c2",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S08",
+      "chunk": {
+        "effective_from": "2014-12-13",
+        "effective_to": null,
+        "id": "c-2eff3a503e0c9af540a6e70e6cec9d77267f9b50903a5a915e1a3aaaa09ff834",
+        "document_id": "O04",
+        "version_id": "snapshot-2026-10-18",
+        "section_id": "14",
+        "parent_id": "p-120786f784c94958facb07f92324f95a59c1128cc059715d4f8e2f0151953e3a",
+        "text": "女性受僱者因生理日致工作有困難者，每月得請生理假一日，全年請假日數未逾三日，不併入病假計算，其餘日數併入病假計算。\n前項併入及不併入病假之生理假薪資，減半發給。",
+        "allowed_roles": [
+          "employee",
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 80,
+        "token_count": 81
+      },
+      "parent_text": "女性受僱者因生理日致工作有困難者，每月得請生理假一日，全年請假日數未逾三日，不併入病假計算，其餘日數併入病假計算。\n前項併入及不併入病假之生理假薪資，減半發給。",
+      "raw_path": "data/raw/official-2026-10-18/O04.html",
+      "normalized_path": "data/normalized/O04-snapshot-2026-10-18.json",
+      "raw_sha256": "243dad298e558a2fd8f404bc2f8f1d6e6554fb77bb4af15b1c1505ece87983f1",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S09",
+      "chunk": {
+        "effective_from": "2025-07-07",
+        "effective_to": null,
+        "id": "c-0c8c64a9ffb8dc3d11fa4ebaece6ed7f3e9fb5ee5d458962015703f09d63aa5c",
+        "document_id": "O05",
+        "version_id": "snapshot-2026-10-18",
+        "section_id": "qa",
+        "parent_id": "p-1043634ed458ab37644712fbef6bd23bb753c47aab1edb99deb8f164c7c2b413",
+        "text": "問：雇主是否可以規定特別休假要事先提出不能臨時請、要求預排全年特休，或未經同意將事（病）假改為特別休假？\n答：勞工應從事之工作、工作開始及終止之時間、請假等事項，應於勞動契約中約定，勞動基準法施行細則第7條定有明文。復依勞動基準法第38條第2項規定，特別休假期日，由勞工排定之；但雇主基於企業經營上之急迫需求或勞工因個人因素，得與他方協商調整。勞工請假，應依事業單位工作規則之規定或勞動契約之約定辦理相關請假手續。特別休假是為了提供勞工休憩之用，休假日期由勞工依照自己意願決定。雇主可提醒或促請勞工排定休假，但不可以限制勞工特別休假期日的排定，或規定僅得一次預先排定或在特定期日前休假，亦不得將勞工已請的事(病)假擅自更改為特別休假。",
+        "allowed_roles": [
+          "employee",
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 317,
+        "token_count": 317
+      },
+      "parent_text": "問：雇主是否可以規定特別休假要事先提出不能臨時請、要求預排全年特休，或未經同意將事（病）假改為特別休假？\n答：勞工應從事之工作、工作開始及終止之時間、請假等事項，應於勞動契約中約定，勞動基準法施行細則第7條定有明文。復依勞動基準法第38條第2項規定，特別休假期日，由勞工排定之；但雇主基於企業經營上之急迫需求或勞工因個人因素，得與他方協商調整。勞工請假，應依事業單位工作規則之規定或勞動契約之約定辦理相關請假手續。特別休假是為了提供勞工休憩之用，休假日期由勞工依照自己意願決定。雇主可提醒或促請勞工排定休假，但不可以限制勞工特別休假期日的排定，或規定僅得一次預先排定或在特定期日前休假，亦不得將勞工已請的事(病)假擅自更改為特別休假。",
+      "raw_path": "data/raw/official-2026-10-18/O05.html",
+      "normalized_path": "data/normalized/O05-snapshot-2026-10-18.json",
+      "raw_sha256": "ce7987cafe2b4472913da3c8b2956b5136bc822af303bf076c6acdcf99d39230",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S10",
+      "chunk": {
+        "effective_from": "2025-07-07",
+        "effective_to": null,
+        "id": "c-919dab9f8f016ff7c4e741c156adada0d24dc826e4b7713577d20b778245249e",
+        "document_id": "O06",
+        "version_id": "snapshot-2026-10-18",
+        "section_id": "qa",
+        "parent_id": "p-c26f16db5d9afcd909376e2503481ed492c6dcbd93def3d6cc76a6ee20bb141f",
+        "text": "二、又依同法第38條第4項規定，勞工之特別休假，因年度終結而未休之日數，雇主應發給工資；但年度終結未休之日數，經「勞雇雙方協商」遞延至次1年度實施者，如果於次一年度終結或契約終止仍未休之日數，雇主應發給工資。本部另設有特別休假日數試算系統〈網址：https://calcr2.mol.gov.tw/RestDays〉，勞工可依不同「年度」需求計算特別休假日數。",
+        "allowed_roles": [
+          "employee",
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 390,
+        "end": 570,
+        "token_count": 164
+      },
+      "parent_text": "問：公司特別休假採曆年制(即每年1月1日至12月31日)，該如何計算給假的天數?勞工之特別休假於年度終結仍未休畢，是否可經勞雇雙方協商遞延至次一年度實施?勞工離職時要用週年制來計算剩餘天數嗎?\n答：一、勞動基準法第38條及同法施行細則第5條規定，勞工自受僱之日起於同一雇主或事業單位工作滿一定期間之翌日如仍在職，即取得請特別休假之權利。另實務上，勞雇雙方仍多有約定以曆年制、會計年度、學年度（學校）或自行約定之年度給假之模式，已為慣例且行之有年，勞動基準法施行細則第24條第2項亦有明定經勞雇雙方協商後，得以前開方式計算特別休假期間。如果事業單位為配合出勤管理，經勞雇雙方協商約定以曆年制為特別休假行使期間，在勞工法定享有特別休假日數不得減損前提下，按比例分段計給特別休假，尚無不可；但是勞動契約終止時，雇主應依勞工「到職日」(即週年制)計算給予勞工實際工作年資之特別休假日數。\n二、又依同法第38條第4項規定，勞工之特別休假，因年度終結而未休之日數，雇主應發給工資；但年度終結未休之日數，經「勞雇雙方協商」遞延至次1年度實施者，如果於次一年度終結或契約終止仍未休之日數，雇主應發給工資。本部另設有特別休假日數試算系統〈網址：https://calcr2.mol.gov.tw/RestDays〉，勞工可依不同「年度」需求計算特別休假日數。",
+      "raw_path": "data/raw/official-2026-10-18/O06.html",
+      "normalized_path": "data/normalized/O06-snapshot-2026-10-18.json",
+      "raw_sha256": "fa81deb635fa36747b3036682249a00f2a30c85f9bcbaa46b7a91ad34f827e2d",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S11",
+      "chunk": {
+        "effective_from": "2026-10-01",
+        "effective_to": null,
+        "id": "c-08945d44f9bfdcf869cb50383cfde4a2330699ba6e648203ca5509040d3dbf87",
+        "document_id": "O03",
+        "version_id": "snapshot-2026-10-18",
+        "section_id": "2",
+        "parent_id": "p-3705ebf8847f22c96d0505df7ea47d19e9bf0c4233e67f42da37854a2c47c444",
+        "text": "勞工結婚者給予婚假十四日，工資照給。",
+        "allowed_roles": [
+          "employee",
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 18,
+        "token_count": 20
+      },
+      "parent_text": "勞工結婚者給予婚假十四日，工資照給。",
+      "raw_path": "data/raw/official-2026-10-18/O03.html",
+      "normalized_path": "data/normalized/O03-snapshot-2026-10-18.json",
+      "raw_sha256": "5ecf516d71f15be05995892d8abfb985d1111f2cad21abf72fe9f8e78f7668c2",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S12",
+      "chunk": {
+        "effective_from": "2016-12-23",
+        "effective_to": null,
+        "id": "c-0f2fad27bd83f2f5ff6ab05dc400a54ebd8a32404061df672f0f141df1719f79",
+        "document_id": "O01",
+        "version_id": "snapshot-2026-10-18",
+        "section_id": "39",
+        "parent_id": "p-e105fbd6f6a4a55801d444df1daa3a980cdeac791524676ca7363a2de390a1c9",
+        "text": "第三十六條所定之例假、休息日、第三十七條所定之休假及第三十八條所定之特別休假，工資應由雇主照給。雇主經徵得勞工同意於休假日工作者，工資應加倍發給。因季節性關係有趕工必要，經勞工或工會同意照常工作者，亦同。",
+        "allowed_roles": [
+          "employee",
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 102,
+        "token_count": 104
+      },
+      "parent_text": "第三十六條所定之例假、休息日、第三十七條所定之休假及第三十八條所定之特別休假，工資應由雇主照給。雇主經徵得勞工同意於休假日工作者，工資應加倍發給。因季節性關係有趕工必要，經勞工或工會同意照常工作者，亦同。",
+      "raw_path": "data/raw/official-2026-10-18/O01.html",
+      "normalized_path": "data/normalized/O01-snapshot-2026-10-18.json",
+      "raw_sha256": "717407baa379e6e917b10a48c14f66df4c5e797dfd19a263029ee991a17caa7b",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S13",
+      "chunk": {
+        "effective_from": "1985-03-22",
+        "effective_to": null,
+        "id": "c-1d8cc202e60f792e8982ef3907abcecdac2a24a81ddedbcb0de85301af64c590",
+        "document_id": "O03",
+        "version_id": "snapshot-2026-10-18",
+        "section_id": "10",
+        "parent_id": "p-83eae14fcce51fe0f8125da8c9aea48fe7fd15a1fd879f22234aec9c58c686c4",
+        "text": "勞工請假時，應於事前親自以口頭或書面敘明請假理由及日數。但遇有急病或緊急事故，得委託他人代辦請假手續。辦理請假手續時，雇主得要求勞工提出有關證明文件。",
+        "allowed_roles": [
+          "employee",
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 75,
+        "token_count": 77
+      },
+      "parent_text": "勞工請假時，應於事前親自以口頭或書面敘明請假理由及日數。但遇有急病或緊急事故，得委託他人代辦請假手續。辦理請假手續時，雇主得要求勞工提出有關證明文件。",
+      "raw_path": "data/raw/official-2026-10-18/O03.html",
+      "normalized_path": "data/normalized/O03-snapshot-2026-10-18.json",
+      "raw_sha256": "5ecf516d71f15be05995892d8abfb985d1111f2cad21abf72fe9f8e78f7668c2",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S14",
+      "chunk": {
+        "effective_from": "2026-10-01",
+        "effective_to": null,
+        "id": "c-30447deb11660f61fc3029c938738876bb7e76a4b33eef4d6a0c2acc19671c9f",
+        "document_id": "C01",
+        "version_id": "v2",
+        "section_id": "application",
+        "parent_id": "p-58a945546c68e8a73dd109ee891418942fcd863f26db0ac68dd27d9c3f050b72",
+        "text": "請假申請由人資服務窗口受理。需要補件時，由受理人通知缺少的項目；申請人在請假系統原申請附補件單B-02及必要資料，由人資服務窗口確認併入原申請紀錄。此流程僅為內部收件與追蹤，不新增法定請假的限制。",
+        "allowed_roles": [
+          "employee",
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 98,
+        "token_count": 99
+      },
+      "parent_text": "請假申請由人資服務窗口受理。需要補件時，由受理人通知缺少的項目；申請人在請假系統原申請附補件單B-02及必要資料，由人資服務窗口確認併入原申請紀錄。此流程僅為內部收件與追蹤，不新增法定請假的限制。",
+      "raw_path": "data/raw/company/C01-v2.md",
+      "normalized_path": "data/normalized/C01-v2.json",
+      "raw_sha256": "9b2099cb29be73fbeae94978495d64b51697ed4ea1f757281d1d2241851313c4",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S15",
+      "chunk": {
+        "effective_from": "2026-01-01",
+        "effective_to": null,
+        "id": "c-30eb7a4bd14296fdb8b9a05e9f2b2a876ecc915dfb1d24c4eefb8fe64d873b48",
+        "document_id": "C04",
+        "version_id": "v1",
+        "section_id": "scope",
+        "parent_id": "p-9dca622879bb826ce3a8ab29ab96ebe087c237f94fe938e6b01e58d7825c8663",
+        "text": "虛構示範文件，非真實公司制度，不替代法定權益。本備忘錄僅供hr角色查閱，用於虛構假勤異常案例的內部核對。所有示範紀錄只用合成識別碼，不可記錄真實個資。本備忘錄不自行訂定或縮減法定請假及工資權益。",
+        "allowed_roles": [
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 97,
+        "token_count": 98
+      },
+      "parent_text": "虛構示範文件，非真實公司制度，不替代法定權益。本備忘錄僅供hr角色查閱，用於虛構假勤異常案例的內部核對。所有示範紀錄只用合成識別碼，不可記錄真實個資。本備忘錄不自行訂定或縮減法定請假及工資權益。",
+      "raw_path": "data/raw/company/C04-v1.md",
+      "normalized_path": "data/normalized/C04-v1.json",
+      "raw_sha256": "339b634b36b24ff824eb48de7c699bcef8275d347886a58283e1e207a1e1087e",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S16",
+      "chunk": {
+        "effective_from": "2026-01-01",
+        "effective_to": null,
+        "id": "c-36521fb7150afa7e5923715f9110af4961db75d4b704c518d53f3186e62a53e0",
+        "document_id": "O03",
+        "version_id": "snapshot-2026-10-18",
+        "section_id": "9-1",
+        "parent_id": "p-0d4e47052e54bfd67aa06823722ff0c30634effb124a7a14965b53d9c05f5791",
+        "text": "勞工一年內請普通傷病假日數未超過十日者，除本規則或其他法律另有規定，從其規定者外，雇主不得因勞工請普通傷病假而為不利之處分。\n勞工因請普通傷病假而受有不利處分者，雇主對於該不利處分與其請普通傷病假行為無關之事實，負舉證責任。\n勞工請普通傷病假超過第一項規定日數者，雇主為相關人事考核時，仍應以其工作能力、工作態度及實際績效等綜合考量，不得僅以請普通傷病假日數作為考量因素。",
+        "allowed_roles": [
+          "employee",
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 186,
+        "token_count": 186
+      },
+      "parent_text": "勞工一年內請普通傷病假日數未超過十日者，除本規則或其他法律另有規定，從其規定者外，雇主不得因勞工請普通傷病假而為不利之處分。\n勞工因請普通傷病假而受有不利處分者，雇主對於該不利處分與其請普通傷病假行為無關之事實，負舉證責任。\n勞工請普通傷病假超過第一項規定日數者，雇主為相關人事考核時，仍應以其工作能力、工作態度及實際績效等綜合考量，不得僅以請普通傷病假日數作為考量因素。",
+      "raw_path": "data/raw/official-2026-10-18/O03.html",
+      "normalized_path": "data/normalized/O03-snapshot-2026-10-18.json",
+      "raw_sha256": "5ecf516d71f15be05995892d8abfb985d1111f2cad21abf72fe9f8e78f7668c2",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S17",
+      "chunk": {
+        "effective_from": "2011-10-16",
+        "effective_to": null,
+        "id": "c-4d78af991fc8ce6929fe163edaabbd36c002d2ab14bdced3d64b33adb517f292",
+        "document_id": "O03",
+        "version_id": "snapshot-2026-10-18",
+        "section_id": "3",
+        "parent_id": "p-3b089ab829f935af84a0b5526cb666a5126c664836aadfb58056ee8aa0a97ea5",
+        "text": "勞工喪假依左列規定：\n一、父母、養父母、繼父母、配偶喪亡者，給予喪假八日，工資照給。\n二、祖父母、子女、配偶之父母、配偶之養父母或繼父母喪亡者，給予喪假六日，工資照給。\n三、曾祖父母、兄弟姊妹、配偶之祖父母喪亡者，給予喪假三日，工資照給。",
+        "allowed_roles": [
+          "employee",
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 119,
+        "token_count": 118
+      },
+      "parent_text": "勞工喪假依左列規定：\n一、父母、養父母、繼父母、配偶喪亡者，給予喪假八日，工資照給。\n二、祖父母、子女、配偶之父母、配偶之養父母或繼父母喪亡者，給予喪假六日，工資照給。\n三、曾祖父母、兄弟姊妹、配偶之祖父母喪亡者，給予喪假三日，工資照給。",
+      "raw_path": "data/raw/official-2026-10-18/O03.html",
+      "normalized_path": "data/normalized/O03-snapshot-2026-10-18.json",
+      "raw_sha256": "5ecf516d71f15be05995892d8abfb985d1111f2cad21abf72fe9f8e78f7668c2",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S18",
+      "chunk": {
+        "effective_from": "2019-01-17",
+        "effective_to": null,
+        "id": "c-6b5eda2f134a0fa84a82f5736e6866e813f749c987d0629c400f8b08b5d4054d",
+        "document_id": "O03",
+        "version_id": "snapshot-2026-10-18",
+        "section_id": "6",
+        "parent_id": "p-09f305565791b12230f951eff7bb4524cfdd038ca6a7bad5c1e81e477f50c006",
+        "text": "勞工因職業災害而致失能、傷害或疾病者，其治療、休養期間，給予公傷病假。",
+        "allowed_roles": [
+          "employee",
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 35,
+        "token_count": 37
+      },
+      "parent_text": "勞工因職業災害而致失能、傷害或疾病者，其治療、休養期間，給予公傷病假。",
+      "raw_path": "data/raw/official-2026-10-18/O03.html",
+      "normalized_path": "data/normalized/O03-snapshot-2026-10-18.json",
+      "raw_sha256": "5ecf516d71f15be05995892d8abfb985d1111f2cad21abf72fe9f8e78f7668c2",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S19",
+      "chunk": {
+        "effective_from": "2008-01-18",
+        "effective_to": null,
+        "id": "c-6d49a0a3c947ebdba40794065f873248f2ca9bf14c971df809ba2ad9cdf5eaec",
+        "document_id": "O04",
+        "version_id": "snapshot-2026-10-18",
+        "section_id": "21",
+        "parent_id": "p-c154c108b2ef096acd5c6b7f83effc82808714de42a6b30b4789629343738622",
+        "text": "受僱者依前七條之規定為請求時，雇主不得拒絕。\n受僱者為前項之請求時，雇主不得視為缺勤而影響其全勤獎金、考績或為其他不利之處分。",
+        "allowed_roles": [
+          "employee",
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 63,
+        "token_count": 64
+      },
+      "parent_text": "受僱者依前七條之規定為請求時，雇主不得拒絕。\n受僱者為前項之請求時，雇主不得視為缺勤而影響其全勤獎金、考績或為其他不利之處分。",
+      "raw_path": "data/raw/official-2026-10-18/O04.html",
+      "normalized_path": "data/normalized/O04-snapshot-2026-10-18.json",
+      "raw_sha256": "243dad298e558a2fd8f404bc2f8f1d6e6554fb77bb4af15b1c1505ece87983f1",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    },
+    {
+      "review_id": "S20",
+      "chunk": {
+        "effective_from": "2011-01-07",
+        "effective_to": null,
+        "id": "c-6f586b4d6e1dfb1fb81540e0a0c7855cdc13c36a3110b7b47ea0c5e5f3bc6182",
+        "document_id": "O04",
+        "version_id": "snapshot-2026-10-18",
+        "section_id": "20",
+        "parent_id": "p-d4074f017369197da7a94ec2046afe40e4ff6aefa6727ad340da9eb4511dd45d",
+        "text": "受僱者於其家庭成員預防接種、發生嚴重之疾病或其他重大事故須親自照顧時，得請家庭照顧假；其請假日數併入事假計算，全年以七日為限。\n家庭照顧假薪資之計算，依各該事假規定辦理。",
+        "allowed_roles": [
+          "employee",
+          "manager",
+          "hr"
+        ]
+      },
+      "location": {
+        "start": 0,
+        "end": 85,
+        "token_count": 86
+      },
+      "parent_text": "受僱者於其家庭成員預防接種、發生嚴重之疾病或其他重大事故須親自照顧時，得請家庭照顧假；其請假日數併入事假計算，全年以七日為限。\n家庭照顧假薪資之計算，依各該事假規定辦理。",
+      "raw_path": "data/raw/official-2026-10-18/O04.html",
+      "normalized_path": "data/normalized/O04-snapshot-2026-10-18.json",
+      "raw_sha256": "243dad298e558a2fd8f404bc2f8f1d6e6554fb77bb4af15b1c1505ece87983f1",
+      "review_status": "verified",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "negative_example": {
+        "wrong_document_id": "O02",
+        "wrong_version_id": "snapshot-2026-10-18",
+        "wrong_section_id": "5",
+        "wrong_parent_id": "p-0809eb6d1b5ca5d68e8d2f756d4d4b01ed1a54c7efc4799c8081f7ed8642cff1",
+        "wrong_parent_text": "勞工工作年資以服務同一事業單位為限，並自受僱當日起算。\n適用本法前已在同一事業單位工作之年資合併計算。",
+        "wrong_raw_path": "data/raw/official-2026-10-18/O02.html",
+        "wrong_normalized_path": "data/normalized/O02-snapshot-2026-10-18.json",
+        "wrong_raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+        "expected": "不得將此片段當成其他條文或其他版本的證據；須回到上列原節與完整父段"
+      }
+    }
+  ],
+  "human_review_status": "verified",
+  "api_calls": 0,
+  "previous_runs": [
+    {
+      "generation_id": "150ea376eba543dbbff5d57564eab112",
+      "manifest_sha256": "fd19b3730eb61c23ab650fa5d9a86768c35e46913eaebf38ba7f5289c4f4b04d",
+      "document_count": 10,
+      "version_count": 11,
+      "parent_count": 44,
+      "child_count": 46,
+      "max_child_tokens": 388,
+      "vectors_shape": [
+        46,
+        512
+      ],
+      "vectors_finite": true,
+      "embedding_batches": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        3
+      ],
+      "embedding_texts": 43,
+      "repeat_embedding_calls": 0,
+      "repeat_generation_unchanged": true,
+      "duration_seconds": 146.67,
+      "children_by_document": {
+        "C01": 8,
+        "C02": 4,
+        "C03": 4,
+        "C04": 4,
+        "O01": 4,
+        "O02": 4,
+        "O03": 10,
+        "O04": 5,
+        "O05": 1,
+        "O06": 2
+      },
+      "config": {
+        "model": {
+          "repository": "BAAI/bge-small-zh-v1.5",
+          "revision": "7999e1d3359715c523056ef9478215996d62a620"
+        },
+        "chunking": {
+          "version": "paragraph-sentence-v1",
+          "max_tokens": 400,
+          "tokenizer_sha256": "48cea5d44424912a6fd1ea647bf4fe50b55ab8b1e5879c3275f80e339e8fae26"
+        }
+      },
+      "human_review_status": "pending",
+      "api_calls": 0
+    }
+  ],
+  "vector_snapshot_sha256": "d872e7ea170b28c5919de71737b20b29dfef3e7237207eaea0836ff8875a1dca",
+  "document_chunk_vector_sha256": {
+    "C01": "227b11e6c50a6bf89ac40036d82be66a3965bf523415ebb97135bd30fa97bd89",
+    "C02": "8f474c146afcc3d1f297c1184cb96cf4b7bc1692e6d6629d0d460537fee610b6",
+    "C03": "44f4245ef6c17a7cb0ee8d130ca6efeeeb2d6545d27a6141e0761b3c44a92602",
+    "C04": "0fb171acfc8d4dea6f10b4febadff879345a6c7a8e1c4a5fa52349fb4a6861b5",
+    "O01": "a47bd427590a287dec00881408e7e3f9b68ec1130ee15fc0b9e31500a121e2bc",
+    "O02": "6f2efaf5092ba5b85cadb28505389489209966ea214ce62d631d085893051b2c",
+    "O03": "5f9a8a9ada999cee35f606cb7628a8e8bfab3c20ffb758fb3d1aa3904b736e28",
+    "O04": "5b8f229e3449014434cd3f1b68f3804e432f20cdc22195c73a5bf66c6c0c189f",
+    "O05": "ad3c0dc1861a7d968d6c7a5dadc945714bef0be8179e8436c505726e06af458f",
+    "O06": "3f4fe760991a0e94512e6691c8c8c63dcad2d142df3f30397ec02769b6e235a3"
+  },
+  "final_verification": {
+    "pytest": "232 passed, 1 skipped in 159.09s",
+    "skip_reason": "Windows symlink privilege unavailable",
+    "independent_review_findings_fixed": 3,
+    "incremental_fixture_evidence": {
+      "repeat_embedding_calls": 0,
+      "c02_one_section_changed_embedding_texts": 1,
+      "other_nine_documents_ids_vectors_equal": true,
+      "acl_and_date_only_embedding_calls": 0,
+      "deleted_section_embedding_calls": 0,
+      "failed_update_preserves_active": true,
+      "model_and_chunking_change_rebuild_reasons_verified": true
+    }
+  },
+  "human_review_confirmation": {
+    "statement": "S01～S20全部通過，幫我記錄並完成第二階段驗收，接著繼續第三階段。",
+    "date": "2026-10-18",
+    "reviewer": "使用者（本對話確認）",
+    "previous_artifact_sha256": "5ca929093833265a53c531a2bf35ebb6a955d8f0e651b7b40b827db8903cd63a",
+    "generation_id": "dd483ec3be394e49b004ec58b87c292f",
+    "manifest_sha256": "fd19b3730eb61c23ab650fa5d9a86768c35e46913eaebf38ba7f5289c4f4b04d"
+  }
+}

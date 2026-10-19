@@ -1,0 +1,37 @@
+{
+  "runs": [
+    {
+      "mode": "dense",
+      "top5_all_hit": 12,
+      "context_all_hit": 12,
+      "mean_context_precision": 0.775,
+      "version_correct": 3,
+      "authorization_errors": 0,
+      "execution_errors": 0,
+      "pending_labels": 0
+    },
+    {
+      "mode": "hybrid",
+      "top5_all_hit": 11,
+      "context_all_hit": 11,
+      "mean_context_precision": 0.6654761904761904,
+      "version_correct": 3,
+      "authorization_errors": 0,
+      "execution_errors": 0,
+      "pending_labels": 0
+    },
+    {
+      "mode": "rerank",
+      "top5_all_hit": 14,
+      "context_all_hit": 14,
+      "mean_context_precision": 0.8214285714285714,
+      "version_correct": 3,
+      "authorization_errors": 0,
+      "execution_errors": 0,
+      "pending_labels": 0
+    }
+  ],
+  "private_results_path": ".runtime\\stage5-private\\retrieval-wire-v2.json",
+  "private_results_sha256": "4e44fe2f41f032b9c6e1e974d545259eaf37a5d5ae62bdcab3a88cfe2657f844",
+  "prompt_sha256": "8588fc44662c21aa44e4affff1f4f3e49f2b053ef427bfdaaad8356051c034e2"
+}

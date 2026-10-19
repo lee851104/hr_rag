@@ -1,0 +1,475 @@
+{
+  "sample_count": 10,
+  "scope": "階段0虛構煙霧測試，非RAG品質驗收",
+  "hardware": {
+    "python": "3.12.10",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "cpu": "Intel64 Family 6 Model 142 Stepping 9, GenuineIntel",
+    "logical_cpus": 4,
+    "ram_bytes": 12746723328,
+    "available_ram_bytes_at_start": 4415975424
+  },
+  "settings": {
+    "context_limit": 4096,
+    "evidence_budget": 2048,
+    "output_reserve": 512,
+    "safety_margin": 128,
+    "timeout_seconds": 180,
+    "p95_alert_seconds": 180,
+    "base_url": "http://127.0.0.1:8765",
+    "threads": 2
+  },
+  "components": {
+    "embedding": {
+      "load_seconds": 124.2931,
+      "rows": [
+        {
+          "index": 0,
+          "passed": true,
+          "output": {
+            "shape": [
+              2,
+              512
+            ],
+            "finite": true
+          },
+          "seconds": 1.4864
+        },
+        {
+          "index": 1,
+          "passed": true,
+          "output": {
+            "shape": [
+              2,
+              512
+            ],
+            "finite": true
+          },
+          "seconds": 0.1607
+        },
+        {
+          "index": 2,
+          "passed": true,
+          "output": {
+            "shape": [
+              2,
+              512
+            ],
+            "finite": true
+          },
+          "seconds": 0.066
+        },
+        {
+          "index": 3,
+          "passed": true,
+          "output": {
+            "shape": [
+              2,
+              512
+            ],
+            "finite": true
+          },
+          "seconds": 0.1045
+        },
+        {
+          "index": 4,
+          "passed": true,
+          "output": {
+            "shape": [
+              2,
+              512
+            ],
+            "finite": true
+          },
+          "seconds": 0.0675
+        },
+        {
+          "index": 5,
+          "passed": true,
+          "output": {
+            "shape": [
+              2,
+              512
+            ],
+            "finite": true
+          },
+          "seconds": 0.0679
+        },
+        {
+          "index": 6,
+          "passed": true,
+          "output": {
+            "shape": [
+              2,
+              512
+            ],
+            "finite": true
+          },
+          "seconds": 0.0641
+        },
+        {
+          "index": 7,
+          "passed": true,
+          "output": {
+            "shape": [
+              2,
+              512
+            ],
+            "finite": true
+          },
+          "seconds": 0.0789
+        },
+        {
+          "index": 8,
+          "passed": true,
+          "output": {
+            "shape": [
+              2,
+              512
+            ],
+            "finite": true
+          },
+          "seconds": 0.0425
+        },
+        {
+          "index": 9,
+          "passed": true,
+          "output": {
+            "shape": [
+              2,
+              512
+            ],
+            "finite": true
+          },
+          "seconds": 0.0522
+        }
+      ],
+      "p50_seconds": 0.0675,
+      "p95_seconds": 1.4864
+    },
+    "reranker": {
+      "load_seconds": 16.5279,
+      "rows": [
+        {
+          "index": 0,
+          "passed": true,
+          "output": {
+            "scores": [
+              0.9898167848587036,
+              6.166765524540097e-05
+            ]
+          },
+          "seconds": 0.3656
+        },
+        {
+          "index": 1,
+          "passed": true,
+          "output": {
+            "scores": [
+              0.9979027509689331,
+              3.739691601367667e-05
+            ]
+          },
+          "seconds": 0.1944
+        },
+        {
+          "index": 2,
+          "passed": true,
+          "output": {
+            "scores": [
+              0.9990997314453125,
+              3.746845686691813e-05
+            ]
+          },
+          "seconds": 0.1703
+        },
+        {
+          "index": 3,
+          "passed": true,
+          "output": {
+            "scores": [
+              0.9999003410339355,
+              3.732484037755057e-05
+            ]
+          },
+          "seconds": 0.1818
+        },
+        {
+          "index": 4,
+          "passed": true,
+          "output": {
+            "scores": [
+              0.9939550757408142,
+              3.746191578102298e-05
+            ]
+          },
+          "seconds": 0.1987
+        },
+        {
+          "index": 5,
+          "passed": true,
+          "output": {
+            "scores": [
+              0.9954889416694641,
+              3.744334389921278e-05
+            ]
+          },
+          "seconds": 0.2068
+        },
+        {
+          "index": 6,
+          "passed": true,
+          "output": {
+            "scores": [
+              0.9995130300521851,
+              3.741033287951723e-05
+            ]
+          },
+          "seconds": 0.166
+        },
+        {
+          "index": 7,
+          "passed": true,
+          "output": {
+            "scores": [
+              0.9994687438011169,
+              3.744148853002116e-05
+            ]
+          },
+          "seconds": 0.1822
+        },
+        {
+          "index": 8,
+          "passed": true,
+          "output": {
+            "scores": [
+              0.9990800619125366,
+              3.737498991540633e-05
+            ]
+          },
+          "seconds": 0.1881
+        },
+        {
+          "index": 9,
+          "passed": true,
+          "output": {
+            "scores": [
+              0.9866781234741211,
+              3.72921786038205e-05
+            ]
+          },
+          "seconds": 0.1942
+        }
+      ],
+      "p50_seconds": 0.1881,
+      "p95_seconds": 0.3656
+    },
+    "generator": {
+      "load_seconds": 6.6773,
+      "rows": [
+        {
+          "index": 0,
+          "passed": true,
+          "answer": {
+            "status": "answered",
+            "claims": [
+              {
+                "text": "以下是虛構測試制度：請假申請應送至藍色櫃台。",
+                "citation_ids": [
+                  "smoke-0"
+                ]
+              }
+            ],
+            "citations": [
+              "smoke-0"
+            ],
+            "reason": "證據明確指出請假申請應送至藍色櫃台。"
+          },
+          "seconds": 15.2426
+        },
+        {
+          "index": 1,
+          "passed": true,
+          "answer": {
+            "status": "answered",
+            "claims": [
+              {
+                "text": "以下是虛構測試制度：補件表單代碼為F017。",
+                "citation_ids": [
+                  "smoke-1"
+                ]
+              }
+            ],
+            "citations": [
+              "smoke-1"
+            ],
+            "reason": "證據明確指出補件表單的代碼為F017。"
+          },
+          "seconds": 14.4073
+        },
+        {
+          "index": 2,
+          "passed": true,
+          "answer": {
+            "status": "answered",
+            "claims": [
+              {
+                "text": "以下是虛構測試制度：假勤問題請聯繫綠色窗口。",
+                "citation_ids": [
+                  "smoke-2"
+                ]
+              }
+            ],
+            "citations": [
+              "smoke-2"
+            ],
+            "reason": "證據明確指出假勤問題應聯繫綠色窗口。"
+          },
+          "seconds": 14.4006
+        },
+        {
+          "index": 3,
+          "passed": false,
+          "answer": {
+            "status": "insufficient",
+            "claims": [],
+            "citations": [],
+            "reason": "沒有提供證據來回答這個問題"
+          },
+          "seconds": 9.7588
+        },
+        {
+          "index": 4,
+          "passed": true,
+          "answer": {
+            "status": "answered",
+            "claims": [
+              {
+                "text": "請假手冊存放在紫色資料夾。",
+                "citation_ids": [
+                  "smoke-4"
+                ]
+              }
+            ],
+            "citations": [
+              "smoke-4"
+            ],
+            "reason": null
+          },
+          "seconds": 11.3212
+        },
+        {
+          "index": 5,
+          "passed": true,
+          "answer": {
+            "status": "answered",
+            "claims": [
+              {
+                "text": "以下是虛構測試制度：申請完成後請保留案件編號A203。",
+                "citation_ids": [
+                  "smoke-5"
+                ]
+              }
+            ],
+            "citations": [
+              "smoke-5"
+            ],
+            "reason": "證據明確指出申請完成後要保留案件編號A203。"
+          },
+          "seconds": 13.4397
+        },
+        {
+          "index": 6,
+          "passed": true,
+          "answer": {
+            "status": "answered",
+            "claims": [
+              {
+                "text": "附件檔案採用PDF格式。",
+                "citation_ids": [
+                  "smoke-6"
+                ]
+              }
+            ],
+            "citations": [
+              "smoke-6"
+            ],
+            "reason": "證據直接提供了答案，即附件檔案採用PDF格式。"
+          },
+          "seconds": 12.5262
+        },
+        {
+          "index": 7,
+          "passed": true,
+          "answer": {
+            "status": "answered",
+            "claims": [
+              {
+                "text": "代理人資料填在表單第三欄。",
+                "citation_ids": [
+                  "smoke-7"
+                ]
+              }
+            ],
+            "citations": [
+              "smoke-7"
+            ],
+            "reason": "證據明確指出代理人資料填在表單第三欄。"
+          },
+          "seconds": 15.9369
+        },
+        {
+          "index": 8,
+          "passed": true,
+          "answer": {
+            "status": "answered",
+            "claims": [
+              {
+                "text": "以下是虛構測試制度：撤回申請請使用R009表。",
+                "citation_ids": [
+                  "smoke-8"
+                ]
+              }
+            ],
+            "citations": [
+              "smoke-8"
+            ],
+            "reason": "證據明確指出，撤回申請應使用R009表。"
+          },
+          "seconds": 17.2042
+        },
+        {
+          "index": 9,
+          "passed": true,
+          "answer": {
+            "status": "answered",
+            "claims": [
+              {
+                "text": "申請紀錄存放在橘色資料夾。",
+                "citation_ids": [
+                  "smoke-9"
+                ]
+              }
+            ],
+            "citations": [
+              "smoke-9"
+            ],
+            "reason": "證據明確指出申請紀錄存放在橘色資料夾。"
+          },
+          "seconds": 12.9312
+        }
+      ],
+      "p50_seconds": 13.4397,
+      "p95_seconds": 17.2042
+    }
+  },
+  "artifacts": {
+    "config\\models.lock.json": "3a2872a3bb6830211a68fc155de2efc4dc459698b1ac336306e275a968395ed1",
+    "requirements.lock": "90578e25f5941f8f406a1e5c1321634cb3a6285ea7b0f394400f6346c8fa1023",
+    ".cache\\models\\generator\\qwen2.5-1.5b-instruct-q4_k_m.gguf": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+    ".cache\\models\\embedding\\model.safetensors": "354763b9b1357bc9c44f62c6be2276321081ed2567773608c0d0785b61d5a026",
+    ".cache\\models\\reranker\\model.safetensors": "ced967c45fd1902eb92716c9ceeca7c95a936770ea9db611f5a841b926e33fbd",
+    ".runtime\\llama\\llama-server.exe": "6a4635aeb35656153d4bfeeddf761d24ed84aada9c9108d580737cbed465141b"
+  },
+  "all_passed": false
+}

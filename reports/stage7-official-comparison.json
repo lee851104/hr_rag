@@ -1,0 +1,149 @@
+{
+  "freeze_sha256": "ea94e4727666ad2a0374af82144d5f8f2bd83ef14dea67ab1900324f9d4ad4dc",
+  "common_official_question_ids": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D07",
+    "D08",
+    "D09"
+  ],
+  "company_question_ids": [
+    "D05",
+    "D06",
+    "D10",
+    "D11",
+    "D12",
+    "D13",
+    "D14"
+  ],
+  "runs": [
+    {
+      "corpus": "full",
+      "mode": "dense",
+      "top5_all_hit": 12,
+      "context_all_hit": 12,
+      "mean_context_precision": 0.775,
+      "authorization_errors": 0,
+      "execution_errors": 0,
+      "pending_labels": 0
+    },
+    {
+      "corpus": "full",
+      "mode": "hybrid",
+      "top5_all_hit": 11,
+      "context_all_hit": 11,
+      "mean_context_precision": 0.6654761904761904,
+      "authorization_errors": 0,
+      "execution_errors": 0,
+      "pending_labels": 0
+    },
+    {
+      "corpus": "full",
+      "mode": "rerank",
+      "top5_all_hit": 14,
+      "context_all_hit": 14,
+      "mean_context_precision": 0.8214285714285714,
+      "authorization_errors": 0,
+      "execution_errors": 0,
+      "pending_labels": 0
+    },
+    {
+      "corpus": "official",
+      "mode": "dense",
+      "top5_all_hit": 5,
+      "context_all_hit": 5,
+      "mean_context_precision": null,
+      "authorization_errors": 0,
+      "execution_errors": 0,
+      "pending_labels": 81
+    },
+    {
+      "corpus": "official",
+      "mode": "hybrid",
+      "top5_all_hit": 5,
+      "context_all_hit": 5,
+      "mean_context_precision": null,
+      "authorization_errors": 0,
+      "execution_errors": 0,
+      "pending_labels": 80
+    },
+    {
+      "corpus": "official",
+      "mode": "rerank",
+      "top5_all_hit": 7,
+      "context_all_hit": 7,
+      "mean_context_precision": null,
+      "authorization_errors": 0,
+      "execution_errors": 0,
+      "pending_labels": 16
+    }
+  ],
+  "comparison": {
+    "dense": {
+      "full": {
+        "common_official_questions": 7,
+        "top5_all_hit": 5,
+        "context_all_hit": 5,
+        "labeled_mean_precision": 0.7785714285714286,
+        "rows_with_pending_labels": 0
+      },
+      "official": {
+        "common_official_questions": 7,
+        "top5_all_hit": 5,
+        "context_all_hit": 5,
+        "labeled_mean_precision": 0.7785714285714286,
+        "rows_with_pending_labels": 0
+      },
+      "official_company_questions": {
+        "count": 7,
+        "required_evidence_found": 0,
+        "company_units_in_context": 0
+      }
+    },
+    "hybrid": {
+      "full": {
+        "common_official_questions": 7,
+        "top5_all_hit": 5,
+        "context_all_hit": 5,
+        "labeled_mean_precision": 0.5880952380952381,
+        "rows_with_pending_labels": 0
+      },
+      "official": {
+        "common_official_questions": 7,
+        "top5_all_hit": 5,
+        "context_all_hit": 5,
+        "labeled_mean_precision": 0.630952380952381,
+        "rows_with_pending_labels": 0
+      },
+      "official_company_questions": {
+        "count": 7,
+        "required_evidence_found": 0,
+        "company_units_in_context": 0
+      }
+    },
+    "rerank": {
+      "full": {
+        "common_official_questions": 7,
+        "top5_all_hit": 7,
+        "context_all_hit": 7,
+        "labeled_mean_precision": 0.8571428571428571,
+        "rows_with_pending_labels": 0
+      },
+      "official": {
+        "common_official_questions": 7,
+        "top5_all_hit": 7,
+        "context_all_hit": 7,
+        "labeled_mean_precision": 0.8571428571428571,
+        "rows_with_pending_labels": 0
+      },
+      "official_company_questions": {
+        "count": 7,
+        "required_evidence_found": 0,
+        "company_units_in_context": 0
+      }
+    }
+  },
+  "api_calls": 0
+}

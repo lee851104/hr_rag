@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>請假特休問答｜靜態展示</title>
+<meta name="description" content="依角色權限檢索、附原文引用的人資請假與特休問答（RAG）展示">
+<style>
+:root {
+  --side: #0f3b3a; --side-hover: #164e4c; --side-ink: #e8f3f1; --side-muted: #94bab5;
+  --bg: #f5f7f6; --card: #ffffff; --ink: #1c2a29; --muted: #6b7b78; --line: #e1e8e6;
+  --accent: #0f766e; --accent-soft: #e4f3f0;
+  --official: #1e5aa8; --official-soft: #e8f0fb; --company: #9a5600; --company-soft: #fcf1e3;
+  --ok: #1d7a46; --ok-soft: #e4f4ea; --warn: #9a5b00; --warn-soft: #fff4e0;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { font: 15px/1.75 system-ui, "Noto Sans TC", "Microsoft JhengHei", sans-serif; background: var(--bg); color: var(--ink); }
+.shell { display: grid; grid-template-columns: 248px 1fr; min-height: 100vh; }
+.shell > * { min-width: 0; }
+.question, .claim p, .src, .note { overflow-wrap: anywhere; }
+.side { background: var(--side); color: var(--side-ink); display: flex; flex-direction: column; gap: 26px; padding: 22px 16px; position: sticky; top: 0; height: 100vh; }
+.brand { display: flex; gap: 12px; align-items: center; }
+.logo { width: 38px; height: 38px; border-radius: 10px; background: #2aa596; flex: none; display: grid; place-items: center; font-weight: 700; font-size: 18px; color: #fff; }
+.brand b { display: block; font-size: 16px; letter-spacing: .02em; }
+.brand small { color: var(--side-muted); font-size: 12px; }
+.label { font-size: 12px; color: var(--side-muted); margin: 0 8px 6px; }
+.roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; background: #0b2f2e; border-radius: 10px; padding: 4px; }
+.roles button { background: none; border: 0; color: var(--side-ink); font: inherit; font-size: 13.5px; padding: 6px 0; border-radius: 7px; cursor: pointer; }
+.roles button[aria-pressed="true"] { background: var(--side-hover); font-weight: 600; box-shadow: inset 0 0 0 1px #2a6f6b; }
+.links { display: grid; gap: 2px; }
+.links a { color: var(--side-ink); text-decoration: none; padding: 8px 10px; border-radius: 8px; font-size: 14px; }
+.links a:hover { background: var(--side-hover); }
+.links a.active { background: var(--side-hover); font-weight: 600; }
+.side-foot { margin-top: auto; font-size: 12px; color: var(--side-muted); padding: 0 8px; }
+.side-foot a { color: var(--side-ink); }
+.main { display: flex; flex-direction: column; min-width: 0; }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 32px; background: var(--card); border-bottom: 1px solid var(--line); }
+.top h1 { margin: 0; font-size: 18px; }
+.role { background: var(--accent-soft); color: var(--accent); font-weight: 600; border-radius: 999px; padding: 3px 12px; font-size: 14px; }
+.content { padding: 28px 32px 150px; max-width: 920px; width: 100%; margin: 0 auto; display: grid; gap: 14px; }
+.note { font-size: 13px; color: var(--muted); background: #fff; border: 1px dashed var(--line); border-radius: 10px; padding: 8px 14px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px 26px; }
+.head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
+.question { margin: 0; font-size: 18px; font-weight: 600; line-height: 1.6; }
+.badge { flex: none; border-radius: 999px; padding: 3px 12px; font-size: 13px; font-weight: 600; white-space: nowrap; }
+.badge-answered { background: var(--ok-soft); color: var(--ok); }
+.badge-insufficient, .badge-conflict { background: var(--warn-soft); color: var(--warn); }
+.date { color: var(--muted); font-size: 13px; margin-top: 4px; }
+.reason { margin: 14px 0 0; padding: 10px 14px; background: var(--warn-soft); border-radius: 8px; font-size: 14px; }
+.claims { display: grid; gap: 18px; margin-top: 22px; }
+.claim { border-left: 3px solid var(--company); padding-left: 16px; }
+.claim.official { border-left-color: var(--official); }
+.claim p { margin: 0; white-space: pre-wrap; }
+.tag { display: inline-block; font-size: 12px; font-weight: 600; border-radius: 6px; padding: 1px 8px; margin: 0 6px 6px 0; }
+.tag.company { background: var(--company-soft); color: var(--company); }
+.tag.official { background: var(--official-soft); color: var(--official); }
+.tag.supp { background: #eef0f2; color: #4b5563; }
+.src { margin-top: 6px; font-size: 12.5px; color: var(--muted); }
+.foot { margin-top: 24px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+.empty { margin-top: 18px; color: var(--muted); font-size: 14px; }
+.ask { position: fixed; left: 248px; right: 0; bottom: 0; padding: 14px 32px 18px; background: linear-gradient(180deg, rgba(245,247,246,0), var(--bg) 35%); }
+.ask div { max-width: 920px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 10px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 8px; box-shadow: 0 6px 20px rgba(15, 59, 58, .10); align-items: center; }
+.ask span { padding: 8px 10px; color: var(--muted); font-size: 14px; }
+.ask a { background: var(--accent); color: #fff; border-radius: 10px; padding: 9px 20px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+@media (max-width: 860px) {
+  .shell { grid-template-columns: 1fr; }
+  .side { position: static; height: auto; gap: 14px; padding: 16px; }
+  .top { padding: 12px 16px; }
+  .content { padding: 16px 16px 110px; }
+  .card { padding: 18px 16px; }
+  .ask { left: 0; padding: 8px 12px 10px; }
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="side">
+    <div class="brand">
+      <span class="logo">假</span>
+      <span><b>請假特休問答</b><small>依角色權限・附原文引用</small></span>
+    </div>
+    <div>
+      <div class="label">切換角色</div>
+      <div class="roles" id="roles">
+        <button type="button" data-role="employee">員工</button>
+        <button type="button" data-role="manager">主管</button>
+        <button type="button" data-role="hr">人資</button>
+      </div>
+    </div>
+    <nav>
+      <div class="label">示範問題</div>
+      <div class="links" id="questions"></div>
+    </nav>
+    <div class="side-foot">官方法規 6 份・虛構公司文件 4 份<br><a id="repo" href="https://github.com/lee851104/hr_rag">原始碼與說明</a></div>
+  </aside>
+
+  <div class="main">
+    <header class="top">
+      <h1>查詢結果</h1>
+      <span class="role" id="role-pill"></span>
+    </header>
+    <main class="content">
+      <p class="note">靜態展示：以下是實際系統（OpenAI gpt-4.1＋本機檢索）對開發題的真實回答，並經人工核對。切換角色可看到同一題因權限不同而回答不同。</p>
+      <section class="card" id="answer" aria-live="polite"></section>
+    </main>
+  </div>
+</div>
+
+<div class="ask">
+  <div><span>線上展示不開放即時提問，以免公開 API 金鑰；可在本機執行完整系統。</span><a id="run-local" href="https://github.com/lee851104/hr_rag#6-快速開始">本機執行</a></div>
+</div>
+
+<script src="demo-data.js"></script>
+<script>
+(() => {
+  const ROLE_NAMES = { employee: "員工 employee", manager: "主管 manager", hr: "人資 hr" };
+  const el = (tag, cls, text) => {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text !== undefined) node.textContent = text;
+    return node;
+  };
+
+  function parseHash() {
+    const [role, id] = location.hash.replace("#", "").split("/");
+    const items = window.DEMO[role];
+    if (!items) return { role: "employee", item: window.DEMO.employee[0] };
+    return { role, item: items.find(i => i.id === id) || items[0] };
+  }
+
+  function renderAnswer(item) {
+    const card = document.getElementById("answer");
+    card.replaceChildren();
+    const head = el("div", "head");
+    head.append(el("p", "question", item.question));
+    head.append(el("span", "badge badge-" + item.status, item.status_text));
+    card.append(head, el("div", "date", "依 " + item.as_of + " 有效版本"));
+    if (item.reason) card.append(el("p", "reason", item.reason));
+    if (item.claims.length) {
+      const list = el("div", "claims");
+      for (const claim of item.claims) {
+        const box = el("div", "claim" + (claim.tags.some(t => t[0] === "official") ? " official" : ""));
+        for (const [kind, label] of claim.tags) box.append(el("span", "tag " + kind, label));
+        box.append(el("p", "", claim.text));
+        for (const s of claim.sources) {
+          const range = s.to ? s.from + "～" + s.to : s.from + " 起";
+          box.append(el("div", "src", `${s.title}・${s.doc} ${s.version} §${s.section}・${range}`));
+        }
+        list.append(box);
+      }
+      card.append(list);
+    } else {
+      card.append(el("p", "empty", "此角色可查閱的文件中沒有相關依據，因此不提供答案內容。"));
+    }
+    card.append(el("div", "foot", item.reviewed_correct ? "人工核對：符合預期答案與權限" : "人工核對：未通過"));
+  }
+
+  function render() {
+    const { role, item } = parseHash();
+    document.querySelectorAll("#roles button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.role === role)));
+    document.getElementById("role-pill").textContent = ROLE_NAMES[role];
+    const nav = document.getElementById("questions");
+    nav.replaceChildren();
+    for (const q of window.DEMO[role]) {
+      const a = el("a", q.id === item.id ? "active" : "", q.label);
+      a.href = "#" + role + "/" + q.id;
+      nav.append(a);
+    }
+    renderAnswer(item);
+  }
+
+  document.getElementById("roles").addEventListener("click", e => {
+    const role = e.target.dataset && e.target.dataset.role;
+    if (role) location.hash = role + "/" + window.DEMO[role][0].id;
+  });
+  window.addEventListener("hashchange", render);
+  render();
+})();
+</script>
+</body>
+</html>

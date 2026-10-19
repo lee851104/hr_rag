@@ -1,0 +1,111 @@
+{
+  "development-run1": {
+    "planned_executions": 26,
+    "completed_executions": 26,
+    "complete": true,
+    "statuses": {
+      "answered": 13,
+      "error": 13
+    },
+    "api_calls": 26,
+    "human_review_pending": true,
+    "accepted": false,
+    "estimated_usd": "0.0223108",
+    "sha256": "6e5d5239a6649fdcba644604cab84cc125653bfdad54a455abe64ea77a5de2bf"
+  },
+  "development-run2": {
+    "planned_executions": 26,
+    "completed_executions": 26,
+    "complete": true,
+    "statuses": {
+      "answered": 17,
+      "error": 2,
+      "insufficient": 7
+    },
+    "api_calls": 26,
+    "human_review_pending": true,
+    "accepted": false,
+    "estimated_usd": "0.0223196",
+    "sha256": "93340a2c43e4a709dad5bb8e0300b02cd227844cbb5c41a434b343997887bcda"
+  },
+  "development-run3": {
+    "planned_executions": 26,
+    "completed_executions": 26,
+    "complete": true,
+    "statuses": {
+      "answered": 19,
+      "insufficient": 7
+    },
+    "api_calls": 26,
+    "human_review_pending": true,
+    "accepted": false,
+    "estimated_usd": "0.0148588",
+    "sha256": "b9f8ed6d5e6ef9431d170443813f3f0b20eb98a3e47a1db219586a70da323334"
+  },
+  "development-final": {
+    "planned_executions": 26,
+    "completed_executions": 26,
+    "complete": true,
+    "statuses": {
+      "answered": 19,
+      "insufficient": 7
+    },
+    "api_calls": 26,
+    "human_review_pending": true,
+    "accepted": false,
+    "estimated_usd": "0.0169548",
+    "sha256": "d04ece0e36dd84fdc5c481c50c6aa1321e6aec8eb946ac410fec58bf9ff6d3e6",
+    "status_matches_expected": 25,
+    "missing_required_citation_groups": [
+      {
+        "question_id": "D09",
+        "role": "employee",
+        "repeat": 1
+      }
+    ]
+  },
+  "stability-final": {
+    "planned_executions": 18,
+    "completed_executions": 18,
+    "complete": true,
+    "statuses": {
+      "answered": 12,
+      "insufficient": 6
+    },
+    "api_calls": 18,
+    "human_review_pending": true,
+    "accepted": false,
+    "estimated_usd": "0.0108076",
+    "sha256": "227ab101e0f936941dd82e677ab5b9d9554e5f84ddf1cb10eb40d39a21ddf412",
+    "status_matches_expected": 18,
+    "missing_required_citation_groups": [
+      {
+        "question_id": "D09",
+        "role": "employee",
+        "repeat": 1
+      },
+      {
+        "question_id": "D09",
+        "role": "employee",
+        "repeat": 2
+      },
+      {
+        "question_id": "D09",
+        "role": "employee",
+        "repeat": 3
+      }
+    ]
+  },
+  "stage5_api_calls": 122,
+  "stage5_input_tokens": 123049,
+  "stage5_output_tokens": 23770,
+  "stage5_estimated_usd": "0.0872516",
+  "project_cost": {
+    "settled_usd": "0.1204556",
+    "reserved_usd": "0"
+  },
+  "human_review_status": "pending",
+  "stage5_accepted": false,
+  "labels_sha256": "092e10881957c25bf1d80509cd742bac6bee5b15b26725c56c79e78084e13255",
+  "project_api_attempts": 132
+}

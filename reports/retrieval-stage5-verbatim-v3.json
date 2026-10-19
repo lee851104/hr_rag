@@ -1,0 +1,38 @@
+{
+  "retrieval_mode": "verified prior real top5 replay, actual assembly and original labels recomputed",
+  "candidate_sha256": "51b30d63c147bdee5211c2477d24218a8e1e62749f196e9b7ecc7ec09bd3e1ba",
+  "runs": [
+    {
+      "mode": "dense",
+      "top5_all_hit": 12,
+      "context_all_hit": 12,
+      "mean_context_precision": 0.775,
+      "version_correct": 3,
+      "authorization_errors": 0,
+      "execution_errors": 0,
+      "pending_labels": 0
+    },
+    {
+      "mode": "hybrid",
+      "top5_all_hit": 11,
+      "context_all_hit": 11,
+      "mean_context_precision": 0.6654761904761904,
+      "version_correct": 3,
+      "authorization_errors": 0,
+      "execution_errors": 0,
+      "pending_labels": 0
+    },
+    {
+      "mode": "rerank",
+      "top5_all_hit": 14,
+      "context_all_hit": 14,
+      "mean_context_precision": 0.8214285714285714,
+      "version_correct": 3,
+      "authorization_errors": 0,
+      "execution_errors": 0,
+      "pending_labels": 0
+    }
+  ],
+  "private_results_path": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\.runtime\\stage5-private\\retrieval-verbatim-gpt41-v3.json",
+  "private_results_sha256": "9f2f7db8fe0f04ddf5aa73927aa2c40b90519f030a1ecec03c16b59203a4a11f"
+}

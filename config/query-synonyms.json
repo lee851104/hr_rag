@@ -1,0 +1,5 @@
+{
+  "version": "zh-leave-v1",
+  "review_basis": "已核准design Decisions 5：特休與特別休假同義；補休不合併",
+  "replacements": {"特休": "特別休假"}
+}

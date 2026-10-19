@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-18",
+  "purpose": "離線編碼驗證；非正式模型選擇或0.8實測",
+  "sdk_version": "3.33.0",
+  "tiktoken_version": "0.14.0",
+  "fixture_model": "gpt-4.1-mini-2025-04-14",
+  "encoding": "o200k_base",
+  "input_tokens": 482,
+  "evidence_tokens": 26,
+  "input_includes_schema": true,
+  "network_blocked": true,
+  "generation_api_calls": 0
+}

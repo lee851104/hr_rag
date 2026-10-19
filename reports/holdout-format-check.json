@@ -1,0 +1,47 @@
+{
+  "checked_at": "2026-10-18",
+  "official_file": "holdout.jsonl",
+  "official_record_count": 10,
+  "official_schema_valid_records": 7,
+  "official_errors": [
+    {
+      "field": "[unknown_field]",
+      "type": "extra_forbidden",
+      "count": 6
+    },
+    {
+      "field": "category",
+      "type": "literal_error",
+      "count": 1
+    },
+    {
+      "field": "review_status",
+      "type": "missing",
+      "count": 3
+    },
+    {
+      "field": "role_expectations.employee",
+      "type": "value_error",
+      "count": 1
+    },
+    {
+      "field": "required_evidence_groups reference object",
+      "type": "model_type",
+      "count": 6
+    }
+  ],
+  "candidate_file": "holdout.candidate-H07-H09.jsonl",
+  "candidate_record_count": 10,
+  "candidate_schema_valid_records": 10,
+  "candidate_reviewed_count": 7,
+  "candidate_pending_count": 3,
+  "candidate_distribution_and_references_passed": true,
+  "candidate_errors": [
+    "human_review_pending"
+  ],
+  "frozen": false,
+  "stage_4_started": false,
+  "body_output": false,
+  "external_files_modified": false,
+  "api_calls": 0
+}

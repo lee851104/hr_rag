@@ -1,0 +1,14 @@
+{
+  "stage": "0.9",
+  "verified_on": "2026-10-18",
+  "tests_passed": 131,
+  "api_calls_added": 0,
+  "sha256": {
+    "config/models.lock.json": "77ab0f395e54a4c18c0786abcc5a052f16c91bf09232956b6a90e540577e58a8",
+    "src/hr_rag/settings.py": "55ffec287597786f03d9d98a7d6f09f201fa50a2579d2cc481aaa1feff1c4aaa",
+    "tests/test_frozen_settings.py": "a37a0d46788c4bdb5df841391239743a2d4171efdb9a806baa24c227a3967918",
+    "reports/feasibility-long-context-openai.json": "a422e483b996909de81d83cdf924f0100a8178cf22a98fd95651e0b63845a2e7",
+    "reports/runtime.md": "c948a915389d7d3830fea7cd25d453f4bcc871bbc3c5651e9ff0a1585da57c1f",
+    "reports/stage-0.md": "0559e4bd66b62440dc5ca4e20dbbae339bfaf48db7e759bbe5aa1c13a679b790"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "stability",
+  "reviewer": "使用者",
+  "reviewed_at": "2026-10-19T02:26:13.048Z",
+  "source_sha256": "35e559b1c4d6a80d8c543df29374235582008ead1c54fd5ea1ac20cd4e4ba69b",
+  "citation_support": {
+    "supported": 34,
+    "total": 37,
+    "rate": 0.918918918918919
+  },
+  "unsupported_citations": [
+    {
+      "question_id": "D05",
+      "role": "employee",
+      "repeat": 2,
+      "claim_index": 2,
+      "citation_id": "p-394d599801508d336ca745145e77700a1fe52987544d72c04f77e373d00b0903"
+    },
+    {
+      "question_id": "D05",
+      "role": "employee",
+      "repeat": 3,
+      "claim_index": 2,
+      "citation_id": "p-394d599801508d336ca745145e77700a1fe52987544d72c04f77e373d00b0903"
+    },
+    {
+      "question_id": "D13",
+      "role": "employee",
+      "repeat": 1,
+      "claim_index": 2,
+      "citation_id": "p-49283fd5e3c7c23a244714b56f3e531a97d2d559c30e07a0d029227538c37200"
+    }
+  ],
+  "key_claims_covered": {
+    "passed": 18,
+    "total": 18
+  },
+  "status_mismatches": [],
+  "marked_incorrect": [],
+  "reasons": [],
+  "runs": {
+    "passed": 15,
+    "total": 18
+  },
+  "passed": false,
+  "review_sha256": "4ebbb7992d43016bf96cf8cda6607467f4fac1a0f94ca5b349a130738b086083"
+}

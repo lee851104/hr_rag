@@ -1,0 +1,215 @@
+"""離線人工核對頁：明確三態、進度暫存及可核對來源hash的JSON匯出。"""
+
+import html
+import json
+
+HEADER = """<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>開發題上下文核對</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f4f6f8;color:#192b3a;
+font:16px/1.65 system-ui,sans-serif}main{max-width:1000px;margin:auto;padding:24px}
+h1{font-size:26px;margin:0 0 10px}p{margin:10px 0}.toolbar{position:sticky;top:0;
+z-index:1;background:#fff;border-bottom:1px solid #cbd5df;padding:14px 24px;
+box-shadow:0 2px 8px #0001}.controls{max-width:952px;margin:auto;display:flex;
+flex-wrap:wrap;align-items:center;gap:12px}.progress{font-weight:700}
+button{background:#155b9c;color:white;border:0;border-radius:6px;padding:10px 16px;
+font:inherit;cursor:pointer}button.secondary{background:#e7edf3;color:#192b3a}
+input[type=text],textarea{font:inherit;border:1px solid #aebbc9;border-radius:5px;
+padding:7px}#reviewer{width:140px}details{background:white;border:1px solid #cbd5df;
+border-radius:8px;margin:16px 0;padding:16px}summary{cursor:pointer;font-weight:700}
+.badge{float:right;font-size:14px;color:#805800}.body{padding-top:8px}
+.source{font-size:14px;color:#4d6071}pre{white-space:pre-wrap;overflow-wrap:anywhere;
+font:inherit;background:#f5f7fa;border-left:3px solid #7c9db9;padding:14px}
+fieldset{border:0;padding:4px 0;margin:0;display:flex;gap:18px;flex-wrap:wrap}
+legend{font-weight:600}input[type=radio]{accent-color:#155b9c;width:18px;height:18px}
+textarea{width:100%;min-height:65px}.hint{font-size:14px;color:#4d6071}
+#notice{max-width:952px;margin:5px auto 0;font-size:14px;color:#805800}
+</style></head><body><div class="toolbar"><div class="controls">
+<span class="progress" id="review-progress" aria-live="polite"></span>
+<label>核對者 <input id="reviewer" type="text" value="使用者" maxlength="100"></label>
+<button id="export-json" type="button">匯出 JSON</button>
+<button id="next-pending" type="button" class="secondary">下一個未核對</button>
+</div><p id="notice" role="status"></p></div><main>
+<h1>第四階段上下文有用性核對</h1>
+<p>展開項目，依問題、角色與日期，判斷整個證據單位是否有助回答。
+部分有用但主要無關應選「無用」。這是既有開發題的上下文，不含保留題。</p>
+<p class="hint">選擇會暫存在目前瀏覽器，仍請定期匯出 JSON 備份。
+尚未核對的項目會保留為待核對，不會當成無用；全數完成後再匯出最終檔。
+補充理由可留空，會依選擇記錄「有助回答」或「無助回答或主要無關」。</p>
+"""
+
+SCRIPT = r"""
+(() => {
+  'use strict';
+  const data = JSON.parse(document.getElementById('review-data').textContent);
+  const key = 'hr-rag-context-review-v1:' + data.review_set_sha256;
+  const reviewer = document.getElementById('reviewer');
+  const notice = document.getElementById('notice');
+  const entries = data.items.map(item => ({...item,
+    element: document.getElementById(item.review_id), reviewed_at: null}));
+  const localDate = () => {
+    const d = new Date();
+    return [d.getFullYear(), String(d.getMonth()+1).padStart(2,'0'),
+      String(d.getDate()).padStart(2,'0')].join('-');
+  };
+  const choice = entry => entry.element.querySelector('input:checked').value;
+  const buildExport = () => {
+    const labels = entries.map(entry => {
+      const selected = choice(entry);
+      const useful = selected === 'pending' ? null : selected === 'useful';
+      return {
+        review_id: entry.review_id, question_id: entry.question_id,
+        role: entry.role, content_sha256: entry.content_sha256, useful,
+        reason: useful === null ? null :
+          (entry.element.querySelector('textarea').value.trim() ||
+           (useful ? '有助回答' : '無助回答或主要無關')),
+        reviewer: useful === null ? null : reviewer.value.trim(),
+        reviewed_at: useful === null ? null : entry.reviewed_at
+      };
+    });
+    const reviewed = labels.filter(row => row.useful !== null).length;
+    return {schema_version: 1, review_set_sha256: data.review_set_sha256,
+      exported_at: new Date().toISOString(), reviewer: reviewer.value.trim(),
+      complete: reviewed === labels.length,
+      counts: {total: labels.length, reviewed, pending: labels.length-reviewed,
+        useful: labels.filter(row => row.useful === true).length,
+        not_useful: labels.filter(row => row.useful === false).length}, labels};
+  };
+  const refresh = () => {
+    const result = buildExport();
+    document.getElementById('review-progress').textContent =
+      `已核對 ${result.counts.reviewed} / ${result.counts.total} · ` +
+      `有用 ${result.counts.useful} · 無用 ${result.counts.not_useful}`;
+    entries.forEach(entry => {
+      const selected = choice(entry);
+      const badge = entry.element.querySelector('.badge');
+      badge.textContent =
+        {pending:'待核對', useful:'有用', 'not-useful':'無用'}[selected];
+      badge.style.color = selected === 'pending' ? '#805800' : '#155b9c';
+    });
+  };
+  const save = () => {
+    try {
+      localStorage.setItem(key, JSON.stringify({reviewer: reviewer.value,
+        entries: entries.map(entry => ({id:entry.review_id, choice:choice(entry),
+          reason:entry.element.querySelector('textarea').value,
+          reviewed_at:entry.reviewed_at}))}));
+      notice.textContent = '已暫存於目前瀏覽器；請定期匯出 JSON 備份。';
+    } catch (_) {
+      notice.textContent = '此瀏覽器無法暫存，離開前請匯出 JSON。';
+    }
+    refresh();
+  };
+  try {
+    const saved = JSON.parse(localStorage.getItem(key) || 'null');
+    if (saved && Array.isArray(saved.entries)) {
+      if (typeof saved.reviewer === 'string') reviewer.value = saved.reviewer;
+      entries.forEach(entry => {
+        const row = saved.entries.find(row => row.id === entry.review_id);
+        if (!row || !['pending','useful','not-useful'].includes(row.choice)) return;
+        entry.element.querySelector(`input[value="${row.choice}"]`).checked = true;
+        entry.element.querySelector('textarea').value =
+          typeof row.reason === 'string' ? row.reason : '';
+        entry.reviewed_at = row.choice === 'pending' ? null :
+          row.reviewed_at || localDate();
+      });
+      notice.textContent = '已恢復這份核對清單的瀏覽器暫存。';
+    }
+  } catch (_) {
+    notice.textContent = '無法讀取暫存；可正常核對並匯出 JSON。';
+  }
+  entries.forEach(entry => entry.element.addEventListener('input', () => {
+    entry.reviewed_at = choice(entry) === 'pending' ? null : localDate();
+    save();
+  }));
+  reviewer.addEventListener('input', save);
+  document.getElementById('export-json').addEventListener('click', () => {
+    if (!reviewer.value.trim()) {
+      notice.textContent = '請填寫核對者後再匯出。'; reviewer.focus(); return;
+    }
+    const result = buildExport();
+    const blob = new Blob([JSON.stringify(result, null, 2) + '\n'],
+      {type:'application/json;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url; link.download = `hr-rag-context-labels-${localDate()}.json`;
+    document.body.appendChild(link); link.click(); link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    notice.textContent = result.complete ? '已匯出完整核對結果。' :
+      `已匯出目前進度，仍有 ${result.counts.pending} 項未核對。`;
+  });
+  document.getElementById('next-pending').addEventListener('click', () => {
+    const entry = entries.find(entry => choice(entry) === 'pending');
+    if (!entry) { notice.textContent = '已全部核對，可匯出 JSON。'; return; }
+    entry.element.open = true;
+    entry.element.scrollIntoView({behavior:'smooth', block:'center'});
+    entry.element.querySelector('input').focus({preventScroll:true});
+  });
+  refresh();
+})();
+"""
+
+
+def render_review(items, review_set_sha256, *, title=None, note=None):
+    header = HEADER
+    if title:
+        escaped = html.escape(title)
+        header = header.replace(
+            "<title>開發題上下文核對</title>", f"<title>{escaped}</title>"
+        ).replace("<h1>第四階段上下文有用性核對</h1>", f"<h1>{escaped}</h1>")
+    if note:
+        header = header.replace(
+            "這是既有開發題的上下文，不含保留題。", html.escape(note)
+        )
+    parts = [header]
+    metadata = []
+    for item in items:
+        label = item["review_id"]
+        chunk = item["unit"]["chunk"]
+        escape = html.escape
+        metadata.append(
+            {
+                "review_id": label,
+                "question_id": item["question_id"],
+                "role": item["role"],
+                "content_sha256": item["unit"]["content_sha256"],
+            }
+        )
+        parts.append(
+            f'<details id="{escape(label, quote=True)}"><summary>{escape(label)} — '
+            f"{escape(item['question_id'])} / {escape(item['role'])} / "
+            f"{escape(', '.join(item['modes']))} "
+            '<span class="badge">待核對</span></summary><div class="body">'
+            f"<p><strong>{escape(item['question'])}</strong></p>"
+            f'<p class="source">日期：{escape(item["as_of"])}；來源：'
+            f"{escape(chunk['document_id'])} / {escape(chunk['version_id'])} / "
+            f"{escape(chunk['section_id'])}</p><pre>{escape(chunk['text'])}</pre>"
+            "<fieldset><legend>整個單位是否有助回答？</legend>"
+        )
+        for value, caption in [
+            ("pending", "尚未核對"),
+            ("useful", "有用"),
+            ("not-useful", "無用"),
+        ]:
+            checked = " checked" if value == "pending" else ""
+            parts.append(
+                f'<label><input type="radio" name="{escape(label, quote=True)}" '
+                f'value="{value}"{checked}> {caption}</label>'
+            )
+        parts.append(
+            "</fieldset><label>補充理由（選填）"
+            '<textarea maxlength="2000"></textarea></label></div></details>'
+        )
+    payload = json.dumps(
+        {"review_set_sha256": review_set_sha256, "items": metadata}, ensure_ascii=False
+    ).replace("<", "\\u003c")
+    parts.extend(
+        [
+            '</main><script id="review-data" type="application/json">',
+            payload,
+            "</script><script>",
+            SCRIPT,
+            "</script></body></html>",
+        ]
+    )
+    return "\n".join(parts)

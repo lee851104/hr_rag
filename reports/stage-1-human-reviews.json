@@ -1,0 +1,272 @@
+{
+  "reviews": [
+    {
+      "question_id": "D01",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D01通過，下一題",
+      "before_sha256": "0d6dddee04efad34ce87530dd72210c4712e044c3b30fff87cb816229aba2700",
+      "after_sha256": "43d94e31b27c8fe4e0cec4e81de85dce811caae3aa7ce75261fd4cb2a75b0c79",
+      "scope": "D01問題、日期、員工角色預期、答案與必要證據"
+    },
+    {
+      "question_id": "D02",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D02通過，下一題",
+      "before_sha256": "9cb98b035746c9727c28128110c13c44f605288ddd8ac0239784f50919725827",
+      "after_sha256": "f7529fa143877c42c8e60c1dc1fc6e093f6967f68e957f6b648cb7ebb8198986",
+      "scope": "D02問題、日期、員工角色預期、答案與必要證據"
+    },
+    {
+      "question_id": "D03",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D03通過，下一題",
+      "before_sha256": "c52c4d8493e6ae324191d6fbc02ef7881b4edddf1ec68ce6b2993f6953d603a8",
+      "after_sha256": "222a51de57a3a1b08b0405ff0c00127c971741562e1e1639e1d1088a4e67f41d",
+      "scope": "D03問題、日期、員工角色預期、答案與必要證據"
+    },
+    {
+      "question_id": "D04",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D04通過，下一題",
+      "before_sha256": "b12d68db17a265252e145586cf848bc284012dcced91dc643152efb6625151ed",
+      "after_sha256": "be7b3d72c94a56ec6497354220a5c270196fa35d8612e0507401c6992029ac75",
+      "scope": "D04問題、日期、員工角色預期、答案與必要證據"
+    },
+    {
+      "question_id": "D05",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D05通過，下一題",
+      "before_sha256": "eff350016f7f17e3466e2a74c720e336d2ef39a67ae393b88e2aa92b74dd6364",
+      "after_sha256": "f22f040e422c38807c05178939a489302fb9f151116e33a0082cef44a90fe2c9",
+      "scope": "D05問題、日期、員工角色預期、答案與必要證據；C01 v2資料與補件原則，不代表整份文件已核對"
+    },
+    {
+      "question_id": "D06",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "了解，D06通過，下一題",
+      "before_sha256": "7c87015669b785c6497afa696d901fa46e0065d1af0af0002bd031e9fe86c025",
+      "after_sha256": "47f3cd72fcdc4b854fdc2b7e4a0a39982791b0d2821f80004a3cb42a7613b2a2",
+      "scope": "D06問題、日期、員工角色預期、答案與必要證據；C02 v1緊急通知與進度追蹤，不代表整份文件已核對"
+    },
+    {
+      "question_id": "D07",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D07通過，下一題",
+      "before_sha256": "69197929e69ceefd1cbff00288a4b34cce74f0b3a32a45494bbc7640f81ea748",
+      "after_sha256": "6210e18a6210c78561dd357979729e6d31e8b3474f5c4412d4e00218c3b2f233",
+      "scope": "D07問題、日期、員工角色預期、答案與必要證據；不代表整份官方文件已核對"
+    },
+    {
+      "question_id": "D08",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D08通過，下一題",
+      "before_sha256": "bc165fc3ffe16b53e0065fba69397e4d5aba07b5b22114a6cdc2b954ed2a5639",
+      "after_sha256": "dd13a11f2c29522b560ae844fce95dc1fbdb0c0e9eb765c548bd1f8dec20b3ab",
+      "scope": "D08問題、日期、員工角色預期、答案與必要證據；不代表整份官方文件已核對"
+    },
+    {
+      "question_id": "D09",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D09通過，下一題",
+      "before_sha256": "fe36183441f00476a8d236c6799c2b0a23cdc061fd439d2f48ecc1f31739c375",
+      "after_sha256": "f5e84d7da82bad0f4614a7bef97c19f11a65be205d6f30ca741b823f7557172b",
+      "scope": "D09問題、日期、員工角色預期、答案與必要證據；不代表整份官方文件已核對"
+    },
+    {
+      "question_id": "D10",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D10通過，下一題",
+      "before_sha256": "2e2bba26e6317edd9428517f866e4852c0660ae5c470ac36d87d7b8869a1fc69",
+      "after_sha256": "810f74a208c6da65258616c097d19a0cce8944493104553758160fcfb80800f6",
+      "scope": "D10問題、日期、員工角色預期、答案與必要證據；不代表整份來源文件已核對"
+    },
+    {
+      "question_id": "D11",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D11通過，下一題",
+      "before_sha256": "34b3be37e0fd7287f51d9b73cce192da5a74e6a84ce6d5a3e4e94a69581d563d",
+      "after_sha256": "8e240754b716f1f7c455f4ab42065309827b541fb8bd17a62880702fb0f7aac5",
+      "scope": "D11問題、日期、員工角色預期、答案與必要證據；不代表整份來源文件已核對"
+    },
+    {
+      "question_id": "D12",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D12通過，下一題",
+      "before_sha256": "b4fde9f13b27c2a4946e367fbbfd5d051fd9e178382b8276cf6c9f167076eb19",
+      "after_sha256": "6a8dc85a036eb6e30b0c51b97b615f9736d7c2ef3ba195b6a80dcc4bbb8b51e1",
+      "scope": "D12問題、日期、員工角色預期、答案與必要證據；不代表整份來源文件已核對"
+    },
+    {
+      "question_id": "D13",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D13通過，下一題",
+      "before_sha256": "ed8ea5acecd40f9587deaf07cb350eda543b913c8bd8f28c3ed6053830c28250",
+      "after_sha256": "410ce46127ae9a2cd4b854c2266ec5721ae0fa374fc192bdeab9018d8f0cfbf6",
+      "scope": "D13問題、日期、員工角色預期、答案與必要證據；不代表整份來源文件已核對"
+    },
+    {
+      "question_id": "D14",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D14通過，下一題",
+      "before_sha256": "b2c9ddd9f97780c481e9e464f92e53a3ea41f54067295085a3015d9d67668b95",
+      "after_sha256": "7414c9449f5bc62e693514d8ee0d332bd27e0a4f9b63ebd6436e5f038b110108",
+      "scope": "D14問題、日期、員工角色預期、答案與必要證據；不代表整份來源文件已核對"
+    },
+    {
+      "question_id": "D15",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D15通過，下一題",
+      "before_sha256": "8fb2b959e02f21830cb804ea2174fcf474213fbd36eb8820f403d02c9b07d9c8",
+      "after_sha256": "f11a521195dfe5158d94e6e3774755665d2e1fa83cc9376b62ca70c99cc8e760",
+      "scope": "D15問題、日期、員工／主管／HR三角色預期、答案與必要證據；不代表整份來源文件已核對"
+    },
+    {
+      "question_id": "D16",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D16通過，下一題",
+      "before_sha256": "7d30eb651d02078a645955ca9f782290757d91f7be0b27200f228031a2140ea1",
+      "after_sha256": "92d1d45b3bf52c2d84300e7715c35d613aad46e708e5f5f35fdaf39a925c620b",
+      "scope": "D16問題、日期、員工／主管／HR三角色預期、答案與必要證據；不代表整份來源文件已核對"
+    },
+    {
+      "question_id": "D17",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D17通過，下一題",
+      "before_sha256": "61637249c0727352e7d03c164d7262648f94a94cc647e092917d143e13dd763c",
+      "after_sha256": "e8740c29cb0a6f43060c1d825027397778385a5ea16837ac3dd3ceff744dc58c",
+      "scope": "D17問題、日期、員工／主管／HR三角色預期、答案與必要證據；不代表整份來源文件已核對"
+    },
+    {
+      "question_id": "D18",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D18通過，下一題",
+      "before_sha256": "6b94f34255999d26a48af1f80a7ce5f1c6179b126c69a02554c86da5ffa82f76",
+      "after_sha256": "d913ab1920cb72016a19b1285b29f8aeddecdd5a5c084432064a7eaafcd31be9",
+      "scope": "D18問題、日期、員工角色預期、資料不足判定與禁止來源；不代表整份來源文件已核對"
+    },
+    {
+      "question_id": "D19",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D19通過，下一題",
+      "before_sha256": "d392d84f54e7a60785538c778ed2cac2b0b579275a8e0346c3401c8860bbeec5",
+      "after_sha256": "56110c3b19d8903ef373710d7336700e0851e2a73b1e0c3d4691d054b7f008eb",
+      "scope": "D19問題、日期、員工角色預期、資料不足判定與禁止來源；不代表整份來源文件已核對"
+    },
+    {
+      "question_id": "D20",
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "D20通過，接著核對下一項",
+      "before_sha256": "8e507a05ccc03e410b6b130f6b537bf068ac7020e2d2778c2cc138a5ee18876e",
+      "after_sha256": "dd68de5d8642b9e61a644ed358dd9c348995fe1e43d49d08e2ed0fd43ee7771a",
+      "scope": "D20問題、日期、員工角色預期、資料不足判定與禁止來源；不代表整份來源文件已核對"
+    }
+  ],
+  "document_reviews": [
+    {
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "11個文件可以，10題保留我也看過沒問題了，你可以繼續做",
+      "scope": "全部11個文件版本：內容、日期、來源、角色矩陣與維護欄位；不包含尚未建立的階段2片段驗收",
+      "document_versions": [
+        {
+          "document_id": "O01",
+          "version_id": "snapshot-2026-10-18",
+          "content_sha256": "dddea6f9a05e0ab6381cd93df6b6370e5ab6f3d5b6590f62301b5052c79b99f0",
+          "raw_sha256": "717407baa379e6e917b10a48c14f66df4c5e797dfd19a263029ee991a17caa7b"
+        },
+        {
+          "document_id": "O02",
+          "version_id": "snapshot-2026-10-18",
+          "content_sha256": "7bfa91d7a58d753a099cbbf71c0dbfd3f90a3260d2407dc1747815d78ec3c44b",
+          "raw_sha256": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945"
+        },
+        {
+          "document_id": "O03",
+          "version_id": "snapshot-2026-10-18",
+          "content_sha256": "0adaf2637de90d3da363a7fbef0b3bbedb06e19969f4a8f4902d1eca089e4f1b",
+          "raw_sha256": "5ecf516d71f15be05995892d8abfb985d1111f2cad21abf72fe9f8e78f7668c2"
+        },
+        {
+          "document_id": "O04",
+          "version_id": "snapshot-2026-10-18",
+          "content_sha256": "10d35d16328bfabf9b765469c6fbdb53f1aa419d169f8913b940d1cdd4f1b74e",
+          "raw_sha256": "243dad298e558a2fd8f404bc2f8f1d6e6554fb77bb4af15b1c1505ece87983f1"
+        },
+        {
+          "document_id": "O05",
+          "version_id": "snapshot-2026-10-18",
+          "content_sha256": "7c7d385c4f88cfa97cf257d6410c9b95dbc5ca1127714268697cceb94260703d",
+          "raw_sha256": "ce7987cafe2b4472913da3c8b2956b5136bc822af303bf076c6acdcf99d39230"
+        },
+        {
+          "document_id": "O06",
+          "version_id": "snapshot-2026-10-18",
+          "content_sha256": "d63d21088be095314e38b19a8f7f1bade6b1ac0b1e196ac35de82553bb2cf395",
+          "raw_sha256": "fa81deb635fa36747b3036682249a00f2a30c85f9bcbaa46b7a91ad34f827e2d"
+        },
+        {
+          "document_id": "C01",
+          "version_id": "v1",
+          "content_sha256": "13c078dd4af9e36bbf32efaff36b43bd357580320d8612ef7ac5d0b9ea345ce9",
+          "raw_sha256": "a93f27f4476f6d150edd47da1d0cb7c59cf7b953d366c53ab1f2c1b9a6b70387"
+        },
+        {
+          "document_id": "C01",
+          "version_id": "v2",
+          "content_sha256": "8839c02ab9209fee01e4208ee5c95f4f055e5c766075b055ab1df9bbc88e7c23",
+          "raw_sha256": "9b2099cb29be73fbeae94978495d64b51697ed4ea1f757281d1d2241851313c4"
+        },
+        {
+          "document_id": "C02",
+          "version_id": "v1",
+          "content_sha256": "6d1dd147072caca279a86cf17697b84989ab70fc7e85302cabc84beffe9907cd",
+          "raw_sha256": "34d5c7386fe8b797176806c50c573323708171735c3473501821e6fc93e7664e"
+        },
+        {
+          "document_id": "C03",
+          "version_id": "v1",
+          "content_sha256": "334033ee3dab901fb576c7750f5fa88e11da941a7a99b942fb2e326f62fe58f5",
+          "raw_sha256": "fa89ebe8ce9520cc25382f065c0ae7241a14817c94b5325ef668c3bcd3737d60"
+        },
+        {
+          "document_id": "C04",
+          "version_id": "v1",
+          "content_sha256": "07ab4c1cbe8a73daed6b6357b01609c972bffa73d66c265043f6fcdaab311473",
+          "raw_sha256": "339b634b36b24ff824eb48de7c699bcef8275d347886a58283e1e207a1e1087e"
+        }
+      ],
+      "manifest_before_sha256": "159c5c9ada317c27ab9c54c7ff7c0fb176fbdd4edf56e3fc27fd37940f6c7d1c",
+      "manifest_after_sha256": "fd19b3730eb61c23ab650fa5d9a86768c35e46913eaebf38ba7f5289c4f4b04d"
+    }
+  ],
+  "holdout_review_confirmations": [
+    {
+      "reviewer": "使用者（本對話確認）",
+      "reviewed_at": "2026-10-18",
+      "confirmation": "11個文件可以，10題保留我也看過沒問題了，你可以繼續做",
+      "question_count": 10,
+      "scope": "使用者確認已核對10題保留題內容；格式驗證仍未通過，不代表已凍結有效保留集",
+      "validation_status": "evaluation_unreadable_or_invalid_schema"
+    }
+  ]
+}

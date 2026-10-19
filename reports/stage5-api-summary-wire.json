@@ -1,0 +1,42 @@
+{
+  "previous_summary_path": "reports\\stage5-api-summary-fixes.json",
+  "previous_summary_sha256": "7df2c54b3fdcf7edd8ce10c0f9296ccfa535af38276f26ee26022a466b27e4ca",
+  "new_runs": {
+    "review-pass-pilot-v1": {
+      "exchanges": 8,
+      "estimated_usd": "0.0074816",
+      "input_tokens": 10556,
+      "output_tokens": 2037,
+      "private_path": ".runtime\\stage5-private\\review-pass-pilot-v1.json",
+      "sha256": "df79c58a2cddfdbe9e046c47af3ba85541ebe91303acf5fefa77ec3745826fc5",
+      "accepted": false
+    },
+    "wire-citations-pilot-v1": {
+      "exchanges": 3,
+      "estimated_usd": "0.0015852",
+      "input_tokens": 3303,
+      "output_tokens": 165,
+      "private_path": ".runtime\\stage5-private\\wire-citations-pilot-v1.json",
+      "sha256": "61413e609a3caed12c61a43988ba008c765c89ccf5607ee24d8a93355bd8e996",
+      "accepted": false
+    }
+  },
+  "added_usd": "0.0090668",
+  "project_totals": {
+    "settled_usd": "0.5505920",
+    "reserved_usd": "0",
+    "attempts": 302
+  },
+  "ledger_reconciled": true,
+  "cost_cap_usd": "1",
+  "freeze_hashes": {
+    "eval/development.jsonl": "06b18e9c8023d515ddad485222fa0634e661c95b26fd9881f235738a07ad21a4",
+    "eval/labels.jsonl": "092e10881957c25bf1d80509cd742bac6bee5b15b26725c56c79e78084e13255",
+    "eval/labels.supplemental.jsonl": "ae774bd9e47529e514d16e11f7e771ce3c58a72bddc171a8aad4589db2586ec6",
+    "config/models.lock.json": "77ab0f395e54a4c18c0786abcc5a052f16c91bf09232956b6a90e540577e58a8"
+  },
+  "prompt_sha256": "8588fc44662c21aa44e4affff1f4f3e49f2b053ef427bfdaaad8356051c034e2",
+  "holdout_check": "verify_baseline hash only, no content read",
+  "stage5_accepted": false,
+  "stage6_started": false
+}

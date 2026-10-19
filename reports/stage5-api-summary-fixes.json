@@ -1,0 +1,605 @@
+{
+  "runs": {
+    "development-run1": {
+      "planned_executions": 26,
+      "completed_executions": 26,
+      "complete": true,
+      "statuses": {
+        "answered": 13,
+        "error": 13
+      },
+      "api_calls": 26,
+      "human_review_pending": true,
+      "accepted": false,
+      "completed_executions_actual": 26,
+      "api_exchanges": 26,
+      "estimated_usd": "0.0223108",
+      "input_tokens": 25225,
+      "output_tokens": 7638,
+      "status_matches_expected": 12,
+      "missing_required_citation_groups": [
+        {
+          "question_id": "D03",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D05",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D07",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D08",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D09",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D10",
+          "role": "employee",
+          "repeat": 1
+        }
+      ],
+      "forbidden_contexts": [],
+      "sha256": "6e5d5239a6649fdcba644604cab84cc125653bfdad54a455abe64ea77a5de2bf"
+    },
+    "development-run2": {
+      "planned_executions": 26,
+      "completed_executions": 26,
+      "complete": true,
+      "statuses": {
+        "answered": 17,
+        "error": 2,
+        "insufficient": 7
+      },
+      "api_calls": 26,
+      "human_review_pending": true,
+      "accepted": false,
+      "completed_executions_actual": 26,
+      "api_exchanges": 26,
+      "estimated_usd": "0.0223196",
+      "input_tokens": 28423,
+      "output_tokens": 6844,
+      "status_matches_expected": 24,
+      "missing_required_citation_groups": [
+        {
+          "question_id": "D09",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D10",
+          "role": "employee",
+          "repeat": 1
+        }
+      ],
+      "forbidden_contexts": [],
+      "sha256": "93340a2c43e4a709dad5bb8e0300b02cd227844cbb5c41a434b343997887bcda"
+    },
+    "development-run3": {
+      "planned_executions": 26,
+      "completed_executions": 26,
+      "complete": true,
+      "statuses": {
+        "answered": 19,
+        "insufficient": 7
+      },
+      "api_calls": 26,
+      "human_review_pending": true,
+      "accepted": false,
+      "completed_executions_actual": 26,
+      "api_exchanges": 26,
+      "estimated_usd": "0.0148588",
+      "input_tokens": 24967,
+      "output_tokens": 3045,
+      "status_matches_expected": 25,
+      "missing_required_citation_groups": [
+        {
+          "question_id": "D09",
+          "role": "employee",
+          "repeat": 1
+        }
+      ],
+      "forbidden_contexts": [],
+      "sha256": "b9f8ed6d5e6ef9431d170443813f3f0b20eb98a3e47a1db219586a70da323334"
+    },
+    "development-final": {
+      "planned_executions": 26,
+      "completed_executions": 26,
+      "complete": true,
+      "statuses": {
+        "answered": 19,
+        "insufficient": 7
+      },
+      "api_calls": 26,
+      "human_review_pending": true,
+      "accepted": false,
+      "completed_executions_actual": 26,
+      "api_exchanges": 26,
+      "estimated_usd": "0.0169548",
+      "input_tokens": 27619,
+      "output_tokens": 3692,
+      "status_matches_expected": 25,
+      "missing_required_citation_groups": [
+        {
+          "question_id": "D09",
+          "role": "employee",
+          "repeat": 1
+        }
+      ],
+      "forbidden_contexts": [],
+      "sha256": "d04ece0e36dd84fdc5c481c50c6aa1321e6aec8eb946ac410fec58bf9ff6d3e6"
+    },
+    "stability-final": {
+      "planned_executions": 18,
+      "completed_executions": 18,
+      "complete": true,
+      "statuses": {
+        "answered": 12,
+        "insufficient": 6
+      },
+      "api_calls": 18,
+      "human_review_pending": true,
+      "accepted": false,
+      "completed_executions_actual": 18,
+      "api_exchanges": 18,
+      "estimated_usd": "0.0108076",
+      "input_tokens": 16815,
+      "output_tokens": 2551,
+      "status_matches_expected": 18,
+      "missing_required_citation_groups": [
+        {
+          "question_id": "D09",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D09",
+          "role": "employee",
+          "repeat": 2
+        },
+        {
+          "question_id": "D09",
+          "role": "employee",
+          "repeat": 3
+        }
+      ],
+      "forbidden_contexts": [],
+      "sha256": "227ab101e0f936941dd82e677ab5b9d9554e5f84ddf1cb10eb40d39a21ddf412"
+    },
+    "d15-prompt-diagnostic": {
+      "completed_executions_actual": 5,
+      "api_exchanges": 5,
+      "estimated_usd": "0.0035868",
+      "input_tokens": 5895,
+      "output_tokens": 768,
+      "status_matches_expected": 0,
+      "missing_required_citation_groups": [],
+      "forbidden_contexts": [],
+      "sha256": "007090b4d8dc0f1115cda0d70651bb749bddd510987c87ae0a76ea667efabbae",
+      "human_review_pending": true,
+      "accepted": false
+    },
+    "d15-prompt-diagnostic2": {
+      "completed_executions_actual": 5,
+      "api_exchanges": 5,
+      "estimated_usd": "0.0038240",
+      "input_tokens": 6360,
+      "output_tokens": 800,
+      "status_matches_expected": 0,
+      "missing_required_citation_groups": [],
+      "forbidden_contexts": [],
+      "sha256": "944444dc50e5a0da5fe7fb30fc22faf10cbc04a3d12d8c94b4690d1e08074928",
+      "human_review_pending": true,
+      "accepted": false
+    },
+    "development-compound-v1": {
+      "planned_executions": 26,
+      "completed_executions": 26,
+      "complete": true,
+      "statuses": {
+        "answered": 18,
+        "insufficient": 8
+      },
+      "api_calls": 26,
+      "human_review_pending": true,
+      "accepted": false,
+      "completed_executions_actual": 26,
+      "api_exchanges": 26,
+      "estimated_usd": "0.0179252",
+      "input_tokens": 30505,
+      "output_tokens": 3577,
+      "status_matches_expected": 26,
+      "missing_required_citation_groups": [],
+      "forbidden_contexts": [],
+      "sha256": "76f7ae26ef9b7a7b97efd4f5112118f9247f1e7515fb8c94dda1a1815cc96ecf"
+    },
+    "development-compound-v2": {
+      "planned_executions": 26,
+      "completed_executions": 26,
+      "complete": true,
+      "statuses": {
+        "answered": 18,
+        "insufficient": 8
+      },
+      "api_calls": 26,
+      "human_review_pending": true,
+      "accepted": false,
+      "completed_executions_actual": 26,
+      "api_exchanges": 26,
+      "estimated_usd": "0.0179396",
+      "input_tokens": 30505,
+      "output_tokens": 3586,
+      "status_matches_expected": 26,
+      "missing_required_citation_groups": [],
+      "forbidden_contexts": [],
+      "sha256": "733da01ade8669ecf7ae4c3eaef125d3e8ce49b77a381f027896ae5d1febdd5e"
+    },
+    "stability-compound-v2": {
+      "planned_executions": 18,
+      "completed_executions": 18,
+      "complete": true,
+      "statuses": {
+        "answered": 12,
+        "insufficient": 6
+      },
+      "api_calls": 18,
+      "human_review_pending": true,
+      "accepted": false,
+      "completed_executions_actual": 18,
+      "api_exchanges": 18,
+      "estimated_usd": "0.0112660",
+      "input_tokens": 18993,
+      "output_tokens": 2293,
+      "status_matches_expected": 18,
+      "missing_required_citation_groups": [],
+      "forbidden_contexts": [],
+      "sha256": "62275643dbaa9e2e53dc1e97d58116dab95cf89ca91f2676813c637dbe49e183"
+    },
+    "gpt41-development-diagnostic": {
+      "completed_executions_actual": 5,
+      "api_exchanges": 5,
+      "estimated_usd": "0.023536",
+      "input_tokens": 8248,
+      "output_tokens": 880,
+      "status_matches_expected": 0,
+      "missing_required_citation_groups": [],
+      "forbidden_contexts": [],
+      "sha256": "1b0c5cb0f8a3cf783b4ca972bba5d30440be01fd9eb4a2229fa9c1845cb1f42f",
+      "human_review_pending": true,
+      "accepted": false
+    },
+    "gpt41-development-diagnostic2": {
+      "completed_executions_actual": 5,
+      "api_exchanges": 5,
+      "estimated_usd": "0.025304",
+      "input_tokens": 8568,
+      "output_tokens": 1021,
+      "status_matches_expected": 0,
+      "missing_required_citation_groups": [],
+      "forbidden_contexts": [],
+      "sha256": "7aef157d557536c8abd644c17441553e4491d17b74363988fb9b21bf0f686b74",
+      "human_review_pending": true,
+      "accepted": false
+    },
+    "gpt41-development-diagnostic3": {
+      "completed_executions_actual": 5,
+      "api_exchanges": 5,
+      "estimated_usd": "0.028462",
+      "input_tokens": 8983,
+      "output_tokens": 1312,
+      "status_matches_expected": 0,
+      "missing_required_citation_groups": [],
+      "forbidden_contexts": [],
+      "sha256": "d75ba1db46915447353a8d5a40d3d521e8109dfb2bc602d5032bf95272e95684",
+      "human_review_pending": true,
+      "accepted": false
+    },
+    "gpt41-development-diagnostic4": {
+      "completed_executions_actual": 5,
+      "api_exchanges": 5,
+      "estimated_usd": "0.027368",
+      "input_tokens": 9248,
+      "output_tokens": 1109,
+      "status_matches_expected": 0,
+      "missing_required_citation_groups": [],
+      "forbidden_contexts": [],
+      "sha256": "1915de677de27a0f5417389356cf6c5ac6303056b76b89296945ef1c04420d84",
+      "human_review_pending": true,
+      "accepted": false
+    },
+    "gpt41-development-diagnostic5": {
+      "completed_executions_actual": 5,
+      "api_exchanges": 5,
+      "estimated_usd": "0.027678",
+      "input_tokens": 9683,
+      "output_tokens": 1039,
+      "status_matches_expected": 0,
+      "missing_required_citation_groups": [],
+      "forbidden_contexts": [],
+      "sha256": "aeb572b471450924b87323790f3e1ace017b6610b093c539d1a121c115b570bc",
+      "human_review_pending": true,
+      "accepted": false
+    },
+    "development-gpt41-candidate": {
+      "planned_executions": 26,
+      "completed_executions": 26,
+      "complete": true,
+      "statuses": {
+        "error": 26
+      },
+      "api_calls": 0,
+      "human_review_pending": true,
+      "accepted": false,
+      "completed_executions_actual": 26,
+      "api_exchanges": 0,
+      "estimated_usd": "0",
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "status_matches_expected": 0,
+      "missing_required_citation_groups": [
+        {
+          "question_id": "D01",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D02",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D03",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D04",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D05",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D06",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D07",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D08",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D09",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D10",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D11",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D12",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D13",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D14",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D15",
+          "role": "hr",
+          "repeat": 1
+        },
+        {
+          "question_id": "D15",
+          "role": "manager",
+          "repeat": 1
+        },
+        {
+          "question_id": "D16",
+          "role": "hr",
+          "repeat": 1
+        },
+        {
+          "question_id": "D17",
+          "role": "hr",
+          "repeat": 1
+        }
+      ],
+      "forbidden_contexts": [],
+      "sha256": "c5be20bfa516d8b837868d928c3d702531aec6605744bf791e1c62cd6026e860"
+    },
+    "stability-gpt41-candidate": {
+      "planned_executions": 18,
+      "completed_executions": 18,
+      "complete": true,
+      "statuses": {
+        "error": 18
+      },
+      "api_calls": 0,
+      "human_review_pending": true,
+      "accepted": false,
+      "completed_executions_actual": 18,
+      "api_exchanges": 0,
+      "estimated_usd": "0",
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "status_matches_expected": 0,
+      "missing_required_citation_groups": [
+        {
+          "question_id": "D01",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D01",
+          "role": "employee",
+          "repeat": 2
+        },
+        {
+          "question_id": "D01",
+          "role": "employee",
+          "repeat": 3
+        },
+        {
+          "question_id": "D05",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D05",
+          "role": "employee",
+          "repeat": 2
+        },
+        {
+          "question_id": "D05",
+          "role": "employee",
+          "repeat": 3
+        },
+        {
+          "question_id": "D09",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D09",
+          "role": "employee",
+          "repeat": 2
+        },
+        {
+          "question_id": "D09",
+          "role": "employee",
+          "repeat": 3
+        },
+        {
+          "question_id": "D13",
+          "role": "employee",
+          "repeat": 1
+        },
+        {
+          "question_id": "D13",
+          "role": "employee",
+          "repeat": 2
+        },
+        {
+          "question_id": "D13",
+          "role": "employee",
+          "repeat": 3
+        }
+      ],
+      "forbidden_contexts": [],
+      "sha256": "991332ef17060755e926da644cd4692fd9af77fb16acf2a60831bf40e6fae235"
+    },
+    "development-gpt41-candidate-v2": {
+      "planned_executions": 26,
+      "completed_executions": 26,
+      "complete": true,
+      "statuses": {
+        "answered": 18,
+        "insufficient": 7,
+        "error": 1
+      },
+      "api_calls": 26,
+      "human_review_pending": true,
+      "accepted": false,
+      "completed_executions_actual": 26,
+      "api_exchanges": 26,
+      "estimated_usd": "0.104266",
+      "input_tokens": 35705,
+      "output_tokens": 4107,
+      "status_matches_expected": 25,
+      "missing_required_citation_groups": [],
+      "forbidden_contexts": [],
+      "sha256": "439957a2a80f3c06213eb6489011f293ecb9bdb0deaad8a969354ceed5798e0e"
+    },
+    "stability-gpt41-candidate-v2": {
+      "planned_executions": 18,
+      "completed_executions": 18,
+      "complete": true,
+      "statuses": {
+        "answered": 12,
+        "insufficient": 6
+      },
+      "api_calls": 18,
+      "human_review_pending": true,
+      "accepted": false,
+      "completed_executions_actual": 18,
+      "api_exchanges": 18,
+      "estimated_usd": "0.064738",
+      "input_tokens": 22593,
+      "output_tokens": 2444,
+      "status_matches_expected": 18,
+      "missing_required_citation_groups": [],
+      "forbidden_contexts": [],
+      "sha256": "beb8e83149ea01e47d7db511ac919d0c04e50c8c3e0006ebea4ab0bfe5c1836d"
+    },
+    "feasibility-stage5-gpt41": {
+      "api_exchanges": 5,
+      "input_tokens": 12922,
+      "output_tokens": 553,
+      "estimated_usd": "0.030268",
+      "sha256": "7e15391ca76bdaf3be5d79cb786a48a57ba9b87eca9f0a6e43e2107ad9870bc9",
+      "human_review_pending": true,
+      "accepted": false
+    },
+    "feasibility-stage5-gpt41-sequential": {
+      "api_exchanges": 5,
+      "input_tokens": 13922,
+      "output_tokens": 883,
+      "estimated_usd": "0.034908",
+      "sha256": "71e71280a93e40c4c515e75cd8398a07f43995ed867daf1b16d7a2fcef1a9e9b",
+      "human_review_pending": true,
+      "accepted": false
+    }
+  },
+  "stage5_totals": {
+    "api_exchanges": 281,
+    "input_tokens": 345179,
+    "output_tokens": 48142,
+    "estimated_usd": "0.5083212"
+  },
+  "project_totals": {
+    "settled_usd": "0.5415252",
+    "reserved_usd": "0",
+    "attempts": 291
+  },
+  "cost_cap_usd": "1",
+  "labels_sha256": "092e10881957c25bf1d80509cd742bac6bee5b15b26725c56c79e78084e13255",
+  "supplemental_labels_sha256": "ae774bd9e47529e514d16e11f7e771ce3c58a72bddc171a8aad4589db2586ec6",
+  "human_review_pending": true,
+  "stage5_accepted": false,
+  "stage6_started": false,
+  "ledger_reconciled": true
+}

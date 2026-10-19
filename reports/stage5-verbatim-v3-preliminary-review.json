@@ -1,0 +1,481 @@
+{
+  "reviewer": "Codex",
+  "review_kind": "assistant_preliminary_not_human_acceptance",
+  "date": "2026-10-19",
+  "source_files": {
+    "development": {
+      "path": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\.runtime\\stage5-private\\development-verbatim-gpt41-v3.json",
+      "sha256": "06b51dc6105ebb56369bec45f08754563a515ea228f9fa6c3835a07af49ae015"
+    },
+    "stability": {
+      "path": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\.runtime\\stage5-private\\stability-verbatim-gpt41-v3.json",
+      "sha256": "35e559b1c4d6a80d8c543df29374235582008ead1c54fd5ea1ac20cd4e4ba69b"
+    }
+  },
+  "rows": [
+    {
+      "kind": "development",
+      "question_id": "D01",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "婚假日數及工資均保留。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D02",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "每月上限、病假併計界線及半薪均保留。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D03",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "取得條件起三十日通知排定有明文；附帶全文較長。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D04",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "產檢七日及照給薪資均保留。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D05",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "基本欄位、證明必要性、無關資料限制、緊急通知及權利保障均保留。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D06",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "原申請追蹤、窗口通知收件紀錄及個資限制均保留。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D07",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "法律與主管機關問答同列，排定權、協商調整及手續限制完整。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D08",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "協商遞延、優先扣除、未休工資及原年度工資基準均保留。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D09",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "家庭照顧假七日、併入事假、不得不利處分均保留；參照補充保留事假不給工資及原適用範圍。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D10",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "官方代辦方式、證明要求與公司緊急通知、紀錄、權利保障分列。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D11",
+      "role": "employee",
+      "repeat": 1,
+      "correct": false,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "失敗：只選C01 application，漏C02 documentation的必要項目核對及必要性有疑義時轉人資；不因窗口及表單正確而算整題通過。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D12",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "2026-09-30有效C01 v1、行政窗口、紙本A-01與不增加權利限制均保留。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D13",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "2026-10-01有效C01 v2、人資窗口、原申請B-02及提交方式均保留；參照補充使答案較長。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D14",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "2026-10-18有效C01 v2、窗口、B-02及系統原申請均保留。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D15",
+      "role": "hr",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "hr/manager保留M-17、欄位、權利保障及移交限制；employee由直接表單依據守衛回資料不足且清空主張。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D15",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": null,
+      "key_claims_covered": null,
+      "reason": "hr/manager保留M-17、欄位、權利保障及移交限制；employee由直接表單依據守衛回資料不足且清空主張。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D15",
+      "role": "manager",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "hr/manager保留M-17、欄位、權利保障及移交限制；employee由直接表單依據守衛回資料不足且清空主張。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D16",
+      "role": "hr",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "hr保留H-42、登錄內容、僅HR與個資限制；其他角色不洩漏受限內容。employee僅有公開示範背景，對問題幫助有限但沒有提供HR答案。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D16",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "hr保留H-42、登錄內容、僅HR與個資限制；其他角色不洩漏受限內容。employee僅有公開示範背景，對問題幫助有限但沒有提供HR答案。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D16",
+      "role": "manager",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": null,
+      "key_claims_covered": null,
+      "reason": "hr保留H-42、登錄內容、僅HR與個資限制；其他角色不洩漏受限內容。employee僅有公開示範背景，對問題幫助有限但沒有提供HR答案。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D17",
+      "role": "hr",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "hr保留比對項目、不得先扣薪、虛構資料、雙人覆核及個資限制；其他角色正確資料不足。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D17",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": null,
+      "key_claims_covered": null,
+      "reason": "hr保留比對項目、不得先扣薪、虛構資料、雙人覆核及個資限制；其他角色正確資料不足。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D17",
+      "role": "manager",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": null,
+      "key_claims_covered": null,
+      "reason": "hr保留比對項目、不得先扣薪、虛構資料、雙人覆核及個資限制；其他角色正確資料不足。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D18",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": null,
+      "key_claims_covered": null,
+      "reason": "資料不足、空主張與空引用，不把特休當補休。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D19",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": null,
+      "key_claims_covered": null,
+      "reason": "資料不足，不捏造個人審批狀態。"
+    },
+    {
+      "kind": "development",
+      "question_id": "D20",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "資料不足，僅引虛構示範範圍，不捏造真實公司生日假或福利金。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D01",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "婚假日數及工資均保留。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D01",
+      "role": "employee",
+      "repeat": 2,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "婚假日數及工資均保留。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D01",
+      "role": "employee",
+      "repeat": 3,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "婚假日數及工資均保留。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D05",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "基本欄位、證明必要性、無關資料限制、緊急通知及權利保障均保留。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D05",
+      "role": "employee",
+      "repeat": 2,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "基本欄位、證明必要性、無關資料限制、緊急通知及權利保障均保留。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D05",
+      "role": "employee",
+      "repeat": 3,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "基本欄位、證明必要性、無關資料限制、緊急通知及權利保障均保留。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D09",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "家庭照顧假七日、併入事假、不得不利處分均保留；參照補充保留事假不給工資及原適用範圍。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D09",
+      "role": "employee",
+      "repeat": 2,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "家庭照顧假七日、併入事假、不得不利處分均保留；參照補充保留事假不給工資及原適用範圍。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D09",
+      "role": "employee",
+      "repeat": 3,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "家庭照顧假七日、併入事假、不得不利處分均保留；參照補充保留事假不給工資及原適用範圍。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D13",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "2026-10-01有效C01 v2、人資窗口、原申請B-02及提交方式均保留；參照補充使答案較長。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D13",
+      "role": "employee",
+      "repeat": 2,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "2026-10-01有效C01 v2、人資窗口、原申請B-02及提交方式均保留；參照補充使答案較長。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D13",
+      "role": "employee",
+      "repeat": 3,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "2026-10-01有效C01 v2、人資窗口、原申請B-02及提交方式均保留；參照補充使答案較長。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D16",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "hr保留H-42、登錄內容、僅HR與個資限制；其他角色不洩漏受限內容。employee僅有公開示範背景，對問題幫助有限但沒有提供HR答案。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D16",
+      "role": "employee",
+      "repeat": 2,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "hr保留H-42、登錄內容、僅HR與個資限制；其他角色不洩漏受限內容。employee僅有公開示範背景，對問題幫助有限但沒有提供HR答案。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D16",
+      "role": "employee",
+      "repeat": 3,
+      "correct": true,
+      "citations_supported": true,
+      "key_claims_covered": true,
+      "reason": "hr保留H-42、登錄內容、僅HR與個資限制；其他角色不洩漏受限內容。employee僅有公開示範背景，對問題幫助有限但沒有提供HR答案。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D18",
+      "role": "employee",
+      "repeat": 1,
+      "correct": true,
+      "citations_supported": null,
+      "key_claims_covered": null,
+      "reason": "資料不足、空主張與空引用，不把特休當補休。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D18",
+      "role": "employee",
+      "repeat": 2,
+      "correct": true,
+      "citations_supported": null,
+      "key_claims_covered": null,
+      "reason": "資料不足、空主張與空引用，不把特休當補休。"
+    },
+    {
+      "kind": "stability",
+      "question_id": "D18",
+      "role": "employee",
+      "repeat": 3,
+      "correct": true,
+      "citations_supported": null,
+      "key_claims_covered": null,
+      "reason": "資料不足、空主張與空引用，不把特休當補休。"
+    }
+  ],
+  "stage5_accepted": false,
+  "stage6_started": false,
+  "human_review_pending": true,
+  "preliminary_metrics": {
+    "development_answerable_correct": 13,
+    "development_answerable_total": 14,
+    "insufficient_correct": 3,
+    "insufficient_total": 3,
+    "version_correct": 3,
+    "version_total": 3,
+    "role_expectations_correct": 9,
+    "role_expectations_total": 9,
+    "development_supported_citation_pairs": 36,
+    "development_citation_pairs": 36,
+    "development_covered_claim_units": 36,
+    "development_claim_units": 36,
+    "stability_correct": 18,
+    "stability_total": 18,
+    "stability_supported_citation_pairs": 37,
+    "stability_citation_pairs": 37,
+    "stability_contradictions_observed": 0,
+    "no_claim_rows": "citation support and coverage not applicable, not 100%",
+    "omissions": "D11 is incorrect; citation coverage counts generated claims, not completeness of expected answer."
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "previous_summary_path": "reports\\stage5-api-summary-wire.json",
+  "previous_summary_sha256": "f8be5b9a522ceaa311339e13cdacd480a6c8851a903c5348a83b85a11fca3276",
+  "runs": {
+    "verbatim-pilot-v1": {
+      "api_exchanges": 8,
+      "estimated_usd": "0.0058400",
+      "input_tokens": 9152,
+      "output_tokens": 1362,
+      "models": [
+        "gpt-4.1-mini-2025-04-14"
+      ],
+      "path": ".runtime\\stage5-private\\verbatim-pilot-v1.json",
+      "sha256": "83235522bfccc2807896da42a29c8ed0fe73eb2d9fb56dba62d10b166712b08b",
+      "accepted": false
+    },
+    "verbatim-pilot-v2": {
+      "api_exchanges": 8,
+      "estimated_usd": "0.0035632",
+      "input_tokens": 7936,
+      "output_tokens": 243,
+      "models": [
+        "gpt-4.1-mini-2025-04-14"
+      ],
+      "path": ".runtime\\stage5-private\\verbatim-pilot-v2.json",
+      "sha256": "f24fe82d5984cf369d88ee5acc973bf45b02c58628dc99ba9561d97efe9ebd2e",
+      "accepted": false
+    },
+    "verbatim-gpt41-pilot-v1": {
+      "api_exchanges": 8,
+      "estimated_usd": "0.017928",
+      "input_tokens": 7936,
+      "output_tokens": 257,
+      "models": [
+        "gpt-4.1-2025-04-14"
+      ],
+      "path": ".runtime\\stage5-private\\verbatim-gpt41-pilot-v1.json",
+      "sha256": "7d353ba035f2d1d3c07b1c5d17f5852acd028bb87a4e255a584281ed7a5a2a7f",
+      "accepted": false
+    },
+    "feasibility-verbatim-gpt41": {
+      "api_exchanges": 5,
+      "estimated_usd": "0.024794",
+      "input_tokens": 11737,
+      "output_tokens": 165,
+      "models": [
+        "gpt-4.1-2025-04-14"
+      ],
+      "path": ".runtime\\stage5-private\\feasibility-verbatim-gpt41.json",
+      "sha256": "3c7f17a2faf10c146747ac205f9af3dfda2a727d9230e770bcd6312af11ce8eb",
+      "accepted": false
+    },
+    "development-verbatim-gpt41-v1": {
+      "api_exchanges": 26,
+      "estimated_usd": "0.054854",
+      "input_tokens": 24343,
+      "output_tokens": 771,
+      "models": [
+        "gpt-4.1-2025-04-14"
+      ],
+      "path": ".runtime\\stage5-private\\development-verbatim-gpt41-v1.json",
+      "sha256": "66fb0433469dbb236e676db488613d9320d31a2617921edbff7e04a2cbc76b72",
+      "accepted": false,
+      "summary": {
+        "planned_executions": 26,
+        "completed_executions": 26,
+        "complete": true,
+        "statuses": {
+          "answered": 18,
+          "insufficient": 8
+        },
+        "api_calls": 26,
+        "human_review_pending": true,
+        "accepted": false
+      },
+      "status_matches": 26,
+      "missing_required_evidence": [
+        [
+          "D09",
+          "employee",
+          1
+        ],
+        [
+          "D12",
+          "employee",
+          1
+        ],
+        [
+          "D13",
+          "employee",
+          1
+        ],
+        [
+          "D14",
+          "employee",
+          1
+        ]
+      ],
+      "forbidden_contexts": [],
+      "verbatim_claims": 35,
+      "total_claims": 35
+    },
+    "stability-verbatim-gpt41-v1": {
+      "api_exchanges": 18,
+      "estimated_usd": "0.033982",
+      "input_tokens": 14727,
+      "output_tokens": 566,
+      "models": [
+        "gpt-4.1-2025-04-14"
+      ],
+      "path": ".runtime\\stage5-private\\stability-verbatim-gpt41-v1.json",
+      "sha256": "5981e3607174739250a7090d9ab07801a7aea9e1c3cc44eebb9a11e10bd58130",
+      "accepted": false,
+      "summary": {
+        "planned_executions": 18,
+        "completed_executions": 18,
+        "complete": true,
+        "statuses": {
+          "answered": 12,
+          "insufficient": 6
+        },
+        "api_calls": 18,
+        "human_review_pending": true,
+        "accepted": false
+      },
+      "status_matches": 18,
+      "missing_required_evidence": [
+        [
+          "D09",
+          "employee",
+          1
+        ],
+        [
+          "D09",
+          "employee",
+          2
+        ],
+        [
+          "D09",
+          "employee",
+          3
+        ],
+        [
+          "D13",
+          "employee",
+          1
+        ],
+        [
+          "D13",
+          "employee",
+          2
+        ],
+        [
+          "D13",
+          "employee",
+          3
+        ]
+      ],
+      "forbidden_contexts": [],
+      "verbatim_claims": 19,
+      "total_claims": 19
+    }
+  },
+  "added_usd": "0.1409612",
+  "project_totals": {
+    "settled_usd": "0.6915532",
+    "reserved_usd": "0",
+    "attempts": 375
+  },
+  "ledger_reconciled": true,
+  "cost_cap_usd": "1",
+  "stage5_accepted": false,
+  "stage6_started": false,
+  "human_review_pending": true,
+  "candidate_sha256": "d1b07b01b64738cef67b983543842ed17c9f02861e15b27225d4d68c6e2507dd"
+}

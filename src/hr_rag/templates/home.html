@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card intro">
+  {% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+  <h2>有什麼請假或特休問題？</h2>
+  <p class="muted">從左側「常用問題」選一題，或在下方直接輸入。答案只會使用你目前角色可查閱、且在查詢日期有效的法規與公司文件，並附上原文出處。</p>
+</section>
+{% endblock %}

@@ -1,0 +1,79 @@
+{
+  "split": "development+holdout",
+  "holdout_sha256": "ed30ff0f75e95deb0e349ef90a3d063f9b3f3f8e6354c1eff76b6a5ec5981989",
+  "final_freeze_sha256": "ea94e4727666ad2a0374af82144d5f8f2bd83ef14dea67ab1900324f9d4ad4dc",
+  "private_results_sha256": {
+    "retrieval": "d955f7fe49a83006b176473648141c3d85e8f90bbb9f288d7a4b7f9b01db73ae",
+    "answers": "6e6b3dd9d4ab06410db2cfb64ec549282ccd0980f6a16373838e2e3e5cf31ffd",
+    "review": "41a61787a473ddf3479acd895e61d066749bb6b7248719f889b44837fec5e17a"
+  },
+  "holdout_reviewer": "使用者",
+  "holdout_reviewed_at": "2026-10-19T06:16:58.594Z",
+  "holdout_marked_incorrect": [],
+  "holdout_unsupported_citations": 0,
+  "top5": {
+    "development": 14,
+    "holdout": 7,
+    "total": 21,
+    "denominator": 22,
+    "passed": true
+  },
+  "context": {
+    "development": 14,
+    "holdout": 7,
+    "total": 21,
+    "denominator": 22,
+    "passed": true
+  },
+  "answers": {
+    "development": 14,
+    "holdout": 8,
+    "total": 22,
+    "denominator": 22,
+    "passed": true
+  },
+  "precision": {
+    "development": 0.8214285714285714,
+    "holdout": 1.0,
+    "passed": true
+  },
+  "version": {
+    "development": 3,
+    "holdout": 1,
+    "total": 4,
+    "denominator": 4,
+    "passed": true
+  },
+  "insufficient": {
+    "development": 3,
+    "holdout": 1,
+    "total": 4,
+    "denominator": 4,
+    "passed": true
+  },
+  "permission": {
+    "development": 9,
+    "holdout": 2,
+    "total": 11,
+    "denominator": 12,
+    "passed": false
+  },
+  "citation_support": {
+    "supported": 53,
+    "total": 53,
+    "rate": 1.0,
+    "passed": true
+  },
+  "key_claims_covered": {
+    "passed": 38,
+    "total": 38,
+    "ok": true
+  },
+  "authorization_errors": 0,
+  "execution_errors": {
+    "development": 0,
+    "holdout": 0
+  },
+  "holdout_status_mismatches": 1,
+  "passed": false
+}

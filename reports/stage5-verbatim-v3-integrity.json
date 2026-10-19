@@ -1,0 +1,15 @@
+{
+  "frozen_hashes_unchanged": true,
+  "holdout_hash_only_verified": true,
+  "implementation_hashes_match": true,
+  "request_enum_matches_sent_evidence": true,
+  "human_fields_pending": true,
+  "review_html_bound_to_result_hash": true,
+  "artifacts_scanned": 11,
+  "credential_pattern_matches": 0,
+  "project_totals": {
+    "settled_usd": "0.8992952",
+    "reserved_usd": "0",
+    "attempts": 445
+  }
+}

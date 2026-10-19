@@ -1,0 +1,16 @@
+.venv/
+.venv-verify/
+.venv-openai-verify/
+.venv-stage3-verify/
+.cache/
+.runtime/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.env
+.env.*
+!.env.example
+reports/*.log
+reports/events.jsonl
+

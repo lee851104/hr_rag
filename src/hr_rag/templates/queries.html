@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}我的查詢紀錄｜請假特休問答{% endblock %}
+{% block heading %}我的查詢紀錄{% endblock %}
+{% block content %}
+<section class="card">
+  {% if items %}
+  <ul class="history">
+    {% for item in items %}
+    <li>
+      <a href="/queries/{{ item.trace_id }}">{{ item.question }}</a>
+      <span class="badge badge-{{ item.status }}">{{ item.status_text }}</span>
+      <span class="muted">{{ item.created }}・依 {{ item.as_of }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="muted">還沒有查詢紀錄。</p>
+  {% endif %}
+  <p class="muted small">只顯示你自己的最近 20 筆；開啟時會依目前權限重新檢查答案依據。</p>
+</section>
+{% endblock %}

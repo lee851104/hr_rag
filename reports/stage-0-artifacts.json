@@ -1,0 +1,20 @@
+{
+  "config\\models.lock.json": "3a2872a3bb6830211a68fc155de2efc4dc459698b1ac336306e275a968395ed1",
+  "pyproject.toml": "1c1d6b03033b7fb2b4fb6f7f3713fa9e696eeef43ee307fbff2083f235e023f1",
+  "README.md": "7218fb7702d89b977141818d432b92790fc91acc48553b816abf89e53c5ac446",
+  "reports\\runtime.md": "6e25aee2f5812510e8cf339be77d29515d14fe1883af805578685725ca692d0b",
+  "reports\\stage-0.md": "f465e71eb7411c984777d790b6711a924c095a3f5ef7911913db40156e37a83e",
+  "requirements.lock": "90578e25f5941f8f406a1e5c1321634cb3a6285ea7b0f394400f6346c8fa1023",
+  "scripts\\download_models.py": "051bfead04313d02976afc27e88084c670cb5821420535eb5867ce30eb09a135",
+  "scripts\\smoke_models.py": "ab09de266a8cb7293a31f1b491f44368ffd53a67ed02ab3c6553282e28bf16c0",
+  "src\\hr_rag\\__init__.py": "253eb879a9016c304b4793dbbc874af5fd761505804a84aa3a3ac2f3713ae680",
+  "src\\hr_rag\\audit.py": "137fd897dfb7c10e461bcdce583e9bf2042b1d693e8e3ca53f25ab00cc2251b4",
+  "src\\hr_rag\\contracts.py": "9bafdd43bf306b507b4fabfe567c73c6b338b820a3e3bbc6d2616e35a8c7f97e",
+  "src\\hr_rag\\local_models.py": "cbff074abaffe56995f4181a31c79a8b4616590e99a20dbe4f75bd8e413f7d13",
+  "src\\hr_rag\\providers.py": "e58f0d9a5338298dff1a5462c054f52a6acc006c2fcacdc3b66d0bd0f655fd2f",
+  "src\\hr_rag\\settings.py": "e52b2272293ee5b2956bf3b09630e279e5ce963dc016baacb2a368706ee29fcb",
+  "tests\\test_audit.py": "b7ecbba4b3a740c399a8acb4800009988369074c66bc0ff3a0dccf53acbfa1e7",
+  "tests\\test_contracts.py": "4aecc1f1c0ce3e4a8cba251f3ecab32ad5c2e6b631ba200134023087c198e7a3",
+  "tests\\test_local_models.py": "9c455e2425c087bd9add3708e754de65d54c1f0c16e03b45a097250dc65d3153",
+  "tests\\test_providers.py": "9da625519bc3dfd7f0fd20d927aefe78c85507afb4efdd8a4f52f53ea4e94d2e"
+}

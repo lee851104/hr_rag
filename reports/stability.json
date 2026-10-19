@@ -1,0 +1,27 @@
+{
+  "kind": "stability_comparison",
+  "split": "development",
+  "accepted": true,
+  "human_review_pending": false,
+  "initial_history": "reports\\stability-initial-stage5.json",
+  "default_model_run": "reports/stability-compound-v2.json",
+  "candidate_model_run": "reports/stability-gpt41-candidate-v2.json",
+  "stage6_started": true,
+  "latest_candidate_run": "D:\\@spin\\5.DL\\RAG\\企業RAG知識點\\hr-leave-rag\\.runtime\\stage5-private\\stability-verbatim-gpt41-v3.json",
+  "latest_candidate_sha256": "35e559b1c4d6a80d8c543df29374235582008ead1c54fd5ea1ac20cd4e4ba69b",
+  "latest_preliminary_review": "reports/stage5-verbatim-v3-preliminary-review.json",
+  "latest_preliminary_correct": 18,
+  "latest_preliminary_total": 18,
+  "historical_known_failure": "D05必要緊急通知流程未完整保留；GPT-4.1三次皆遺漏。",
+  "known_failure": null,
+  "remaining": "人工核對18/18通過；候選已正式採用。",
+  "human_review": {
+    "reviewer": "使用者",
+    "review_sha256": "89cabc9be3f29590a501e962b6d62cb52e57efaf52296727f42899c40fef9acd",
+    "assessment": "reports/stage5-human-review-stability-v3.json",
+    "runs_passed": 18,
+    "runs_total": 18,
+    "citations_supported": "37/37",
+    "first_export": "reports/stage5-human-review-stability-v3-export1.json（3筆誤選，使用者本人更正後重新匯出）"
+  }
+}

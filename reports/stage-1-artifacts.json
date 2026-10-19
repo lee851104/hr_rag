@@ -1,0 +1,200 @@
+{
+  "generated_at": "2026-10-18T04:03:21.574626+00:00",
+  "stage_status": "pending_human_review_and_user_holdout",
+  "counts": {
+    "documents": 10,
+    "versions": 11,
+    "official_documents": 6,
+    "sections": 44
+  },
+  "manifest_structural_errors": [],
+  "manifest_strict_errors": [
+    "documents[0]: pending human review",
+    "documents[1]: pending human review",
+    "documents[2]: pending human review",
+    "documents[3]: pending human review",
+    "documents[4]: pending human review",
+    "documents[5]: pending human review",
+    "documents[6]: pending human review",
+    "documents[7]: pending human review",
+    "documents[8]: pending human review",
+    "documents[9]: pending human review",
+    "documents[10]: pending human review"
+  ],
+  "development_structural_errors": [],
+  "development_strict_errors": [
+    "human_review_pending"
+  ],
+  "development_summary": {
+    "split": "development",
+    "question_count": 20,
+    "category_counts": {
+      "direct": 6,
+      "paraphrase_cross": 5,
+      "version": 3,
+      "permission": 3,
+      "insufficient": 3
+    },
+    "independently_answerable_count": 14,
+    "role_execution_count": 26,
+    "reviewed_count": 0,
+    "authors": [
+      "Codex (LLM draft)"
+    ],
+    "reviewers": [],
+    "sha256": "4bc650106dc22215d9694457ec6fdcebbcb6babc5ffc8d1fd09be40f66bbde60"
+  },
+  "holdout": {
+    "status": "not_authored",
+    "question_count": 0,
+    "expected_question_count": 10,
+    "expected_category_counts": {
+      "direct": 4,
+      "paraphrase_cross": 3,
+      "version": 1,
+      "permission": 1,
+      "insufficient": 1
+    },
+    "sha256": null,
+    "authors": [],
+    "reviewers": []
+  },
+  "due_reviews": [
+    {
+      "document_id": "C01",
+      "maintenance_owner": "專案制度維護者",
+      "reason": "pending"
+    },
+    {
+      "document_id": "C02",
+      "maintenance_owner": "專案制度維護者",
+      "reason": "pending"
+    },
+    {
+      "document_id": "C03",
+      "maintenance_owner": "專案制度維護者",
+      "reason": "pending"
+    },
+    {
+      "document_id": "C04",
+      "maintenance_owner": "專案制度維護者",
+      "reason": "pending"
+    },
+    {
+      "document_id": "O01",
+      "maintenance_owner": "專案資料維護者",
+      "reason": "pending"
+    },
+    {
+      "document_id": "O02",
+      "maintenance_owner": "專案資料維護者",
+      "reason": "pending"
+    },
+    {
+      "document_id": "O03",
+      "maintenance_owner": "專案資料維護者",
+      "reason": "pending"
+    },
+    {
+      "document_id": "O04",
+      "maintenance_owner": "專案資料維護者",
+      "reason": "pending"
+    },
+    {
+      "document_id": "O05",
+      "maintenance_owner": "專案資料維護者",
+      "reason": "pending"
+    },
+    {
+      "document_id": "O06",
+      "maintenance_owner": "專案資料維護者",
+      "reason": "pending"
+    }
+  ],
+  "ingestion_allowlist": [
+    "data/normalized/C01-v1.json",
+    "data/normalized/C01-v2.json",
+    "data/normalized/C02-v1.json",
+    "data/normalized/C03-v1.json",
+    "data/normalized/C04-v1.json",
+    "data/normalized/O01-snapshot-2026-10-18.json",
+    "data/normalized/O02-snapshot-2026-10-18.json",
+    "data/normalized/O03-snapshot-2026-10-18.json",
+    "data/normalized/O04-snapshot-2026-10-18.json",
+    "data/normalized/O05-snapshot-2026-10-18.json",
+    "data/normalized/O06-snapshot-2026-10-18.json",
+    "data/raw/company/C01-v1.md",
+    "data/raw/company/C01-v2.md",
+    "data/raw/company/C02-v1.md",
+    "data/raw/company/C03-v1.md",
+    "data/raw/company/C04-v1.md",
+    "data/raw/official-2026-10-18/O01.html",
+    "data/raw/official-2026-10-18/O02.html",
+    "data/raw/official-2026-10-18/O03.html",
+    "data/raw/official-2026-10-18/O04.html",
+    "data/raw/official-2026-10-18/O05.html",
+    "data/raw/official-2026-10-18/O06.html"
+  ],
+  "tests": {
+    "command": ".venv/Scripts/python.exe -m pytest -q -p no:cacheprovider",
+    "passed": 205,
+    "skipped": 1,
+    "seconds": 13.88,
+    "skip_reason": "Windows symlink privilege unavailable; other traversal and external-path checks passed"
+  },
+  "checks": {
+    "ruff_check": "passed",
+    "ruff_format_check": "25 files already formatted",
+    "openspec_strict": "passed",
+    "independent_review": "six findings fixed and verified; does not replace human sign-off"
+  },
+  "api": {
+    "calls_added": 0,
+    "estimated_usd_added": "0",
+    "previous_cumulative_estimated_usd": "0.0332040"
+  },
+  "sha256": {
+    "data/manifest.json": "159c5c9ada317c27ab9c54c7ff7c0fb176fbdd4edf56e3fc27fd37940f6c7d1c",
+    "data/normalized/C01-v1.json": "13c078dd4af9e36bbf32efaff36b43bd357580320d8612ef7ac5d0b9ea345ce9",
+    "data/normalized/C01-v2.json": "8839c02ab9209fee01e4208ee5c95f4f055e5c766075b055ab1df9bbc88e7c23",
+    "data/normalized/C02-v1.json": "6d1dd147072caca279a86cf17697b84989ab70fc7e85302cabc84beffe9907cd",
+    "data/normalized/C03-v1.json": "334033ee3dab901fb576c7750f5fa88e11da941a7a99b942fb2e326f62fe58f5",
+    "data/normalized/C04-v1.json": "07ab4c1cbe8a73daed6b6357b01609c972bffa73d66c265043f6fcdaab311473",
+    "data/normalized/O01-snapshot-2026-10-18.json": "dddea6f9a05e0ab6381cd93df6b6370e5ab6f3d5b6590f62301b5052c79b99f0",
+    "data/normalized/O02-snapshot-2026-10-18.json": "7bfa91d7a58d753a099cbbf71c0dbfd3f90a3260d2407dc1747815d78ec3c44b",
+    "data/normalized/O03-snapshot-2026-10-18.json": "0adaf2637de90d3da363a7fbef0b3bbedb06e19969f4a8f4902d1eca089e4f1b",
+    "data/normalized/O04-snapshot-2026-10-18.json": "10d35d16328bfabf9b765469c6fbdb53f1aa419d169f8913b940d1cdd4f1b74e",
+    "data/normalized/O05-snapshot-2026-10-18.json": "7c7d385c4f88cfa97cf257d6410c9b95dbc5ca1127714268697cceb94260703d",
+    "data/normalized/O06-snapshot-2026-10-18.json": "d63d21088be095314e38b19a8f7f1bade6b1ac0b1e196ac35de82553bb2cf395",
+    "data/raw/company/C01-v1.md": "a93f27f4476f6d150edd47da1d0cb7c59cf7b953d366c53ab1f2c1b9a6b70387",
+    "data/raw/company/C01-v2.md": "9b2099cb29be73fbeae94978495d64b51697ed4ea1f757281d1d2241851313c4",
+    "data/raw/company/C02-v1.md": "34d5c7386fe8b797176806c50c573323708171735c3473501821e6fc93e7664e",
+    "data/raw/company/C03-v1.md": "fa89ebe8ce9520cc25382f065c0ae7241a14817c94b5325ef668c3bcd3737d60",
+    "data/raw/company/C04-v1.md": "339b634b36b24ff824eb48de7c699bcef8275d347886a58283e1e207a1e1087e",
+    "data/raw/official-2026-10-18/O01-history.html": "00486360742f9d87fa82a2e216323065c51cb05594d3f6c754eb7c62a2ea05dd",
+    "data/raw/official-2026-10-18/O01.html": "717407baa379e6e917b10a48c14f66df4c5e797dfd19a263029ee991a17caa7b",
+    "data/raw/official-2026-10-18/O02-history.html": "c97c172fb8469e6cd490c82f149df378eba52485106f71355efd79c20c5d5314",
+    "data/raw/official-2026-10-18/O02.html": "066867fd3af1ffd8274c551e69a58d66d79b383edfc010eef732f21332668945",
+    "data/raw/official-2026-10-18/O03-history.html": "4318367d26222661e28ec4c1f73751d616ac6515c391f787485daefa22a7e1c3",
+    "data/raw/official-2026-10-18/O03.html": "5ecf516d71f15be05995892d8abfb985d1111f2cad21abf72fe9f8e78f7668c2",
+    "data/raw/official-2026-10-18/O04-history.html": "6b406beb3c69c6dd1e6f545b7fab74115679c88f83b364d41964e0d6b24ba85a",
+    "data/raw/official-2026-10-18/O04.html": "243dad298e558a2fd8f404bc2f8f1d6e6554fb77bb4af15b1c1505ece87983f1",
+    "data/raw/official-2026-10-18/O05.html": "ce7987cafe2b4472913da3c8b2956b5136bc822af303bf076c6acdcf99d39230",
+    "data/raw/official-2026-10-18/O06.html": "fa81deb635fa36747b3036682249a00f2a30c85f9bcbaa46b7a91ad34f827e2d",
+    "data/raw/official-2026-10-18/sources.json": "8f1dd88443b560c14c62201a9255363bcf9bd13caa876e705c85bd4323023ccb",
+    "eval/development.jsonl": "4bc650106dc22215d9694457ec6fdcebbcb6babc5ffc8d1fd09be40f66bbde60",
+    "eval/holdout.manifest.json": "31da40ad5be1acfa4fd32084bea2a0a697456b68e57c07aab65dcfbb0e9755e2",
+    "eval/stability-cases.json": "69ee16ed7da8d345a166d4d97d02e529746442f3e2bc142096a7e8fa7e4ea5f3",
+    "scripts/collect_sources.py": "d692303cce9c7edf90888f81a50411ec8f16e66b4595da337c47f23fe57cd0bf",
+    "scripts/company_drafts.json": "0bd9b1afa665fd800de97e80c826339f9bba794888750c5f2a2444eb5054c8c8",
+    "scripts/prepare_stage1.py": "82aac28318d6acb59e264a24eac1a9b9882a76ebf08c7798defcdbea672dafb9",
+    "src/hr_rag/corpus/__init__.py": "519b4ada2c3b3a76eb6fe4bc3e38bdb92186d5a4558d06c7d01d5f52f4b0365a",
+    "src/hr_rag/corpus/manifest.py": "178fb9e79768c9d338d65fe1817cd56e264e6b777760b722fb6cba2693cb4a29",
+    "src/hr_rag/corpus/source_text.py": "3c2fb1ae9509b3178e46657cd4395831d125ae8c2e6ddf30dde76b6120f75a92",
+    "src/hr_rag/evaluation_schema.py": "d268e435ff0a7511d1f8f8ed7f8af4a670c5d3d2fcd5eef1eec26401a7da5a70",
+    "tests/test_evaluation_schema.py": "fc653e7d1681ab9d4058eceaaf9f9b657d3b38abac23ab9e9426933387a3f7b2",
+    "tests/test_manifest.py": "81fb608a6c8d0ce47f5d2eb0cf98fc16280a5c11578901cc255d09861377b330",
+    "tests/test_source_text.py": "88741fa11de643221da1d367ab5f246bd6a0f2d991449047f7d278585d991aee",
+    "tests/test_stage1_data.py": "4b5164d82bfee710c133b2e25aaf4f4ce4cba638859bcf3f840bea9adb2c237b"
+  }
+}

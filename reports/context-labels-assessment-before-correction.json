@@ -1,0 +1,690 @@
+{
+  "kind": "annotation_rescore_existing_runs",
+  "new_retrieval_or_api_calls": 0,
+  "source_export_sha256": "5b6711f197539f783fc3643dad1e7ee66fb6b4d91d05b11152d723037d9e34da",
+  "review_set_sha256": "cc87c29a8ca1cad9f1de06e226eeecd88a0439f19315acb624b83c5dc72c1f6e",
+  "source_run_sha256": "e4eec51582d9bad2acbee7116e5bcca519431391487530f33c2484364ef384b3",
+  "labels_sha256": "19409f1adec460d61b5aaa021d5b4b5731a6be6c6198abc09e8329c397f6c9ea",
+  "user_caveat": "人工判定可能有誤，可作參考並允許複核修正，不視為絕對正確。",
+  "counts": {
+    "total": 167,
+    "reviewed": 167,
+    "pending": 0,
+    "useful": 75,
+    "not_useful": 92
+  },
+  "metrics": [
+    {
+      "mode": "dense",
+      "mean_context_precision": 0.7178571428571429,
+      "answerable_count": 14,
+      "top5_all_hit": 12,
+      "context_all_hit": 12,
+      "rows": [
+        {
+          "question_id": "D01",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 1.0,
+          "units": 5,
+          "useful": 5
+        },
+        {
+          "question_id": "D02",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 0.4,
+          "units": 5,
+          "useful": 2
+        },
+        {
+          "question_id": "D03",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 0.75,
+          "units": 4,
+          "useful": 3
+        },
+        {
+          "question_id": "D04",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 0.6,
+          "units": 5,
+          "useful": 3
+        },
+        {
+          "question_id": "D05",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 1.0,
+          "units": 5,
+          "useful": 5
+        },
+        {
+          "question_id": "D06",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 0.4,
+          "units": 5,
+          "useful": 2
+        },
+        {
+          "question_id": "D07",
+          "role": "employee",
+          "category": "paraphrase_cross",
+          "context_precision": 0.75,
+          "units": 4,
+          "useful": 3
+        },
+        {
+          "question_id": "D08",
+          "role": "employee",
+          "category": "paraphrase_cross",
+          "context_precision": 0.75,
+          "units": 4,
+          "useful": 3
+        },
+        {
+          "question_id": "D09",
+          "role": "employee",
+          "category": "paraphrase_cross",
+          "context_precision": 0.8,
+          "units": 5,
+          "useful": 4
+        },
+        {
+          "question_id": "D10",
+          "role": "employee",
+          "category": "paraphrase_cross",
+          "context_precision": 0.6,
+          "units": 5,
+          "useful": 3
+        },
+        {
+          "question_id": "D11",
+          "role": "employee",
+          "category": "paraphrase_cross",
+          "context_precision": 0.6,
+          "units": 5,
+          "useful": 3
+        },
+        {
+          "question_id": "D12",
+          "role": "employee",
+          "category": "version",
+          "context_precision": 0.8,
+          "units": 5,
+          "useful": 4
+        },
+        {
+          "question_id": "D13",
+          "role": "employee",
+          "category": "version",
+          "context_precision": 0.6,
+          "units": 5,
+          "useful": 3
+        },
+        {
+          "question_id": "D14",
+          "role": "employee",
+          "category": "version",
+          "context_precision": 1.0,
+          "units": 5,
+          "useful": 5
+        },
+        {
+          "question_id": "D15",
+          "role": "hr",
+          "category": "permission",
+          "context_precision": 0.2,
+          "units": 5,
+          "useful": 1
+        },
+        {
+          "question_id": "D15",
+          "role": "employee",
+          "category": "permission",
+          "context_precision": 0.0,
+          "units": 5,
+          "useful": 0
+        },
+        {
+          "question_id": "D15",
+          "role": "manager",
+          "category": "permission",
+          "context_precision": 0.4,
+          "units": 5,
+          "useful": 2
+        },
+        {
+          "question_id": "D16",
+          "role": "hr",
+          "category": "permission",
+          "context_precision": 1.0,
+          "units": 5,
+          "useful": 5
+        },
+        {
+          "question_id": "D16",
+          "role": "employee",
+          "category": "permission",
+          "context_precision": 0.2,
+          "units": 5,
+          "useful": 1
+        },
+        {
+          "question_id": "D16",
+          "role": "manager",
+          "category": "permission",
+          "context_precision": 0.0,
+          "units": 5,
+          "useful": 0
+        },
+        {
+          "question_id": "D17",
+          "role": "hr",
+          "category": "permission",
+          "context_precision": 0.2,
+          "units": 5,
+          "useful": 1
+        },
+        {
+          "question_id": "D17",
+          "role": "employee",
+          "category": "permission",
+          "context_precision": 0.0,
+          "units": 5,
+          "useful": 0
+        },
+        {
+          "question_id": "D17",
+          "role": "manager",
+          "category": "permission",
+          "context_precision": 0.0,
+          "units": 5,
+          "useful": 0
+        },
+        {
+          "question_id": "D18",
+          "role": "employee",
+          "category": "insufficient",
+          "context_precision": 0.5,
+          "units": 4,
+          "useful": 2
+        },
+        {
+          "question_id": "D19",
+          "role": "employee",
+          "category": "insufficient",
+          "context_precision": 0.0,
+          "units": 5,
+          "useful": 0
+        },
+        {
+          "question_id": "D20",
+          "role": "employee",
+          "category": "insufficient",
+          "context_precision": 0.25,
+          "units": 4,
+          "useful": 1
+        }
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "mean_context_precision": 0.6178571428571429,
+      "answerable_count": 14,
+      "top5_all_hit": 11,
+      "context_all_hit": 11,
+      "rows": [
+        {
+          "question_id": "D01",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 0.8,
+          "units": 5,
+          "useful": 4
+        },
+        {
+          "question_id": "D02",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 0.2,
+          "units": 5,
+          "useful": 1
+        },
+        {
+          "question_id": "D03",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 0.75,
+          "units": 4,
+          "useful": 3
+        },
+        {
+          "question_id": "D04",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 0.4,
+          "units": 5,
+          "useful": 2
+        },
+        {
+          "question_id": "D05",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 1.0,
+          "units": 5,
+          "useful": 5
+        },
+        {
+          "question_id": "D06",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 0.4,
+          "units": 5,
+          "useful": 2
+        },
+        {
+          "question_id": "D07",
+          "role": "employee",
+          "category": "paraphrase_cross",
+          "context_precision": 0.4,
+          "units": 5,
+          "useful": 2
+        },
+        {
+          "question_id": "D08",
+          "role": "employee",
+          "category": "paraphrase_cross",
+          "context_precision": 0.5,
+          "units": 4,
+          "useful": 2
+        },
+        {
+          "question_id": "D09",
+          "role": "employee",
+          "category": "paraphrase_cross",
+          "context_precision": 0.8,
+          "units": 5,
+          "useful": 4
+        },
+        {
+          "question_id": "D10",
+          "role": "employee",
+          "category": "paraphrase_cross",
+          "context_precision": 0.6,
+          "units": 5,
+          "useful": 3
+        },
+        {
+          "question_id": "D11",
+          "role": "employee",
+          "category": "paraphrase_cross",
+          "context_precision": 0.6,
+          "units": 5,
+          "useful": 3
+        },
+        {
+          "question_id": "D12",
+          "role": "employee",
+          "category": "version",
+          "context_precision": 0.6,
+          "units": 5,
+          "useful": 3
+        },
+        {
+          "question_id": "D13",
+          "role": "employee",
+          "category": "version",
+          "context_precision": 0.6,
+          "units": 5,
+          "useful": 3
+        },
+        {
+          "question_id": "D14",
+          "role": "employee",
+          "category": "version",
+          "context_precision": 1.0,
+          "units": 5,
+          "useful": 5
+        },
+        {
+          "question_id": "D15",
+          "role": "hr",
+          "category": "permission",
+          "context_precision": 0.2,
+          "units": 5,
+          "useful": 1
+        },
+        {
+          "question_id": "D15",
+          "role": "employee",
+          "category": "permission",
+          "context_precision": 0.0,
+          "units": 5,
+          "useful": 0
+        },
+        {
+          "question_id": "D15",
+          "role": "manager",
+          "category": "permission",
+          "context_precision": 0.2,
+          "units": 5,
+          "useful": 1
+        },
+        {
+          "question_id": "D16",
+          "role": "hr",
+          "category": "permission",
+          "context_precision": 1.0,
+          "units": 5,
+          "useful": 5
+        },
+        {
+          "question_id": "D16",
+          "role": "employee",
+          "category": "permission",
+          "context_precision": 0.2,
+          "units": 5,
+          "useful": 1
+        },
+        {
+          "question_id": "D16",
+          "role": "manager",
+          "category": "permission",
+          "context_precision": 0.0,
+          "units": 5,
+          "useful": 0
+        },
+        {
+          "question_id": "D17",
+          "role": "hr",
+          "category": "permission",
+          "context_precision": 0.4,
+          "units": 5,
+          "useful": 2
+        },
+        {
+          "question_id": "D17",
+          "role": "employee",
+          "category": "permission",
+          "context_precision": 0.0,
+          "units": 5,
+          "useful": 0
+        },
+        {
+          "question_id": "D17",
+          "role": "manager",
+          "category": "permission",
+          "context_precision": 0.0,
+          "units": 5,
+          "useful": 0
+        },
+        {
+          "question_id": "D18",
+          "role": "employee",
+          "category": "insufficient",
+          "context_precision": 0.2,
+          "units": 5,
+          "useful": 1
+        },
+        {
+          "question_id": "D19",
+          "role": "employee",
+          "category": "insufficient",
+          "context_precision": 0.0,
+          "units": 5,
+          "useful": 0
+        },
+        {
+          "question_id": "D20",
+          "role": "employee",
+          "category": "insufficient",
+          "context_precision": 0.2,
+          "units": 5,
+          "useful": 1
+        }
+      ]
+    },
+    {
+      "mode": "rerank",
+      "mean_context_precision": 0.7202380952380952,
+      "answerable_count": 14,
+      "top5_all_hit": 13,
+      "context_all_hit": 13,
+      "rows": [
+        {
+          "question_id": "D01",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 1.0,
+          "units": 4,
+          "useful": 4
+        },
+        {
+          "question_id": "D02",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 0.6,
+          "units": 5,
+          "useful": 3
+        },
+        {
+          "question_id": "D03",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 1.0,
+          "units": 3,
+          "useful": 3
+        },
+        {
+          "question_id": "D04",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 0.3333333333333333,
+          "units": 3,
+          "useful": 1
+        },
+        {
+          "question_id": "D05",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 1.0,
+          "units": 5,
+          "useful": 5
+        },
+        {
+          "question_id": "D06",
+          "role": "employee",
+          "category": "direct",
+          "context_precision": 0.0,
+          "units": 2,
+          "useful": 0
+        },
+        {
+          "question_id": "D07",
+          "role": "employee",
+          "category": "paraphrase_cross",
+          "context_precision": 0.6,
+          "units": 5,
+          "useful": 3
+        },
+        {
+          "question_id": "D08",
+          "role": "employee",
+          "category": "paraphrase_cross",
+          "context_precision": 1.0,
+          "units": 4,
+          "useful": 4
+        },
+        {
+          "question_id": "D09",
+          "role": "employee",
+          "category": "paraphrase_cross",
+          "context_precision": 0.75,
+          "units": 4,
+          "useful": 3
+        },
+        {
+          "question_id": "D10",
+          "role": "employee",
+          "category": "paraphrase_cross",
+          "context_precision": 0.6,
+          "units": 5,
+          "useful": 3
+        },
+        {
+          "question_id": "D11",
+          "role": "employee",
+          "category": "paraphrase_cross",
+          "context_precision": 0.8,
+          "units": 5,
+          "useful": 4
+        },
+        {
+          "question_id": "D12",
+          "role": "employee",
+          "category": "version",
+          "context_precision": 0.6,
+          "units": 5,
+          "useful": 3
+        },
+        {
+          "question_id": "D13",
+          "role": "employee",
+          "category": "version",
+          "context_precision": 0.8,
+          "units": 5,
+          "useful": 4
+        },
+        {
+          "question_id": "D14",
+          "role": "employee",
+          "category": "version",
+          "context_precision": 1.0,
+          "units": 5,
+          "useful": 5
+        },
+        {
+          "question_id": "D15",
+          "role": "hr",
+          "category": "permission",
+          "context_precision": 0.2,
+          "units": 5,
+          "useful": 1
+        },
+        {
+          "question_id": "D15",
+          "role": "employee",
+          "category": "permission",
+          "context_precision": 0.0,
+          "units": 5,
+          "useful": 0
+        },
+        {
+          "question_id": "D15",
+          "role": "manager",
+          "category": "permission",
+          "context_precision": 0.2,
+          "units": 5,
+          "useful": 1
+        },
+        {
+          "question_id": "D16",
+          "role": "hr",
+          "category": "permission",
+          "context_precision": 1.0,
+          "units": 5,
+          "useful": 5
+        },
+        {
+          "question_id": "D16",
+          "role": "employee",
+          "category": "permission",
+          "context_precision": 1.0,
+          "units": 1,
+          "useful": 1
+        },
+        {
+          "question_id": "D16",
+          "role": "manager",
+          "category": "permission",
+          "context_precision": 0.0,
+          "units": 2,
+          "useful": 0
+        },
+        {
+          "question_id": "D17",
+          "role": "hr",
+          "category": "permission",
+          "context_precision": 0.4,
+          "units": 5,
+          "useful": 2
+        },
+        {
+          "question_id": "D17",
+          "role": "employee",
+          "category": "permission",
+          "context_precision": 0.0,
+          "units": 2,
+          "useful": 0
+        },
+        {
+          "question_id": "D17",
+          "role": "manager",
+          "category": "permission",
+          "context_precision": 0.0,
+          "units": 3,
+          "useful": 0
+        },
+        {
+          "question_id": "D18",
+          "role": "employee",
+          "category": "insufficient",
+          "context_precision": 0.0,
+          "units": 1,
+          "useful": 0
+        },
+        {
+          "question_id": "D19",
+          "role": "employee",
+          "category": "insufficient",
+          "context_precision": 0.0,
+          "units": 2,
+          "useful": 0
+        },
+        {
+          "question_id": "D20",
+          "role": "employee",
+          "category": "insufficient",
+          "context_precision": 1.0,
+          "units": 1,
+          "useful": 1
+        }
+      ]
+    }
+  ],
+  "potential_review_conflicts": [
+    {
+      "question_id": "D06",
+      "role": "employee",
+      "review_ids": [
+        "L035"
+      ],
+      "reason": "required_group_witnesses_labeled_not_useful",
+      "status": "needs_human_recheck_not_automatically_changed"
+    },
+    {
+      "question_id": "D11",
+      "role": "employee",
+      "review_ids": [
+        "L071"
+      ],
+      "reason": "required_group_witnesses_labeled_not_useful",
+      "status": "needs_human_recheck_not_automatically_changed"
+    }
+  ],
+  "stage4_9_passed": false
+}
