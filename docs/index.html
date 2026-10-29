@@ -2,8 +2,9 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>請假特休問答｜靜態展示</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f3b3a">
+<title>請假特休問答｜線上展示</title>
 <meta name="description" content="依角色權限檢索、附原文引用的人資請假與特休問答（RAG）展示">
 <style>
 :root {
@@ -11,78 +12,144 @@
   --bg: #f5f7f6; --card: #ffffff; --ink: #1c2a29; --muted: #6b7b78; --line: #e1e8e6;
   --accent: #0f766e; --accent-soft: #e4f3f0;
   --official: #1e5aa8; --official-soft: #e8f0fb; --company: #9a5600; --company-soft: #fcf1e3;
+  --restricted: #7a3e9d; --restricted-soft: #f3e9f8;
   --ok: #1d7a46; --ok-soft: #e4f4ea; --warn: #9a5b00; --warn-soft: #fff4e0;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; }
-body { font: 15px/1.75 system-ui, "Noto Sans TC", "Microsoft JhengHei", sans-serif; background: var(--bg); color: var(--ink); }
+body { font: 15px/1.75 system-ui, "Noto Sans TC", "Microsoft JhengHei", sans-serif; background: var(--bg); color: var(--ink); -webkit-text-size-adjust: 100%; }
+a { color: var(--accent); }
+h2, h3 { line-height: 1.45; }
+.muted { color: var(--muted); }
+.small { font-size: 12.5px; }
+
+/* 版面（與本機版相同） */
 .shell { display: grid; grid-template-columns: 248px 1fr; min-height: 100vh; }
-.shell > * { min-width: 0; }
-.question, .claim p, .src, .note { overflow-wrap: anywhere; }
 .side { background: var(--side); color: var(--side-ink); display: flex; flex-direction: column; gap: 26px; padding: 22px 16px; position: sticky; top: 0; height: 100vh; }
-.brand { display: flex; gap: 12px; align-items: center; }
+.brand { display: flex; gap: 12px; align-items: center; color: inherit; text-decoration: none; }
 .logo { width: 38px; height: 38px; border-radius: 10px; background: #2aa596; flex: none; display: grid; place-items: center; font-weight: 700; font-size: 18px; color: #fff; }
 .brand b { display: block; font-size: 16px; letter-spacing: .02em; }
 .brand small { color: var(--side-muted); font-size: 12px; }
+.brand.mini { display: none; }
 .label { font-size: 12px; color: var(--side-muted); margin: 0 8px 6px; }
-.roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; background: #0b2f2e; border-radius: 10px; padding: 4px; }
-.roles button { background: none; border: 0; color: var(--side-ink); font: inherit; font-size: 13.5px; padding: 6px 0; border-radius: 7px; cursor: pointer; }
-.roles button[aria-pressed="true"] { background: var(--side-hover); font-weight: 600; box-shadow: inset 0 0 0 1px #2a6f6b; }
 .links { display: grid; gap: 2px; }
 .links a { color: var(--side-ink); text-decoration: none; padding: 8px 10px; border-radius: 8px; font-size: 14px; }
 .links a:hover { background: var(--side-hover); }
 .links a.active { background: var(--side-hover); font-weight: 600; }
-.side-foot { margin-top: auto; font-size: 12px; color: var(--side-muted); padding: 0 8px; }
+.side-foot { margin-top: auto; font-size: 12px; color: var(--side-muted); padding: 0 8px; overflow-wrap: anywhere; }
 .side-foot a { color: var(--side-ink); }
 .main { display: flex; flex-direction: column; min-width: 0; }
-.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 32px; background: var(--card); border-bottom: 1px solid var(--line); }
-.top h1 { margin: 0; font-size: 18px; }
-.role { background: var(--accent-soft); color: var(--accent); font-weight: 600; border-radius: 999px; padding: 3px 12px; font-size: 14px; }
-.content { padding: 28px 32px 150px; max-width: 920px; width: 100%; margin: 0 auto; display: grid; gap: 14px; }
-.note { font-size: 13px; color: var(--muted); background: #fff; border: 1px dashed var(--line); border-radius: 10px; padding: 8px 14px; }
-.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px 26px; }
+.top { display: flex; align-items: center; gap: 12px; padding: 16px 32px; background: var(--card); border-bottom: 1px solid var(--line); }
+.top h1 { margin: 0; font-size: 18px; flex: 1; min-width: 0; }
+.who { display: flex; gap: 12px; align-items: center; font-size: 14px; flex: none; }
+.who a { color: var(--muted); text-decoration: none; }
+.role { background: var(--accent-soft); color: var(--accent); font-weight: 600; border-radius: 999px; padding: 3px 12px; white-space: nowrap; }
+
+/* 角色切換：線上展示以切換代替登入 */
+.roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; background: #0b2f2e; border-radius: 10px; padding: 4px; }
+.roles button { background: none; border: 0; color: var(--side-ink); font: inherit; font-size: 13.5px; padding: 6px 0; border-radius: 7px; cursor: pointer; }
+.roles button[aria-pressed="true"] { background: var(--side-hover); font-weight: 600; box-shadow: inset 0 0 0 1px #2a6f6b; }
+.tabs { display: none; }
+
+.content { padding: 24px 32px 190px; max-width: 920px; width: 100%; margin: 0 auto; display: grid; gap: 16px; align-content: start; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px 26px; margin: 0; }
+.card h2 { margin: 0 0 6px; font-size: 20px; }
+.card h3 { margin: 0 0 10px; font-size: 16px; }
+.card > p:last-child { margin-bottom: 0; }
+.hero p { margin: 0; }
+.demo-note { margin-top: 10px !important; font-size: 13px; color: var(--muted); border: 1px dashed var(--line); border-radius: 10px; padding: 8px 12px; }
+
+/* 首頁：角色範圍、示範題、運作方式 */
+.role-line { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-weight: 600; }
+.scope { list-style: none; margin: 12px 0; padding: 0; display: grid; gap: 6px; }
+.scope li { border-radius: 8px; padding: 6px 12px; font-size: 14px; font-weight: 600; }
+.scope-official { background: var(--official-soft); color: var(--official); }
+.scope-company { background: var(--company-soft); color: var(--company); }
+.scope-restricted { background: var(--restricted-soft); color: var(--restricted); }
+.hint { margin: 0; font-size: 13.5px; color: var(--muted); border-left: 3px solid var(--accent); padding-left: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.chip { display: inline-block; text-decoration: none; color: var(--accent); font-weight: 600; background: var(--accent-soft); border: 1px solid #c4e4de; border-radius: 999px; padding: 8px 16px; font-size: 14.5px; line-height: 1.4; cursor: pointer; font-family: inherit; }
+.chip:hover { background: #d3ece7; }
+.steps ol { margin: 0; padding: 0; list-style: none; counter-reset: step; display: grid; gap: 12px; }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 28px 1fr; column-gap: 10px; }
+.steps li::before { content: counter(step); grid-row: span 2; width: 26px; height: 26px; border-radius: 50%; background: var(--side); color: #fff; font-size: 13px; font-weight: 700; display: grid; place-items: center; margin-top: 2px; }
+.steps b { font-size: 15px; }
+.steps span { color: var(--muted); font-size: 13.5px; line-height: 1.6; }
+
+/* 答案 */
 .head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
-.question { margin: 0; font-size: 18px; font-weight: 600; line-height: 1.6; }
+.question { margin: 0; font-size: 18px; font-weight: 600; line-height: 1.6; overflow-wrap: anywhere; }
 .badge { flex: none; border-radius: 999px; padding: 3px 12px; font-size: 13px; font-weight: 600; white-space: nowrap; }
 .badge-answered { background: var(--ok-soft); color: var(--ok); }
 .badge-insufficient, .badge-conflict { background: var(--warn-soft); color: var(--warn); }
 .date { color: var(--muted); font-size: 13px; margin-top: 4px; }
-.reason { margin: 14px 0 0; padding: 10px 14px; background: var(--warn-soft); border-radius: 8px; font-size: 14px; }
+.note { margin: 14px 0 0; padding: 10px 14px; border-radius: 8px; font-size: 14px; }
+.note-answered { background: var(--ok-soft); color: #14532d; }
+.note-insufficient, .note-conflict { background: var(--warn-soft); color: #713f00; }
+.note-miss { background: #eef0f2; color: #374151; }
+.reason { margin: 10px 0 0; padding: 10px 14px; background: var(--warn-soft); border-radius: 8px; font-size: 14px; }
 .claims { display: grid; gap: 18px; margin-top: 22px; }
 .claim { border-left: 3px solid var(--company); padding-left: 16px; }
 .claim.official { border-left-color: var(--official); }
-.claim p { margin: 0; white-space: pre-wrap; }
+.claim p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
 .tag { display: inline-block; font-size: 12px; font-weight: 600; border-radius: 6px; padding: 1px 8px; margin: 0 6px 6px 0; }
 .tag.company { background: var(--company-soft); color: var(--company); }
 .tag.official { background: var(--official-soft); color: var(--official); }
 .tag.supp { background: #eef0f2; color: #4b5563; }
-.src { margin-top: 6px; font-size: 12.5px; color: var(--muted); }
+.src { margin-top: 6px; font-size: 12.5px; color: var(--muted); overflow-wrap: anywhere; }
 .foot { margin-top: 24px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
-.empty { margin-top: 18px; color: var(--muted); font-size: 14px; }
-.ask { position: fixed; left: 248px; right: 0; bottom: 0; padding: 14px 32px 18px; background: linear-gradient(180deg, rgba(245,247,246,0), var(--bg) 35%); }
-.ask div { max-width: 920px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 10px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 8px; box-shadow: 0 6px 20px rgba(15, 59, 58, .10); align-items: center; }
-.ask span { padding: 8px 10px; color: var(--muted); font-size: 14px; }
-.ask a { background: var(--accent); color: #fff; border-radius: 10px; padding: 9px 20px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.again { margin: 0; text-align: center; }
+.again a { display: inline-block; padding: 8px 16px; font-weight: 600; text-decoration: none; }
+
+/* 底部提問列 */
+.ask { position: fixed; left: 248px; right: 0; bottom: 0; padding: 14px 32px 18px; background: linear-gradient(180deg, rgba(245, 247, 246, 0), var(--bg) 35%); }
+.ask form { max-width: 920px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto auto; gap: 10px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 8px; box-shadow: 0 6px 20px rgba(15, 59, 58, .10); align-items: center; }
+.ask textarea { border: 0; outline: none; padding: 8px 10px; font: inherit; font-size: 15px; resize: none; min-width: 0; line-height: 1.5; max-height: 6em; }
+.date-field { display: grid; font-size: 11px; color: var(--muted); line-height: 1.3; }
+.date-field b { font-size: 14px; font-weight: 400; border: 1px solid var(--line); border-radius: 8px; padding: 5px 8px; }
+.ask button { background: var(--accent); color: #fff; border: 0; border-radius: 10px; padding: 10px 24px; font: inherit; font-weight: 600; cursor: pointer; }
+.ask button:active { background: #0b5d57; }
+.ask button[disabled] { opacity: .7; }
+.ask p { max-width: 920px; margin: 6px auto 0; text-align: center; font-size: 12px; color: var(--muted); }
+
+/* 手機：側欄收起，頂部改為角色分頁；輸入字級16px避免iOS自動放大 */
 @media (max-width: 860px) {
+  body { font-size: 15.5px; }
   .shell { grid-template-columns: 1fr; }
-  .side { position: static; height: auto; gap: 14px; padding: 16px; }
-  .top { padding: 12px 16px; }
-  .content { padding: 16px 16px 110px; }
-  .card { padding: 18px 16px; }
-  .ask { left: 0; padding: 8px 12px 10px; }
+  .side { display: none; }
+  .brand.mini { display: flex; }
+  .brand.mini .logo { width: 32px; height: 32px; font-size: 16px; border-radius: 9px; }
+  .top { padding: 10px 14px; position: sticky; top: 0; z-index: 2; }
+  .top h1 { font-size: 16px; }
+  .who { gap: 10px; font-size: 13px; }
+  .tabs { display: flex; background: var(--card); border-bottom: 1px solid var(--line); padding: 0 8px; position: sticky; top: 53px; z-index: 2; }
+  .tabs button { flex: 1; background: none; border: 0; border-bottom: 2px solid transparent; padding: 10px 0; font: inherit; font-weight: 600; font-size: 14px; color: var(--muted); cursor: pointer; }
+  .tabs button[aria-pressed="true"] { color: var(--accent); border-bottom-color: var(--accent); }
+  .content { padding: 14px 12px 210px; gap: 12px; }
+  .card { padding: 16px; border-radius: 12px; }
+  .card h2 { font-size: 18px; }
+  .question { font-size: 16.5px; }
+  .head { flex-direction: column; gap: 6px; }
+  .claim { padding-left: 12px; }
+  .chip { padding: 9px 14px; }
+  .ask { left: 0; padding: 8px 10px calc(10px + env(safe-area-inset-bottom)); }
+  .ask form { grid-template-columns: 1fr auto; gap: 8px; padding: 8px; }
+  .ask textarea { grid-column: 1 / -1; font-size: 16px; border-bottom: 1px solid var(--line); }
+  .ask button { padding: 12px 26px; font-size: 16px; }
+  .ask p { display: none; }
 }
 </style>
 </head>
 <body>
 <div class="shell">
   <aside class="side">
-    <div class="brand">
+    <a class="brand" href="#">
       <span class="logo">假</span>
       <span><b>請假特休問答</b><small>依角色權限・附原文引用</small></span>
-    </div>
+    </a>
     <div>
-      <div class="label">切換角色</div>
-      <div class="roles" id="roles">
+      <div class="label">切換角色（代替登入）</div>
+      <div class="roles" data-roles>
         <button type="button" data-role="employee">員工</button>
         <button type="button" data-role="manager">主管</button>
         <button type="button" data-role="hr">人資</button>
@@ -92,50 +159,128 @@ body { font: 15px/1.75 system-ui, "Noto Sans TC", "Microsoft JhengHei", sans-ser
       <div class="label">示範問題</div>
       <div class="links" id="questions"></div>
     </nav>
-    <div class="side-foot">官方法規 6 份・虛構公司文件 4 份<br><a id="repo" href="https://github.com/lee851104/hr_rag">原始碼與說明</a></div>
+    <div class="side-foot">官方法規 6 份・虛構公司文件 4 份<br>OpenAI gpt-4.1 預先跑好的真實回答<br><a href="https://github.com/lee851104/hr_rag">原始碼與說明</a></div>
   </aside>
 
   <div class="main">
     <header class="top">
-      <h1>查詢結果</h1>
-      <span class="role" id="role-pill"></span>
+      <a class="brand mini" href="#" aria-label="回首頁"><span class="logo">假</span></a>
+      <h1 id="heading">提問</h1>
+      <div class="who">
+        <span class="role" id="role-pill"></span>
+        <a href="https://github.com/lee851104/hr_rag">原始碼</a>
+      </div>
     </header>
-    <main class="content">
-      <p class="note">靜態展示：以下是實際系統（OpenAI gpt-4.1＋本機檢索）對開發題的真實回答，並經人工核對。切換角色可看到同一題因權限不同而回答不同。</p>
-      <section class="card" id="answer" aria-live="polite"></section>
-    </main>
+    <nav class="tabs" data-roles aria-label="切換角色">
+      <button type="button" data-role="employee">員工</button>
+      <button type="button" data-role="manager">主管</button>
+      <button type="button" data-role="hr">人資</button>
+    </nav>
+    <main class="content" id="view" aria-live="polite"></main>
   </div>
 </div>
 
 <div class="ask">
-  <div><span>線上展示不開放即時提問，以免公開 API 金鑰；可在本機執行完整系統。</span><a id="run-local" href="https://github.com/lee851104/hr_rag#6-快速開始">本機執行</a></div>
+  <form id="ask">
+    <textarea id="question" rows="2" maxlength="500" required aria-label="問題" placeholder="點上方示範題，或輸入問題"></textarea>
+    <span class="date-field"><span>依此日期有效的規定</span><b id="as-of">2026-10-18</b></span>
+    <button type="submit" id="send">送出</button>
+  </form>
+  <p>線上展示：顯示實際系統對示範題的真實回答（OpenAI gpt-4.1＋本機檢索，經人工核對）・任意提問請在本機執行</p>
 </div>
 
 <script src="demo-data.js"></script>
 <script>
 (() => {
+  const DEMO = window.DEMO;
   const ROLE_NAMES = { employee: "員工 employee", manager: "主管 manager", hr: "人資 hr" };
+  const ROLE_SHORT = { employee: "員工", manager: "主管", hr: "人資" };
+  // 與本機版首頁相同的角色文件範圍說明。
+  const ROLE_SCOPES = {
+    employee: [["official", "官方法規（勞基法、請假規則等）"], ["company", "公司通用請假流程與FAQ"]],
+    manager: [["official", "官方法規（勞基法、請假規則等）"], ["company", "公司通用請假流程與FAQ"], ["restricted", "主管內部覆核指引"]],
+    hr: [["official", "官方法規（勞基法、請假規則等）"], ["company", "公司通用請假流程與FAQ"], ["restricted", "主管內部覆核指引"], ["restricted", "人資限閱備忘錄"]],
+  };
+  const ROLE_HINTS = {
+    employee: "展示權限：點「權限對照：HR例外案件」，員工會得到「資料不足」；切到「人資」問同一題就有答案。",
+    manager: "展示權限：主管看得到內部覆核指引，但人資專屬的例外案件備忘錄仍看不到（試「權限對照」）。",
+    hr: "人資可查閱全部文件；切回「員工」問「HR例外案件」，會得到「資料不足」。",
+  };
+  const STATUS_NOTES = {
+    answered: "以下是系統依你的權限找到的法規與公司文件原文，每段都標出處。",
+    insufficient: "你目前可查閱的文件中找不到足夠依據，系統選擇不回答，而不是猜測。",
+    conflict: "找到的來源互相衝突，請比對下列各段出處。",
+  };
+  const LOCAL_RUN = "https://github.com/lee851104/hr_rag#6-快速開始";
+
   const el = (tag, cls, text) => {
     const node = document.createElement(tag);
     if (cls) node.className = cls;
     if (text !== undefined) node.textContent = text;
     return node;
   };
+  const textarea = document.getElementById("question");
+  const send = document.getElementById("send");
 
+  // 網址：#角色、#角色/題號、#角色/?（未收錄的提問）
   function parseHash() {
-    const [role, id] = location.hash.replace("#", "").split("/");
-    const items = window.DEMO[role];
-    if (!items) return { role: "employee", item: window.DEMO.employee[0] };
-    return { role, item: items.find(i => i.id === id) || items[0] };
+    const [rawRole, id] = decodeURIComponent(location.hash.replace("#", "")).split("/");
+    const role = DEMO[rawRole] ? rawRole : "employee";
+    if (id === "?") return { role, miss: true };
+    return { role, item: id ? DEMO[role].find(i => i.id === id) : null };
   }
 
-  function renderAnswer(item) {
-    const card = document.getElementById("answer");
-    card.replaceChildren();
+  function homeView(role) {
+    const nodes = [];
+    const hero = el("section", "card hero");
+    hero.append(el("h2", "", "問請假、特休問題，答案附法條原文"));
+    hero.append(el("p", "muted", "系統只用「你這個角色看得到、且在查詢日期有效」的文件回答，找不到依據就直說資料不足，不會亂編。"));
+    hero.append(el("p", "demo-note", "線上展示：以切換角色代替登入；示範題的答案是實際系統預先跑好、經人工核對的真實結果。"));
+    nodes.push(hero);
+
+    const roleCard = el("section", "card role-card");
+    const line = el("div", "role-line");
+    line.append(el("span", "role", ROLE_NAMES[role]), el("span", "", "目前可查閱"));
+    const scope = el("ul", "scope");
+    for (const [kind, label] of ROLE_SCOPES[role]) scope.append(el("li", "scope-" + kind, label));
+    roleCard.append(line, scope, el("p", "hint", ROLE_HINTS[role]));
+    nodes.push(roleCard);
+
+    const presets = el("section", "card");
+    presets.append(el("h3", "", "試試這些問題"));
+    const chips = el("div", "chips");
+    for (const item of DEMO[role]) {
+      const chip = el("button", "chip", item.label);
+      chip.type = "button";
+      chip.addEventListener("click", () => { textarea.value = item.question; textarea.focus(); });
+      chips.append(chip);
+    }
+    presets.append(chips, el("p", "muted small", "點選後問題會填進下方輸入框，按「送出」查看結果。"));
+    nodes.push(presets);
+
+    const steps = el("section", "card steps");
+    steps.append(el("h3", "", "背後怎麼運作"));
+    const list = el("ol");
+    for (const [title, desc] of [
+      ["先擋權限", "依登入角色與查詢日期，篩掉看不到或已失效的文件"],
+      ["找相關條文", "本機向量檢索＋重排模型，挑出最相關的 5 段"],
+      ["選出原文", "模型只負責挑段落，畫面顯示的是原文，不是模型改寫"],
+    ]) {
+      const li = el("li");
+      li.append(el("b", "", title), el("span", "", desc));
+      list.append(li);
+    }
+    steps.append(list);
+    nodes.push(steps);
+    return nodes;
+  }
+
+  function resultView(role, item) {
+    const card = el("section", "card");
     const head = el("div", "head");
-    head.append(el("p", "question", item.question));
-    head.append(el("span", "badge badge-" + item.status, item.status_text));
-    card.append(head, el("div", "date", "依 " + item.as_of + " 有效版本"));
+    head.append(el("p", "question", item.question), el("span", "badge badge-" + item.status, item.status_text));
+    card.append(head, el("div", "date", "依 " + item.as_of + " 有效版本・" + ROLE_SHORT[role] + "權限"));
+    if (STATUS_NOTES[item.status]) card.append(el("p", "note note-" + item.status, STATUS_NOTES[item.status]));
     if (item.reason) card.append(el("p", "reason", item.reason));
     if (item.claims.length) {
       const list = el("div", "claims");
@@ -150,30 +295,88 @@ body { font: 15px/1.75 system-ui, "Noto Sans TC", "Microsoft JhengHei", sans-ser
         list.append(box);
       }
       card.append(list);
-    } else {
-      card.append(el("p", "empty", "此角色可查閱的文件中沒有相關依據，因此不提供答案內容。"));
     }
     card.append(el("div", "foot", item.reviewed_correct ? "人工核對：符合預期答案與權限" : "人工核對：未通過"));
+    return [card, againLink()];
+  }
+
+  function missView(role) {
+    const card = el("section", "card");
+    card.append(el("p", "question", textarea.value || "（未輸入問題）"));
+    card.append(el("p", "note note-miss", "線上展示只收錄示範題的真實結果，避免公開 API 金鑰。任意提問請在本機執行完整系統（可用 OpenAI 或本機 Ollama 模型）。"));
+    const chips = el("div", "chips");
+    chips.style.marginTop = "14px";
+    for (const item of DEMO[role]) {
+      const link = el("a", "chip", item.label);
+      link.href = "#" + role + "/" + item.id;
+      chips.append(link);
+    }
+    const run = el("p", "small");
+    const a = el("a", "", "本機執行說明 →");
+    a.href = LOCAL_RUN;
+    run.append(a);
+    card.append(chips, run);
+    return [card, againLink()];
+  }
+
+  function againLink() {
+    const p = el("p", "again");
+    const a = el("a", "", "← 問其他問題");
+    a.href = "#" + parseHash().role;
+    p.append(a);
+    return p;
   }
 
   function render() {
-    const { role, item } = parseHash();
-    document.querySelectorAll("#roles button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.role === role)));
+    const { role, item, miss } = parseHash();
+    document.querySelectorAll("[data-roles] button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.role === role)));
     document.getElementById("role-pill").textContent = ROLE_NAMES[role];
+    document.querySelectorAll(".brand").forEach(a => { a.href = "#" + role; });
+    document.getElementById("heading").textContent = item || miss ? "查詢結果" : "提問";
     const nav = document.getElementById("questions");
     nav.replaceChildren();
-    for (const q of window.DEMO[role]) {
-      const a = el("a", q.id === item.id ? "active" : "", q.label);
+    for (const q of DEMO[role]) {
+      const a = el("a", item && q.id === item.id ? "active" : "", q.label);
       a.href = "#" + role + "/" + q.id;
       nav.append(a);
     }
-    renderAnswer(item);
+    const view = document.getElementById("view");
+    view.replaceChildren(...(item ? resultView(role, item) : miss ? missView(role) : homeView(role)));
+    if (item) textarea.value = "";
+    send.disabled = false;
+    send.textContent = "送出";
+    window.scrollTo(0, 0);
   }
 
-  document.getElementById("roles").addEventListener("click", e => {
-    const role = e.target.dataset && e.target.dataset.role;
-    if (role) location.hash = role + "/" + window.DEMO[role][0].id;
+  // 輸入內容與目前角色的示範題比對；只收錄這些題目的真實結果。
+  function match(role, text) {
+    const clean = s => s.replace(/[\s，。？！、,.?!「」]/g, "");
+    const q = clean(text);
+    if (!q) return null;
+    return DEMO[role].find(i => clean(i.question) === q || clean(i.question).includes(q) || q.includes(clean(i.question))) || null;
+  }
+
+  document.getElementById("ask").addEventListener("submit", e => {
+    e.preventDefault();
+    const { role } = parseHash();
+    const item = match(role, textarea.value);
+    send.disabled = true;
+    send.textContent = "查詢中…";
+    const target = "#" + role + "/" + (item ? item.id : "?");
+    // 同一網址不會觸發hashchange，直接重繪。
+    if (location.hash === target) render();
+    else location.hash = target;
   });
+  textarea.addEventListener("keydown", e => {
+    if (e.key === "Enter" && !e.shiftKey && !e.isComposing) {
+      e.preventDefault();
+      document.getElementById("ask").requestSubmit();
+    }
+  });
+  document.querySelectorAll("[data-roles]").forEach(group => group.addEventListener("click", e => {
+    const role = e.target.dataset && e.target.dataset.role;
+    if (role) location.hash = role;
+  }));
   window.addEventListener("hashchange", render);
   render();
 })();
