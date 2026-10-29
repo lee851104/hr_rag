@@ -1,8 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
-<section class="card intro">
-  {% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
-  <h2>有什麼請假或特休問題？</h2>
-  <p class="muted">從左側「常用問題」選一題，或在下方直接輸入。答案只會使用你目前角色可查閱、且在查詢日期有效的法規與公司文件，並附上原文出處。</p>
+{% if error %}<p class="error card" role="alert">{{ error }}</p>{% endif %}
+
+<section class="card hero">
+  <h2>問請假、特休問題，答案附法條原文</h2>
+  <p class="muted">系統只用「你這個角色看得到、且在查詢日期有效」的文件回答，找不到依據就直說資料不足，不會亂編。</p>
+</section>
+
+<section class="card role-card">
+  <div class="role-line"><span class="role">{{ role_name }} {{ user.role }}</span><span>目前可查閱</span></div>
+  <ul class="scope">
+    {% for kind, label in role_scope %}<li class="scope-{{ kind }}">{{ label }}</li>{% endfor %}
+  </ul>
+  <p class="hint">{{ role_hint }}</p>
+</section>
+
+<section class="card">
+  <h3>試試這些問題</h3>
+  <div class="chips">
+    {% for preset_id, label, _ in presets %}<a class="chip" href="/?preset={{ preset_id }}">{{ label }}</a>{% endfor %}
+  </div>
+  <p class="muted small">點選後問題會填進下方輸入框，按「送出」才會查詢（約 5–10 秒）。</p>
+</section>
+
+<section class="card steps">
+  <h3>背後怎麼運作</h3>
+  <ol>
+    <li><b>先擋權限</b><span>依登入角色與查詢日期，篩掉看不到或已失效的文件</span></li>
+    <li><b>找相關條文</b><span>本機向量檢索＋重排模型，挑出最相關的 5 段</span></li>
+    <li><b>選出原文</b><span>{{ engine }}只負責挑段落，畫面顯示的是原文，不是模型改寫</span></li>
+  </ol>
 </section>
 {% endblock %}

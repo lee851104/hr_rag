@@ -48,7 +48,17 @@ REFUSAL_CODES = {
     "model_insufficient",
     "conflict",
 }
-STAGE_KEYS = {"retrieve", "assemble", "generate", "validate", "total"}
+STAGE_KEYS = {
+    "retrieve",
+    "model_load",
+    "embed",
+    "rerank",
+    "assemble",
+    "generate",
+    "ttft",
+    "validate",
+    "total",
+}
 RETENTION_SECONDS = 30 * 86400
 SECRET_KEYS = {"authorization", "api_key", "headers", "password", "cookie"}
 SECRET_TEXT = re.compile(r"sk-[A-Za-z0-9_-]{8,}|Bearer\s+\S+", re.IGNORECASE)
@@ -280,6 +290,17 @@ class CostLedger:
 
 
 # ---- 受限追溯 ----
+
+
+@contextmanager
+def collecting():
+    """在追溯範圍外蒐集階段資訊與模型交換；供診斷量測用，不寫入受限追溯。"""
+    collector = {"exchanges": [], "contexts": [], "notes": {}}
+    token = _TRACE.set((None, collector))
+    try:
+        yield collector
+    finally:
+        _TRACE.reset(token)
 
 
 def note(**values):

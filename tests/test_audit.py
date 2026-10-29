@@ -77,7 +77,7 @@ def test_query_fields_are_whitelisted(tmp_path, monkeypatch):
             "mode": "限閱正文",
             "as_of": "限閱正文",
             "candidate_ids": ["ok-id", "含 空白 正文"],
-            "stage_ms": {"retrieve": 1, "question": "限閱正文"},
+            "stage_ms": {"retrieve": 1, "embed": 2, "question": "限閱正文"},
             "snapshot": {"generation_id": "限閱正文"},
             "user_ref": "private-account",
         }
@@ -85,7 +85,7 @@ def test_query_fields_are_whitelisted(tmp_path, monkeypatch):
     row = json.loads(path.read_text("utf-8"))
     assert row["role"] is None and row["mode"] is None and row["as_of"] is None
     assert row["candidate_ids"] is None and row["user_ref"] is None
-    assert row["stage_ms"] == {"retrieve": 1}
+    assert row["stage_ms"] == {"retrieve": 1, "embed": 2}
     assert row["snapshot"] is None
     assert "限閱正文" not in path.read_text("utf-8")
 

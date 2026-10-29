@@ -268,3 +268,109 @@ def test_revocation_between_rerank_clauses_never_sends_second_request(policy_sto
             "rerank",
         )
     assert len(calls) == 1
+
+
+def _traced_notes():
+    from hr_rag import audit
+
+    collector = {"exchanges": [], "contexts": [], "notes": {}}
+    return collector["notes"], audit._TRACE.set(("trace", collector))
+
+
+def test_retrieve_records_embed_and_rerank_stage_ms(policy_store):
+    from hr_rag import audit
+
+    notes, token = _traced_notes()
+    try:
+        engine(policy_store).retrieve(
+            "合成", Principal(user_id="hr", role="hr"), date(2026, 10, 1), "rerank"
+        )
+    finally:
+        audit._TRACE.reset(token)
+    # 已注入模型時不得出現載入耗時，避免把冷啟動算進暖機後的分段。
+    assert set(notes["stage_ms"]) == {"embed", "rerank"}
+    assert all(value >= 0 for value in notes["stage_ms"].values())
+
+
+def test_first_request_records_model_load_separately(policy_store, monkeypatch):
+    from hr_rag import audit, retrieval
+
+    created = []
+
+    class FakeEncoder:
+        def __init__(self, role, path, settings):
+            created.append(role)
+            self.role = role
+
+        def embed(self, texts):
+            return [[1.0, 0.0, 0.0]]
+
+        def rerank(self, query, texts):
+            return [0.9] * len(texts)
+
+        def close(self):
+            pass
+
+    monkeypatch.setattr(retrieval, "LocalEncoder", FakeEncoder)
+    runner = engine(policy_store)
+    runner.embedder = runner.reranker = None
+    notes, token = _traced_notes()
+    try:
+        runner.retrieve(
+            "合成", Principal(user_id="hr", role="hr"), date(2026, 10, 1), "rerank"
+        )
+    finally:
+        audit._TRACE.reset(token)
+    assert created == ["embedding", "reranker"]
+    assert set(notes["stage_ms"]) == {"model_load", "embed", "rerank"}
+
+
+def test_warmup_loads_and_exercises_both_models_once(policy_store, monkeypatch):
+    import threading
+
+    from hr_rag import retrieval
+
+    created, calls = [], []
+    gate = threading.Event()
+
+    class SlowEncoder:
+        def __init__(self, role, path, settings):
+            gate.wait(1)
+            created.append(role)
+
+        def embed(self, texts):
+            calls.append("embed")
+            return [[1.0, 0.0, 0.0]] * len(texts)
+
+        def rerank(self, query, texts):
+            calls.append("rerank")
+            return [0.5] * len(texts)
+
+        def close(self):
+            pass
+
+    monkeypatch.setattr(retrieval, "LocalEncoder", SlowEncoder)
+    runner = engine(policy_store)
+    runner.embedder = runner.reranker = None
+    workers = [threading.Thread(target=runner.warmup) for _ in range(3)]
+    for worker in workers:
+        worker.start()
+    gate.set()
+    for worker in workers:
+        worker.join(5)
+    # 並行預熱或預熱撞上首查，都只能各建立一個模型子程序。
+    assert sorted(created) == ["embedding", "reranker"]
+    assert calls.count("embed") == 3 and calls.count("rerank") == 3
+    runner.retrieve(
+        "合成", Principal(user_id="hr", role="hr"), date(2026, 10, 1), "rerank"
+    )
+    assert sorted(created) == ["embedding", "reranker"]
+
+
+def test_candidate_limit_bounds_rerank_inputs(policy_store):
+    runner = engine(policy_store)
+    runner.candidate_limit = 1
+    runner.retrieve(
+        "合成", Principal(user_id="hr", role="hr"), date(2026, 10, 1), "rerank"
+    )
+    assert len(runner.reranker.inputs) == 1

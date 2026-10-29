@@ -8,12 +8,19 @@ from decimal import Decimal, InvalidOperation
 from typing import Literal
 
 import httpx
+import httpx2
 import numpy as np
 import openai
 import tiktoken
 from pydantic import ValidationError
 
-from hr_rag.audit import CostLedger, private_model_logs, record_event, safe_usage
+from hr_rag.audit import (
+    CostLedger,
+    note,
+    private_model_logs,
+    record_event,
+    safe_usage,
+)
 from hr_rag.contracts import Answer, Claim, ContextBundle, Contract
 from hr_rag.settings import OpenAISettings, RuntimeSettings, load_generation_environment
 
@@ -219,11 +226,14 @@ class OpenAIGenerator:
         client=None,
         on_exchange=None,
         sleep=time.sleep,
+        stream=False,
     ):
         self.settings = settings
         self.client = client
         self.on_exchange = on_exchange
         self.sleep = sleep
+        # 只改傳輸方式以量測首字延遲；payload、驗證與追溯內容都不變。
+        self.stream = stream
         self.ledger = CostLedger(settings.cost_ledger_path)
         self.safety_margin = settings.safety_margin
 
@@ -366,8 +376,12 @@ class OpenAIGenerator:
             if ticket is None:
                 raise ProviderError("cost_limit")
             try:
-                result = client.responses.create(**payload)
-            except openai.APITimeoutError:
+                sent = time.monotonic()
+                if self.stream:
+                    result, ttft_ms = self._streamed(client, payload, sent)
+                else:
+                    result, ttft_ms = client.responses.create(**payload), None
+            except (openai.APITimeoutError, httpx2.TimeoutException):
                 # 已送出但未收到usage；保留預留額，不盲目重送。
                 raise ProviderError("timeout") from None
             except openai.APIStatusError as exc:
@@ -401,7 +415,28 @@ class OpenAIGenerator:
                 key,
                 start,
                 references,
+                ttft_ms=ttft_ms,
             )
+        raise ProviderError("unavailable")
+
+    @staticmethod
+    def _streamed(client, payload, sent):
+        """串流到結束事件為止；首個輸出片段的時間即首字延遲。"""
+        ttft_ms = None
+        stream = client.responses.create(**payload, stream=True)
+        try:
+            for event in stream:
+                if event.type == "response.output_text.delta" and ttft_ms is None:
+                    ttft_ms = (time.monotonic() - sent) * 1000
+                elif event.type in (
+                    "response.completed",
+                    "response.incomplete",
+                    "response.failed",
+                ):
+                    return event.response, ttft_ms
+        finally:
+            stream.close()
+        # 沒有結束事件就拿不到usage與完整輸出，不能當成功回應。
         raise ProviderError("unavailable")
 
     def _finish(
@@ -414,6 +449,8 @@ class OpenAIGenerator:
         key,
         start,
         references,
+        *,
+        ttft_ms=None,
     ):
         raw = result.model_dump(mode="json")
         usage = safe_usage(raw.get("usage"))
@@ -448,9 +485,12 @@ class OpenAIGenerator:
                 "pricing_checked_on": self.settings.pricing_checked_on.isoformat(),
                 "input_usd_per_million": str(self.settings.input_usd_per_million),
                 "output_usd_per_million": str(self.settings.output_usd_per_million),
-            },
+            }
+            | ({"ttft_ms": ttft_ms} if ttft_ms is not None else {}),
             key,
         )
+        if ttft_ms is not None:
+            note(stage_ms={"ttft": ttft_ms})
         error = None
         try:
             if raw.get("status") != "completed" or not usage or not same_model:
@@ -561,7 +601,12 @@ def build_openai_payload(
     if settings.reasoning_effort is not None:
         payload["reasoning"] = {"effort": settings.reasoning_effort}
     try:
-        encoding = tiktoken.encoding_for_model(settings.model)
+        name = getattr(settings, "approximate_encoding", None)
+        encoding = (
+            tiktoken.get_encoding(name)
+            if name
+            else tiktoken.encoding_for_model(settings.model)
+        )
     except Exception:
         raise ProviderError("not_configured") from None
 

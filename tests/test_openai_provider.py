@@ -603,3 +603,80 @@ def test_wire_unknown_claim_citation_still_rejected(tmp_path, context):
     instance, _, _, _ = generator(tmp_path, handler=handler)
     with pytest.raises(ProviderError, match="^invalid_output$"):
         instance.generate("窗口？", context)
+
+
+# ---- 串流量測：首字延遲 ----
+
+
+def _sse(*events):
+    return "".join(
+        f"event: {event['type']}\ndata: {json.dumps(event, ensure_ascii=False)}\n\n"
+        for event in events
+    )
+
+
+def _stream_handler(*, terminal=True):
+    text = json.dumps(ANSWER, ensure_ascii=False)
+    events = [
+        {
+            "type": "response.created",
+            "sequence_number": 0,
+            "response": response(status="in_progress", output=[], usage=None),
+        },
+        {
+            "type": "response.output_text.delta",
+            "sequence_number": 1,
+            "item_id": "msg_offline",
+            "output_index": 0,
+            "content_index": 0,
+            "delta": text[:5],
+            "logprobs": [],
+        },
+    ]
+    if terminal:
+        events.append(
+            {"type": "response.completed", "sequence_number": 2, "response": response()}
+        )
+
+    def handler(request):
+        return httpx2.Response(
+            200,
+            content=_sse(*events).encode("utf-8"),
+            headers={"content-type": "text/event-stream"},
+        )
+
+    return handler
+
+
+def test_default_generation_does_not_stream(tmp_path, context):
+    instance, calls, exchanges, _ = generator(tmp_path)
+    instance.generate("窗口在哪裡？", context)
+    assert "stream" not in json.loads(calls[0].content)
+    assert "ttft_ms" not in exchanges[0]
+
+
+def test_stream_records_ttft_without_changing_payload(tmp_path, context):
+    from hr_rag import audit
+
+    instance, calls, exchanges, _ = generator(tmp_path, handler=_stream_handler())
+    instance.stream = True
+    collector = {"exchanges": [], "contexts": [], "notes": {}}
+    token = audit._TRACE.set(("trace", collector))
+    try:
+        answer = instance.generate("窗口在哪裡？", context)
+    finally:
+        audit._TRACE.reset(token)
+    assert answer.claims[0].citation_ids == ("s1",)
+    assert json.loads(calls[0].content)["stream"] is True
+    # 追溯保存的請求仍是未加stream的payload，重播雜湊不受量測方式影響。
+    assert "stream" not in exchanges[0]["request"]
+    assert exchanges[0]["usage"]["output_tokens"] == 50
+    assert exchanges[0]["ttft_ms"] >= 0
+    assert collector["notes"]["stage_ms"]["ttft"] == exchanges[0]["ttft_ms"]
+
+
+def test_stream_without_terminal_event_is_unavailable(tmp_path, context):
+    instance, _, _, _ = generator(tmp_path, handler=_stream_handler(terminal=False))
+    instance.stream = True
+    with pytest.raises(ProviderError, match="unavailable"):
+        instance.generate("窗口在哪裡？", context)

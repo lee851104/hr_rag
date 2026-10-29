@@ -160,7 +160,9 @@ def test_server_start_binds_loopback_without_access_logging(monkeypatch):
     from hr_rag import web
 
     captured = {}
-    sentinel = object()
+    from types import SimpleNamespace
+
+    sentinel = SimpleNamespace(state=SimpleNamespace(warmup=lambda: True))
     monkeypatch.setattr(web, "create_app", lambda: sentinel)
     monkeypatch.setattr(
         uvicorn, "run", lambda app, **kwargs: captured.update(app=app, **kwargs)

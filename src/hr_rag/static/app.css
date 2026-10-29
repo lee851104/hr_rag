@@ -14,6 +14,8 @@
   --official-soft: #e8f0fb;
   --company: #9a5600;
   --company-soft: #fcf1e3;
+  --restricted: #7a3e9d;
+  --restricted-soft: #f3e9f8;
   --ok: #1d7a46;
   --ok-soft: #e4f4ea;
   --warn: #9a5b00;
@@ -27,8 +29,10 @@ body {
   font: 15px/1.75 system-ui, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   background: var(--bg);
   color: var(--ink);
+  -webkit-text-size-adjust: 100%;
 }
 a { color: var(--accent); }
+h2, h3 { line-height: 1.45; }
 .muted { color: var(--muted); }
 .small { font-size: 12.5px; }
 .error { color: var(--err); font-weight: 600; }
@@ -48,6 +52,7 @@ a { color: var(--accent); }
 .brand b { display: block; font-size: 16px; letter-spacing: .02em; }
 .brand small { color: var(--side-muted); font-size: 12px; }
 .brand.dark small { color: var(--muted); }
+.brand.mini { display: none; }
 .label { font-size: 12px; color: var(--side-muted); margin: 0 8px 6px; }
 .links { display: grid; gap: 2px; }
 .links a {
@@ -60,21 +65,54 @@ a { color: var(--accent); }
 
 .main { display: flex; flex-direction: column; min-width: 0; }
 .top {
-  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  display: flex; align-items: center; gap: 12px;
   padding: 16px 32px; background: var(--card); border-bottom: 1px solid var(--line);
 }
-.top h1 { margin: 0; font-size: 18px; }
-.who { display: flex; gap: 12px; align-items: center; font-size: 14px; }
-.role { background: var(--accent-soft); color: var(--accent); font-weight: 600; border-radius: 999px; padding: 3px 12px; }
+.top h1 { margin: 0; font-size: 18px; flex: 1; min-width: 0; }
+.who { display: flex; gap: 12px; align-items: center; font-size: 14px; flex: none; }
+.role {
+  background: var(--accent-soft); color: var(--accent); font-weight: 600;
+  border-radius: 999px; padding: 3px 12px; white-space: nowrap;
+}
 form.inline { display: inline; margin: 0; }
-button.link { background: none; border: 0; color: var(--muted); font: inherit; cursor: pointer; padding: 0; }
+button.link { background: none; border: 0; color: var(--muted); font: inherit; cursor: pointer; padding: 4px 0; }
 button.link:hover { color: var(--accent); }
+.tabs { display: none; }
 
-.content { padding: 28px 32px 150px; max-width: 920px; width: 100%; margin: 0 auto; }
-.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px 26px; }
-.intro h2 { margin: 0 0 6px; font-size: 18px; }
-.intro p { margin: 0; }
-.intro .error { margin: 0 0 10px; }
+.content {
+  padding: 24px 32px 170px; max-width: 920px; width: 100%; margin: 0 auto;
+  display: grid; gap: 16px; align-content: start;
+}
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px 26px; margin: 0; }
+.card h2 { margin: 0 0 6px; font-size: 20px; }
+.card h3 { margin: 0 0 10px; font-size: 16px; }
+.card > p:last-child { margin-bottom: 0; }
+.hero p { margin: 0; }
+
+/* 首頁：角色範圍、示範題、運作方式 */
+.role-line { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-weight: 600; }
+.scope { list-style: none; margin: 12px 0; padding: 0; display: grid; gap: 6px; }
+.scope li { border-radius: 8px; padding: 6px 12px; font-size: 14px; font-weight: 600; }
+.scope-official { background: var(--official-soft); color: var(--official); }
+.scope-company { background: var(--company-soft); color: var(--company); }
+.scope-restricted { background: var(--restricted-soft); color: var(--restricted); }
+.hint { margin: 0; font-size: 13.5px; color: var(--muted); border-left: 3px solid var(--accent); padding-left: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.chip {
+  display: inline-block; text-decoration: none; color: var(--accent); font-weight: 600;
+  background: var(--accent-soft); border: 1px solid #c4e4de; border-radius: 999px;
+  padding: 8px 16px; font-size: 14.5px; line-height: 1.4;
+}
+.chip:hover { background: #d3ece7; }
+.steps ol { margin: 0; padding: 0; list-style: none; counter-reset: step; display: grid; gap: 12px; }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 28px 1fr; column-gap: 10px; }
+.steps li::before {
+  content: counter(step); grid-row: span 2; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--side); color: #fff; font-size: 13px; font-weight: 700;
+  display: grid; place-items: center; margin-top: 2px;
+}
+.steps b { font-size: 15px; }
+.steps span { color: var(--muted); font-size: 13.5px; line-height: 1.6; }
 
 /* 答案 */
 .head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
@@ -84,7 +122,10 @@ button.link:hover { color: var(--accent); }
 .badge-insufficient, .badge-conflict { background: var(--warn-soft); color: var(--warn); }
 .badge-error { background: var(--err-soft); color: var(--err); }
 .date { color: var(--muted); font-size: 13px; margin-top: 4px; }
-.reason { margin: 14px 0 0; padding: 10px 14px; background: var(--warn-soft); border-radius: 8px; font-size: 14px; }
+.note { margin: 14px 0 0; padding: 10px 14px; border-radius: 8px; font-size: 14px; }
+.note-answered { background: var(--ok-soft); color: #14532d; }
+.note-insufficient, .note-conflict { background: var(--warn-soft); color: #713f00; }
+.reason { margin: 10px 0 0; padding: 10px 14px; background: var(--warn-soft); border-radius: 8px; font-size: 14px; }
 .claims { display: grid; gap: 18px; margin-top: 22px; }
 .claim { border-left: 3px solid var(--company); padding-left: 16px; }
 .claim.official { border-left-color: var(--official); }
@@ -93,7 +134,7 @@ button.link:hover { color: var(--accent); }
 .tag.company { background: var(--company-soft); color: var(--company); }
 .tag.official { background: var(--official-soft); color: var(--official); }
 .tag.supp { background: #eef0f2; color: #4b5563; }
-.src { margin-top: 6px; font-size: 12.5px; color: var(--muted); }
+.src { margin-top: 6px; font-size: 12.5px; color: var(--muted); overflow-wrap: anywhere; }
 .foot {
   display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
   margin-top: 24px; padding-top: 14px; border-top: 1px solid var(--line);
@@ -102,13 +143,15 @@ button.link:hover { color: var(--accent); }
 .vote { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin: 0; }
 .vote span { margin-right: 4px; }
 .vote button, .vote select {
-  border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 3px 10px;
+  border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 4px 12px;
   font: inherit; color: var(--muted);
 }
 .vote button { cursor: pointer; }
 .vote button:hover { border-color: var(--accent); color: var(--accent); }
 .trace { font-size: 11.5px; overflow-wrap: anywhere; }
 .sent { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
+.again { margin: 0; text-align: center; }
+.again a { display: inline-block; padding: 8px 16px; font-weight: 600; text-decoration: none; }
 
 /* 查詢紀錄 */
 .history { list-style: none; margin: 0 0 12px; padding: 0; }
@@ -138,11 +181,13 @@ button.link:hover { color: var(--accent); }
   border: 0; outline: none; padding: 8px 10px; font: inherit; font-size: 15px;
   resize: none; min-width: 0; line-height: 1.5; max-height: 6em;
 }
-.ask input[type=date] { border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; font: inherit; color: var(--muted); }
+.date-field { display: grid; gap: 0; font-size: 11px; color: var(--muted); line-height: 1.3; }
+.ask input[type=date] { border: 1px solid var(--line); border-radius: 8px; padding: 5px 8px; font: inherit; font-size: 14px; color: var(--muted); }
 .ask button, .stack button {
   background: var(--accent); color: #fff; border: 0; border-radius: 10px;
-  padding: 9px 24px; font: inherit; font-weight: 600; cursor: pointer;
+  padding: 10px 24px; font: inherit; font-weight: 600; cursor: pointer;
 }
+.ask button:active, .stack button:active { background: #0b5d57; }
 .ask p { max-width: 920px; margin: 6px auto 0; text-align: center; font-size: 12px; color: var(--muted); }
 
 /* 登入、錯誤、登出 */
@@ -151,17 +196,44 @@ button.link:hover { color: var(--accent); }
 .narrow h1 { margin: 0 0 8px; font-size: 20px; }
 .stack { display: grid; gap: 14px; margin-top: 20px; }
 .stack label { display: grid; gap: 4px; font-size: 14px; }
-.stack input { border: 1px solid var(--line); border-radius: 8px; padding: 9px 10px; font: inherit; }
+.stack input { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font: inherit; font-size: 16px; }
+.roles { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
+.roles p { margin: 0; }
+.roles dl { margin: 8px 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 13.5px; }
+.roles dt { font-weight: 600; white-space: nowrap; }
+.roles dd { margin: 0; color: var(--muted); }
 
+/* 手機：側欄收起，改用頂部分頁；輸入字級16px避免iOS自動放大 */
 @media (max-width: 860px) {
+  body { font-size: 15.5px; }
   .shell { grid-template-columns: 1fr; }
-  .side { position: static; height: auto; gap: 14px; padding: 16px; }
-  .side-foot { display: none; }
-  .top { padding: 12px 16px; }
-  .content { padding: 16px 16px 160px; }
-  .card { padding: 18px 16px; }
-  .ask { left: 0; padding: 8px 12px 10px; }
-  .ask form { grid-template-columns: 1fr auto; }
-  .ask textarea { grid-column: 1 / -1; border-bottom: 1px solid var(--line); }
+  .side { display: none; }
+  .brand.mini { display: flex; }
+  .brand.mini .logo { width: 32px; height: 32px; font-size: 16px; border-radius: 9px; }
+  .top { padding: 10px 14px; position: sticky; top: 0; z-index: 2; }
+  .top h1 { font-size: 16px; }
+  .who { gap: 10px; font-size: 13px; }
+  .tabs {
+    display: flex; background: var(--card); border-bottom: 1px solid var(--line);
+    padding: 0 8px;
+  }
+  .tabs a {
+    flex: 1; text-align: center; padding: 10px 0; text-decoration: none;
+    color: var(--muted); font-weight: 600; font-size: 14px; border-bottom: 2px solid transparent;
+  }
+  .tabs a.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .content { padding: 14px 12px 200px; gap: 12px; }
+  .card { padding: 16px; border-radius: 12px; }
+  .card h2 { font-size: 18px; }
+  .question { font-size: 16.5px; }
+  .head { flex-direction: column; gap: 6px; }
+  .claim { padding-left: 12px; }
+  .chip { padding: 9px 14px; }
+  .foot { flex-direction: column; align-items: flex-start; }
+  .ask { left: 0; padding: 8px 10px calc(10px + env(safe-area-inset-bottom)); }
+  .ask form { grid-template-columns: 1fr auto; gap: 8px; padding: 8px; }
+  .ask textarea { grid-column: 1 / -1; font-size: 16px; border-bottom: 1px solid var(--line); }
+  .ask input[type=date] { font-size: 16px; padding: 6px 8px; }
+  .ask button { padding: 12px 26px; font-size: 16px; }
   .ask p { display: none; }
 }

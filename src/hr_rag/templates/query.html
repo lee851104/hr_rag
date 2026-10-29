@@ -7,7 +7,8 @@
     <p class="question">{{ asked_question }}</p>
     <span class="badge badge-{{ status }}">{{ status_text }}</span>
   </div>
-  <div class="date">依 {{ asked_as_of }} 有效版本</div>
+  <div class="date">依 {{ asked_as_of }} 有效版本・{{ role_name }}權限</div>
+  {% if status_note %}<p class="note note-{{ status }}">{{ status_note }}</p>{% endif %}
   {% if reason %}<p class="reason">{{ reason }}</p>{% endif %}
   {% if all_hidden %}
   <p class="error">原答案的依據已無法以你目前的權限或有效來源存取，內容已隱藏。</p>
@@ -46,4 +47,5 @@
   <p class="sent">已回饋：{% for f in feedback %}{{ "有用" if f.rating == "useful" else "無用" }}{% if f.reason_label %}・{{ f.reason_label }}{% endif %}（{{ f.status_label }}）{% if not loop.last %}、{% endif %}{% endfor %}</p>
   {% endif %}
 </section>
+<p class="again"><a href="/">← 問其他問題</a></p>
 {% endblock %}

@@ -241,13 +241,19 @@ def test_logout_form_clears_screen_and_session(setup):
 
 
 def test_server_binds_loopback(monkeypatch):
-    seen = {}
-    monkeypatch.setattr(web, "create_app", lambda: "app")
+    import threading
+    from types import SimpleNamespace
+
+    seen, warmed = {}, threading.Event()
+    app = SimpleNamespace(state=SimpleNamespace(warmup=warmed.set))
+    monkeypatch.setattr(web, "create_app", lambda: app)
     monkeypatch.setattr(
         "uvicorn.run", lambda app, **kwargs: seen.update(kwargs, app=app)
     )
     web.main()
-    assert seen["host"] == "127.0.0.1" and seen["app"] == "app"
+    assert seen["host"] == "127.0.0.1" and seen["app"] is app
+    # 預熱在背景執行，不擋住服務啟動。
+    assert warmed.wait(5)
 
 
 # ---- 6.6 降權／撤回／他人紀錄與回饋 ----
@@ -474,3 +480,140 @@ def test_history_uses_same_error_label_as_answer_page(setup, monkeypatch):
         query_id(ask(client, csrf, "過長問題"))
         page = client.get("/queries").text
         assert "無法處理此問題" in page and "暫時無法生成" not in page
+
+
+def test_warmup_builds_service_and_warms_retriever(auth, answer_store, tmp_path):
+    warmed = []
+
+    class WarmRetriever:
+        def warmup(self):
+            warmed.append(True)
+
+    class Service:
+        retriever = WarmRetriever()
+
+    app = web.create_app(
+        auth_store=auth,
+        corpus_store=answer_store,
+        answer_service=Service(),
+        traces=TraceStore(tmp_path / "private" / "traces.sqlite3"),
+        feedback_store=FeedbackStore(tmp_path / "private" / "feedback.sqlite3"),
+    )
+    assert app.state.warmup() is True
+    assert warmed == [True]
+
+
+def test_warmup_failure_is_contained(auth, answer_store, tmp_path):
+    class BrokenRetriever:
+        def warmup(self):
+            raise ProviderError("timeout")
+
+    class Service:
+        retriever = BrokenRetriever()
+
+    app = web.create_app(
+        auth_store=auth,
+        corpus_store=answer_store,
+        answer_service=Service(),
+        traces=TraceStore(tmp_path / "private" / "traces.sqlite3"),
+        feedback_store=FeedbackStore(tmp_path / "private" / "feedback.sqlite3"),
+    )
+    # 預熱失敗不能讓服務起不來；首查會照原本的延遲載入再試一次。
+    assert app.state.warmup() is False
+
+
+def test_server_port_can_be_overridden_but_stays_loopback(monkeypatch):
+    from types import SimpleNamespace
+
+    seen = {}
+    app = SimpleNamespace(state=SimpleNamespace(warmup=lambda: True))
+    monkeypatch.setenv("HR_RAG_PORT", "8001")
+    monkeypatch.setattr(web, "create_app", lambda: app)
+    monkeypatch.setattr("uvicorn.run", lambda app, **kwargs: seen.update(kwargs))
+    web.main()
+    assert seen["port"] == 8001 and seen["host"] == "127.0.0.1"
+
+
+# ---- 面試展示：角色說明、狀態白話說明、手機連線 ----
+
+
+def test_home_explains_role_scope_and_engine(setup):
+    app, _, _ = setup
+    with client_for(app) as client:
+        login(client, "employee")
+        page = client.get("/").text
+        assert "員工 employee" in page and "官方法規" in page
+        assert "主管內部覆核" not in page and "人資限閱" not in page
+        assert "外部模型（OpenAI）" in page
+        assert 'class="chip" href="/?preset=D01"' in page
+    with client_for(app) as client:
+        login(client, "hr")
+        page = client.get("/").text
+        assert "主管內部覆核" in page and "人資限閱" in page
+
+
+def test_query_page_explains_status_in_plain_words(setup):
+    app, _, _ = setup
+    with client_for(app) as client:
+        csrf = login(client, "employee")
+        page = client.get(f"/queries/{query_id(ask(client, csrf, '婚假'))}").text
+        assert 'class="note note-answered"' in page and "原文" in page
+        assert "員工權限" in page and "問其他問題" in page
+
+
+def test_local_generation_is_labelled(monkeypatch, auth, answer_store, tmp_path):
+    from hr_rag import local_generation
+
+    monkeypatch.setenv("HR_RAG_GENERATION", "local")
+    monkeypatch.setattr(
+        local_generation,
+        "load_local_candidate",
+        lambda **kw: ({}, type("S", (), {"model": "gemma4:latest"})()),
+    )
+    app = web.create_app(
+        auth_store=auth,
+        corpus_store=answer_store,
+        answer_service=object(),
+        traces=TraceStore(tmp_path / "private" / "traces.sqlite3"),
+        feedback_store=FeedbackStore(tmp_path / "private" / "feedback.sqlite3"),
+    )
+    with client_for(app) as client:
+        login(client, "employee")
+        page = client.get("/").text
+        assert "本機模型（gemma4:latest）" in page and "外部模型" not in page
+
+
+@pytest.mark.parametrize(
+    "host", ["0.0.0.0", "8.8.8.8", "::1", "127.0.0.1x", "10.0.0.1/8"]
+)
+def test_demo_host_must_be_private_lan_ipv4(monkeypatch, host):
+    monkeypatch.setenv("HR_RAG_HOST", host)
+    with pytest.raises(ValueError):
+        web.server_host()
+
+
+def test_demo_host_defaults_to_loopback_and_allows_lan(monkeypatch):
+    from types import SimpleNamespace
+
+    monkeypatch.delenv("HR_RAG_HOST", raising=False)
+    assert web.server_host() == "127.0.0.1"
+    monkeypatch.setenv("HR_RAG_HOST", "192.168.0.20")
+    assert web.server_host() == "192.168.0.20"
+    seen = {}
+    app = SimpleNamespace(state=SimpleNamespace(warmup=lambda: True))
+    monkeypatch.setattr(web, "create_app", lambda: app)
+    monkeypatch.setattr("uvicorn.run", lambda app, **kwargs: seen.update(kwargs))
+    web.main()
+    assert seen["host"] == "192.168.0.20"
+
+
+def test_lan_host_is_trusted_only_when_configured(monkeypatch, auth, answer_store):
+    monkeypatch.setenv("HR_RAG_HOST", "192.168.0.20")
+    app = web.create_app(auth_store=auth, corpus_store=answer_store)
+    lan = TestClient(app, base_url="http://192.168.0.20:8001")
+    assert lan.get("/login").status_code == 200
+    assert lan.get("/login", headers={"host": "evil.example"}).status_code == 400
+    monkeypatch.delenv("HR_RAG_HOST")
+    app = web.create_app(auth_store=auth, corpus_store=answer_store)
+    lan = TestClient(app, base_url="http://192.168.0.20:8001")
+    assert lan.get("/login").status_code == 400

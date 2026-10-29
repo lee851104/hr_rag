@@ -2,6 +2,7 @@
 
 import multiprocessing
 import os
+import threading
 
 from hr_rag.providers import ProviderError
 
@@ -12,6 +13,8 @@ class ProcessModel:
         self.connection, child = context.Pipe()
         self.process = context.Process(target=target, args=(child, *args), daemon=True)
         self.request_timeout = request_timeout
+        # 預熱執行緒可能與首查同時呼叫；同一管道一次只能有一組請求／回應。
+        self._lock = threading.Lock()
         self.process.start()
         child.close()
         try:
@@ -32,12 +35,13 @@ class ProcessModel:
             raise ProviderError("unavailable") from None
 
     def call(self, data):
-        try:
-            self.connection.send(data)
-            response = self._receive(self.request_timeout)
-        except (EOFError, OSError):
-            self.close()
-            raise ProviderError("unavailable") from None
+        with self._lock:
+            try:
+                self.connection.send(data)
+                response = self._receive(self.request_timeout)
+            except (EOFError, OSError):
+                self.close()
+                raise ProviderError("unavailable") from None
         if "error" in response:
             raise ProviderError(response["error"])
         return response["result"]

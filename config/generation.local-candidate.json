@@ -1,0 +1,18 @@
+{
+  "status": "candidate_not_selected",
+  "provider": "ollama",
+  "mode": "verbatim-reference-closure-v3",
+  "note": "本機Ollama候選：與正式OpenAI設定共用選段提示、schema與驗證，只換端點與模型；未經開發集與保留集驗收前不得取代正式設定。",
+  "settings": {
+    "model": "gemma4:latest",
+    "context_limit": 4096,
+    "evidence_budget": 2048,
+    "output_reserve": 512,
+    "safety_margin": 128,
+    "timeout_seconds": 120.0,
+    "p95_alert_seconds": 45.0,
+    "max_retries": 0,
+    "supports_temperature": true,
+    "reasoning_effort": "none"
+  }
+}

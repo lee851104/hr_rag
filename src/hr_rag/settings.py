@@ -156,3 +156,35 @@ class OpenAISettings(RuntimeSettings):
         if not self.supports_temperature and self.reasoning_effort is None:
             raise ValueError("不支援temperature的模型須明確設定推理強度")
         return self
+
+
+OLLAMA_BASE_URL = "http://127.0.0.1:11434/v1"
+
+
+class OllamaSettings(OpenAISettings):
+    """本機Ollama的OpenAI相容端點；不讀金鑰、不計費，只供候選評估或明確啟用。"""
+
+    provider: Literal["ollama"] = "ollama"
+    base_url: str = OLLAMA_BASE_URL
+    model: str = Field(min_length=1, pattern=r"^[a-zA-Z0-9._:-]+$")
+    input_usd_per_million: Decimal = Field(default=Decimal(0), ge=0)
+    output_usd_per_million: Decimal = Field(default=Decimal(0), ge=0)
+    cost_ledger_path: Path = PROJECT_ROOT / ".runtime/ollama-cost.sqlite3"
+    # 本機模型的思考token會拖慢首字且吃掉輸出額度；選段只需短JSON。
+    reasoning_effort: Literal["none", "minimal", "low", "medium", "high"] | None = (
+        "none"
+    )
+    # tiktoken不認識本機模型名稱；以o200k估算，實際用量再由usage核對。
+    approximate_encoding: Literal["o200k_base"] = "o200k_base"
+
+    @model_validator(mode="before")
+    @classmethod
+    def changed_model_requires_prices(cls, values):
+        return values
+
+    @field_validator("base_url")
+    @classmethod
+    def local_only(cls, value):
+        if value != OLLAMA_BASE_URL:
+            raise ValueError("只允許本機Ollama端點")
+        return value

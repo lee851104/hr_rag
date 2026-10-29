@@ -1,5 +1,8 @@
 """本機展示頁：登入、單輪提問、本人紀錄、引用檢視與回饋；角色一律來自伺服器session。"""
 
+import ipaddress
+import logging
+import os
 import threading
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -45,6 +48,36 @@ ERROR_TEXT = {
 }
 TAIPEI = timezone(timedelta(hours=8))
 ROLE_NAMES = {"employee": "員工", "manager": "主管", "hr": "人資"}
+# 首頁角色說明：只描述文件範圍，實際權限仍由檢索前過濾決定。
+ROLE_SCOPES = {
+    "employee": (
+        ("official", "官方法規（勞基法、請假規則等）"),
+        ("company", "公司通用請假流程與FAQ"),
+    ),
+    "manager": (
+        ("official", "官方法規（勞基法、請假規則等）"),
+        ("company", "公司通用請假流程與FAQ"),
+        ("restricted", "主管內部覆核指引"),
+    ),
+    "hr": (
+        ("official", "官方法規（勞基法、請假規則等）"),
+        ("company", "公司通用請假流程與FAQ"),
+        ("restricted", "主管內部覆核指引"),
+        ("restricted", "人資限閱備忘錄"),
+    ),
+}
+ROLE_HINTS = {
+    "employee": "展示權限：用主管或人資帳號問同一題「主管特殊內部覆核」，"
+    "員工會得到「資料不足」，因為那份文件員工看不到。",
+    "manager": "展示權限：同一題用員工帳號問會是「資料不足」；"
+    "人資專屬的例外案件備忘錄，主管也看不到。",
+    "hr": "人資可查閱全部文件；換成員工帳號問「HR例外案件追蹤」，會得到「資料不足」。",
+}
+STATUS_NOTES = {
+    "answered": "以下是系統依你的權限找到的法規與公司文件原文，每段都標出處。",
+    "insufficient": "你目前可查閱的文件中找不到足夠依據，系統選擇不回答，而不是猜測。",
+    "conflict": "找到的來源互相衝突，請比對下列各段出處。",
+}
 # 伺服器加在主張前的來源標示，畫面改以標籤呈現。
 CLAIM_TAGS = {
     "官方依據": ("official", "官方法規"),
@@ -143,7 +176,11 @@ def create_app(
     service_lock = threading.Lock()
     app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
     app.state.answer_service = answer_service
-    app.add_middleware(TrustedHostMiddleware, allowed_hosts=["127.0.0.1", "localhost"])
+    allowed = ["127.0.0.1", "localhost"]
+    if (host := server_host()) != "127.0.0.1":
+        allowed.append(host)
+    app.add_middleware(TrustedHostMiddleware, allowed_hosts=allowed)
+    engine = generation_label()
 
     def service():
         # 模型載入較慢，首次提問才建立；之後各請求共用但不共用答案快取。
@@ -152,9 +189,31 @@ def create_app(
                 from hr_rag.answering import AnswerService
                 from hr_rag.retrieval import Retriever
 
-                services["answer"] = AnswerService(retriever=Retriever(store=corpus))
+                generator = None
+                if os.environ.get("HR_RAG_GENERATION") == "local":
+                    # 明確設定才改用本機Ollama候選；預設仍是已驗收的OpenAI設定。
+                    from hr_rag.audit import collect_exchange
+                    from hr_rag.local_generation import local_generator
+
+                    generator = local_generator(on_exchange=collect_exchange)
+                services["answer"] = AnswerService(
+                    retriever=Retriever(store=corpus), generator=generator
+                )
                 app.state.answer_service = services["answer"]
             return services["answer"]
+
+    def warmup():
+        # 啟動後在背景先載入encoder；失敗只代表首查照舊延遲載入，不能擋住服務。
+        try:
+            warm = getattr(service().retriever, "warmup", None)
+            if warm is not None:
+                warm()
+            return True
+        except Exception:
+            logging.getLogger(__name__).warning("encoder預熱失敗，改由首查載入")
+            return False
+
+    app.state.warmup = warmup
 
     def store(name):
         # 預設受限儲存首次使用才建立，避免只看引用時也產生檔案。
@@ -235,6 +294,9 @@ def create_app(
             "csrf": request.cookies.get(CSRF_COOKIE, ""),
             "snapshot": snapshot(),
             "presets": PRESETS[user.role],
+            "role_scope": ROLE_SCOPES[user.role],
+            "role_hint": ROLE_HINTS[user.role],
+            "engine": engine,
             "nav": nav,
             "today": _today(),
             "as_of": _today(),
@@ -406,6 +468,7 @@ def create_app(
             ),
             status=answer["status"],
             status_text=status_label(answer["status"], trace.get("error_code")),
+            status_note=STATUS_NOTES.get(answer["status"]),
             reason=answer.get("reason"),
             claims=claims,
             hidden=hidden,
@@ -479,6 +542,26 @@ def create_app(
     return app
 
 
+def generation_label():
+    if os.environ.get("HR_RAG_GENERATION") == "local":
+        from hr_rag.local_generation import load_local_candidate
+
+        return f"本機模型（{load_local_candidate()[1].model}）"
+    return "外部模型（OpenAI）"
+
+
+def server_host():
+    """預設只綁本機；展示用手機連線時可指定本機區網IPv4，不接受對外位址。"""
+    value = os.environ.get("HR_RAG_HOST", "127.0.0.1")
+    try:
+        address = ipaddress.IPv4Address(value)
+    except ValueError:
+        raise ValueError("HR_RAG_HOST 必須是區網IPv4位址") from None
+    if not (address.is_loopback or address.is_private) or address.is_unspecified:
+        raise ValueError("HR_RAG_HOST 只允許本機或區網位址")
+    return str(address)
+
+
 def _today():
     return datetime.now(TAIPEI).date().isoformat()
 
@@ -486,8 +569,14 @@ def _today():
 def main():
     import uvicorn
 
+    app = create_app()
+    threading.Thread(
+        target=app.state.warmup, name="encoder-warmup", daemon=True
+    ).start()
+    # 8000被其他本機服務占用時可改埠；主機仍固定只綁本機。
+    port = int(os.environ.get("HR_RAG_PORT", "8000"))
     uvicorn.run(
-        create_app(), host="127.0.0.1", port=8000, proxy_headers=False, access_log=False
+        app, host=server_host(), port=port, proxy_headers=False, access_log=False
     )
 
 

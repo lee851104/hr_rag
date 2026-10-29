@@ -2,12 +2,15 @@
 
 import logging
 import re
+import threading
+import time
 from datetime import date
 
 import jieba
 import numpy as np
 from rank_bm25 import BM25Okapi
 
+from hr_rag.audit import note
 from hr_rag.contracts import Evidence, Principal
 from hr_rag.corpus.chunking import load_tokenizer
 from hr_rag.local_models import LocalEncoder
@@ -50,22 +53,38 @@ class Retriever:
         self.reranker = reranker
         self.tokenizers = tokenizers or (load_tokenizer(), load_tokenizer("reranker"))
         self._owned = []
+        self._lock = threading.Lock()
+        # 送入重排的候選數；量測不同k時可調，正式值為20。
+        self.candidate_limit = 20
 
     def close(self):
         for model in self._owned:
             model.close()
         self._owned.clear()
 
-    def _model(self, role):
+    def _model(self, role, timings=None):
         name = "embedder" if role == "embedding" else "reranker"
-        model = getattr(self, name)
-        if model is None:
-            model = LocalEncoder(
-                role, PROJECT_ROOT / ".cache/models" / role, RuntimeSettings()
-            )
-            setattr(self, name, model)
-            self._owned.append(model)
-        return model
+        # 載入期間持鎖：預熱與首查同時到時只建立一個子程序，後到者等它完成。
+        with self._lock:
+            model = getattr(self, name)
+            if model is None:
+                started = time.monotonic()
+                model = LocalEncoder(
+                    role, PROJECT_ROOT / ".cache/models" / role, RuntimeSettings()
+                )
+                setattr(self, name, model)
+                self._owned.append(model)
+                if timings is not None:
+                    timings["model_load"] = (
+                        timings.get("model_load", 0.0)
+                        + (time.monotonic() - started) * 1000
+                    )
+            return model
+
+    def warmup(self):
+        """服務啟動時先載入並實際推論一次，把冷啟動移出使用者的第一個查詢。"""
+        self._model("embedding").embed(["暖機"])
+        self._model("reranker").rerank("暖機", ["暖機"])
 
     def retrieve(
         self,
@@ -85,6 +104,18 @@ class Retriever:
             or corpus not in {"full", "official"}
         ):
             raise ValueError("invalid_retrieval_settings")
+        timings = {}
+        try:
+            return self._retrieve(
+                query, principal, as_of, mode, k, normalize, corpus, timings
+            )
+        finally:
+            if timings:
+                note(stage_ms=timings)
+
+    def _retrieve(
+        self, query, principal, as_of, mode, k, normalize, corpus, timings
+    ) -> list[Evidence]:
         if not isinstance(query, str) or not query.strip():
             raise QueryError("empty_question")
         clarification = clarify_date(query, as_of)
@@ -109,7 +140,10 @@ class Retriever:
             return []
         chunks = [allowed[snapshot.chunks[i].id] for i in indices]
         vectors = snapshot.vectors[indices]
-        embedded = np.asarray(self._model("embedding").embed([query]), dtype=np.float64)
+        embedder = self._model("embedding", timings)
+        started = time.monotonic()
+        embedded = np.asarray(embedder.embed([query]), dtype=np.float64)
+        timings["embed"] = (time.monotonic() - started) * 1000
         if (
             embedded.shape != (1, vectors.shape[1])
             or not np.isfinite(embedded).all()
@@ -134,7 +168,9 @@ class Retriever:
                 key=lambda pair: (-float(pair[1]), pair[0].id),
             )
             fused = rrf([c.id for c, _ in dense], [c.id for c, _ in lexical])
-            ranked = sorted(fused.items(), key=lambda pair: (-pair[1], pair[0]))[:20]
+            ranked = sorted(fused.items(), key=lambda pair: (-pair[1], pair[0]))[
+                : self.candidate_limit
+            ]
             if mode == "rerank":
                 current = {
                     c.id: c for c in eligible_chunks(principal, as_of, store=self.store)
@@ -143,6 +179,8 @@ class Retriever:
                 if not ranked:
                     return []
                 values = None
+                reranker = self._model("reranker", timings)
+                timings["rerank"] = 0.0
                 for representation in rerank_queries(query):
                     # 每次計分前重驗權；來源若中途撤回，不把舊正文送入下一次重排。
                     current = {
@@ -151,12 +189,14 @@ class Retriever:
                     }
                     if any(cid not in current for cid, _ in ranked):
                         raise ProviderError("corpus_changed")
+                    started = time.monotonic()
                     clause_scores = np.asarray(
-                        self._model("reranker").rerank(
+                        reranker.rerank(
                             representation, [current[cid].text for cid, _ in ranked]
                         ),
                         dtype=float,
                     )
+                    timings["rerank"] += (time.monotonic() - started) * 1000
                     if (
                         clause_scores.shape != (len(ranked),)
                         or not np.isfinite(clause_scores).all()

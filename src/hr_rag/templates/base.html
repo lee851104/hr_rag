@@ -2,7 +2,8 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f3b3a">
 <title>{% block title %}請假特休問答{% endblock %}</title>
 <link rel="stylesheet" href="/static/app.css">
 </head>
@@ -21,22 +22,16 @@
         <a href="/queries"{% if nav == "history" %} class="active"{% endif %}>我的查詢紀錄</a>
       </div>
     </nav>
-    {% if presets %}
-    <nav>
-      <div class="label">常用問題</div>
-      <div class="links">
-        {% for preset_id, label, _ in presets %}<a href="/?preset={{ preset_id }}">{{ label }}</a>{% endfor %}
-      </div>
-    </nav>
-    {% endif %}
     <div class="side-foot">
       官方法規 6 份・虛構公司文件 4 份
       {% if snapshot %}<br>資料快照 {{ snapshot.generation_id[:8] }}{% endif %}
+      <br>{{ engine }}
     </div>
   </aside>
 
   <div class="main">
     <header class="top">
+      <a class="brand mini" href="/" aria-label="回首頁"><span class="logo">假</span></a>
       <h1>{% block heading %}提問{% endblock %}</h1>
       <div class="who">
         <span class="role">{{ role_name }} {{ user.role }}</span>
@@ -46,6 +41,10 @@
         </form>
       </div>
     </header>
+    <nav class="tabs" aria-label="功能">
+      <a href="/"{% if nav == "ask" %} class="active"{% endif %}>提問</a>
+      <a href="/queries"{% if nav == "history" %} class="active"{% endif %}>查詢紀錄</a>
+    </nav>
     <main class="content">
       {% block content %}{% endblock %}
     </main>
@@ -55,12 +54,12 @@
 {% block ask %}
 <div class="ask">
   <form method="post" action="/query">
-    <textarea name="question" rows="1" maxlength="500" required aria-label="問題" placeholder="輸入問題，例如：婚假有幾天？薪資怎麼算？">{{ question or "" }}</textarea>
-    <input name="as_of" type="date" value="{{ as_of }}" aria-label="查詢日期（預設今天，可自行調整）" title="查詢日期（預設今天 {{ today }}，可自行調整）">
+    <textarea name="question" rows="2" maxlength="500" required aria-label="問題" placeholder="輸入問題，例如：婚假有幾天？薪資怎麼算？">{{ question or "" }}</textarea>
+    <label class="date-field"><span>依此日期有效的規定</span><input name="as_of" type="date" value="{{ as_of }}" aria-label="查詢日期（預設今天，可自行調整）" title="查詢日期（預設今天 {{ today }}，可自行調整）"></label>
     <input type="hidden" name="csrf" value="{{ csrf }}">
     <button type="submit">送出</button>
   </form>
-  <p>答案由外部模型依引用證據選出法規與公司原文段落・請勿輸入個人資料</p>
+  <p>答案由{{ engine }}依引用證據選出法規與公司原文段落・請勿輸入個人資料</p>
 </div>
 {% endblock %}
 {% else %}
